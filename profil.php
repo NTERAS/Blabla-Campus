@@ -79,11 +79,11 @@ include_once "headerSimple.php";
                             </button>
                             <button class=" btnbacknone is-flex is-justify-content-center align-items-center is-flex">
                                 <img src="assets/img/icones/message.svg" alt="Logo d'une bulle de message">
-                                <a href="PHP/includes/search-mail.inc.php" class="ml-4 blackColor">Messagerie</a>
+                                <a href="PHP/includes/search-mail.inc.php" class="pl4px ml-4 blackColor">Messagerie</a>
                             </button>
                             <button class=" btnbacknone is-flex is-justify-content-center align-items-center is-flex">
                                 <img src="assets/img/icones/lineleft.svg" alt="Logo d'une flèche par la gauche">
-                                <a href="PHP/includes/logout.inc.php" class="ml-4 blackColor">Se déconnecter</a>
+                                <a href="PHP/includes/logout.inc.php" class="pl4px ml-4 blackColor">Se déconnecter</a>
                             </button>
                         </div>
                     </div>
