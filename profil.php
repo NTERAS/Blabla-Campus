@@ -44,7 +44,7 @@ include_once "headerSimple.php";
             <main class="dekstop">
                 <div id="cardgeneral" class="w100 is-flex is-justify-content-center mt-5">
                     <div id="bulleprofil"
-                        class="box w90 is-flex is-justify-content-space-evenly is-align-items-center is-flex-direction-column">
+                        class=" box w90 is-flex is-justify-content-space-evenly is-align-items-center is-flex-direction-column">
                         <span id="triangle"></span>
                         <figure id="profil"
                             class="w100 is-flex is-justify-content-flex-start is-align-items-center pl-1">

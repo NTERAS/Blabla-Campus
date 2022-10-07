@@ -76,7 +76,7 @@ class SignupContrl extends Signup{
     }
 
     private function nameAlreadyTaken(){
-        $result;
+        // $result;
         if(!$this->checkUser($this->pseudo, $this->email)){
             $result = false;
         }else{
