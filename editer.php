@@ -23,7 +23,7 @@ if(isset($_GET['id'])){
             <?php include_once 'vitrineLeft.php'; ?>
         </div>
 
-        <div id="divright box"
+        <div id="divright"
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
 
             <header id="headerprofil"
