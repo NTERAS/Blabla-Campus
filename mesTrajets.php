@@ -47,7 +47,7 @@ if(isset($_SESSION["username"]) && isset($_SESSION["rc"])){
         <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg" alt="Icon d'une personne"></a>
       </header>
       <!-- <main class="dekstop box"> -->
-      <main class="dekstop box">
+      <main class="dekstop">
         <div class="container my-5 is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
           <p class="bungee my-4 mx-5 w90">Mes trajets</p>
           <!-- grey area date/trajet/arrow -->

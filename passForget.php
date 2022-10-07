@@ -22,7 +22,7 @@ include_once 'headerSimple.php';
                 <p>MOT DE PASSE PERDU</p>
             </header>
             <!-- <main class="dekstop box"> -->
-            <main class="dekstop box">
+            <main class="dekstop">
                 <div class="container is-flex is-justify-content-center is-flex-direction-column my-5">
                     <p class="bungee mt-5 mx-3">PAS DE STRESS</p>
                     <p class="my-5 mx-2 px-3 greyText">Vous ne vous souvenez plus de votre mot de passe et ne parvenez

@@ -35,7 +35,7 @@ include_once 'headerSimple.php';
                         alt="Icon d'une personne"></a>
             </header>
             <!-- <main class="dekstop box"> -->
-            <main class="mainh100 dekstop box">
+            <main class="mainh100 dekstop">
 
                 <main>
                     <div class="container my-5">

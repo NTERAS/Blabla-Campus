@@ -76,7 +76,7 @@ include_once 'headerSimple.php';
             </header>
             <!-- <main class="dekstop box"> -->
 
-            <main class="dekstop box">
+            <main class="dekstop">
                 <div class="container my-5">
                     <!-- coordonnées -->
                     <p class="bungee my-4 mx-3">Trajets disponibles</p>

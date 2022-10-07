@@ -162,3 +162,10 @@ if (p != null) {
     strength();
   });
 }
+
+var a = querySelectorAll("a");
+opac.forEach(function (a) {
+  a.addEventListener("click", function () {
+    document.querySelector(body).style.opacity = "0.5";
+  });
+});

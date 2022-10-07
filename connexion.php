@@ -37,7 +37,7 @@ include_once "headerSimple.php";
                         alt="Le logo Blabla Campus"></a>
                 <p>se connecter</p>
             </header>
-            <main class='dekstop box'>
+            <main class='dekstop'>
                 <div class="container is-flex is-justify-content-center is-flex-direction-column my-5">
                     <p class="bungee my-5 mx-3">ENTREZ VOS INFORMATIONS</p>
                     <form action="PHP/includes/login.inc.php" method="POST"

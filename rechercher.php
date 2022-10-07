@@ -37,7 +37,7 @@ include_once "headerSimple.php";
                         alt="Icon d'une personne"></a>
             </header>
 
-            <main class="dekstop box">
+            <main class="dekstop">
                 <div class="container is-flex is-justify-content-center is-flex-direction-column my-5">
                     <!-- coordonnées -->
                     <p class="bungee my-4 mx-3">rechercher un trajet</p>

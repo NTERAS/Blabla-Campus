@@ -43,7 +43,7 @@ $trip_arrival = $_SESSION["trip_arrival".$i];
                         alt="Icon d'une personne"></a>
             </header>
             <!-- <main class="dekstop box"> -->
-            <main class="dekstop box">
+            <main class="dekstop">
                 <main>
                     <div
                         class="container my-5 is-flex is-justify-content-center is-flex-direction-column is-align-items-center">

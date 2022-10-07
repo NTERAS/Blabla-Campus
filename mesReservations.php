@@ -32,7 +32,7 @@ if(isset($_SESSION["reserve_rc"])){
                         alt="Icon d'une personne"></a>
             </header>
             <!-- <main class="dekstop box"> -->
-            <main class="mainh100 dekstop box">
+            <main class="mainh100 dekstop">
                 ?>
                 <main>
                     <div

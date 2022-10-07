@@ -60,7 +60,7 @@ include_once 'headerSimple.php';
                         alt="Icon d'une personne"></a>
             </header>
             <!-- <main class="dekstop box"> -->
-            <main class="dekstop box">
+            <main class="dekstop">
                 <div
                     class="container my-5 is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
                     <!-- coordonnées -->

@@ -37,7 +37,7 @@ include_once 'headerSimple.php';
         <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg" alt="Icon d'une personne"></a>
       </header>
       <!-- <main class="dekstop box"> -->
-      <main class="dekstop box">
+      <main class="dekstop">
         <div class="container is-flex is-justify-content-center is-flex-direction-column my-5">
           <!-- coordonnées -->
           <p class="bungee my-4 mx-3">modifier vos coordonnées</p>

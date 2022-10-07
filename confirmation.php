@@ -12,14 +12,6 @@ if(isset($_GET['action'])){
 ?>
 
 <body>
-    <header id="headerprofil"
-        class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
-        <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg" alt="Le logo Blabla Campus"></a>
-        <p>Confirmation</p>
-    </header>
-
-
-
     <section id="containerbox" class="w100 minh100 is-flex is-justify-content is-align-items-center">
         <div id="divleft"
             class="posre h100 w55 is-justify-content-center is-align-items-start is-flex-direction-column">
@@ -37,7 +29,7 @@ if(isset($_GET['action'])){
                         alt="Icon d'une personne"></a>
             </header>
             <!-- <main class="dekstop box"> -->
-            <main class="mainh100 dekstop box">
+            <main class="mainh100 dekstop">
 
 
                 <?php if ($action == 'edittraj') { ?>

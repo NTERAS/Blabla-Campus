@@ -35,7 +35,7 @@ if(isset($_GET['id'])){
             </header>
             <!-- <main class="dekstop box"> -->
 
-            <main class="dekstop box">
+            <main class="dekstop">
                 <div id="cache" class=""></div>
                 <div class="container is-flex is-justify-content-center is-flex-direction-column my-5">
                     <!-- coordonnées -->
