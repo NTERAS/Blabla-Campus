@@ -1,6 +1,6 @@
 <?php
 $title = 'Reservation - Blabla Campus';
-include_once 'headerSimple.php';
+include_once 'header.php';
 
 session_start();
 
@@ -13,33 +13,11 @@ if(isset($_SESSION["reserve_rc"])){
 
 
 ?>
-
-<body>
-    <section id="containerbox" class="w100 minh100 is-flex is-justify-content is-align-items-center">
-        <div id="divleft"
-            class="posre h100 w55 is-justify-content-center is-align-items-start is-flex-direction-column">
-            <?php include_once 'vitrineLeft.php'; ?>
-        </div>
-
-        <div id="divright"
-            class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
-
-            <header id="headerprofil"
-                class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
-                <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
-                        alt="Le logo Blabla Campus"></a>
-                <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
-                        alt="Icon d'une personne"></a>
-            </header>
-            <!-- <main class="dekstop box"> -->
-            <main class="mainh100 dekstop box">
-                ?>
-                <main>
-                    <div
-                        class="container my-5 is-flex is-justify-content-center is-flex-direction-column is-align-items-center ">
-                        <p class="bungee my-4 mx-5 w90">Mes réservations</p>
-                        <!-- grey area date/trajet/arrow -->
-                        <?php
+<main>
+<div class="container my-5 is-flex is-justify-content-center is-flex-direction-column is-align-items-center ">
+        <p class="bungee my-4 mx-5 w90">Mes réservations</p>
+        <!-- grey area date/trajet/arrow -->
+    <?php
     $res_rc =$_SESSION["reserve_rc"];
     for ($i=0; $i <$res_rc ; $i++) { 
         $res_cal = $_SESSION["reserve_calendar".$i];
@@ -104,9 +82,9 @@ if(isset($_SESSION["reserve_rc"])){
     }
 ?>
 
-                    </div>
-                </main>
-                <script src="assets/js/app.js"></script>
+    </div>
+</main>
+<script src="assets/js/app.js"></script>
 </body>
 
 </html>

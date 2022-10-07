@@ -54,59 +54,38 @@ if($rc>0){
 
 
 $title = "Résultat - Blabla Campus";
-include_once 'headerSimple.php';
+include_once 'header.php';
 ?>
 
-<body>
-    <section id="containerbox" class="w100 minh100 is-flex is-justify-content is-align-items-center">
-        <div id="divleft"
-            class="posre h100 w55 is-justify-content-center is-align-items-start is-flex-direction-column">
-            <?php include_once 'vitrineLeft.php'; ?>
+<main>
+    <div class="container my-5">
+        <!-- coordonnées -->
+        <p class="bungee my-4 mx-3">Trajets disponibles</p>
+
+        <!-- grey area date/trajet/arrow -->
+        <div class="greyBack is-flex is-justify-content-space-between is-align-items-center w90 mx-auto greyArea p-5">
+            <div class="date_D_M">
+                <p class="bungee redColor"><?php echo $day; ?></p>
+                <p class="bungee"><?php echo $month; ?></p>
+            </div>
+            <div class="trajet w60">
+                <p class="bungee greyText epilogue"><?php echo $o_loc; ?></p>
+                <p class="bungee greyText epilogue"><?php echo $o_arr; ?></p>
+            </div>
+            <div class="arrow redColor">
+                <img src="assets/img/icones/arrow.svg" alt="flèche">
+            </div>
+        </div>
+        <!-- nombre de trajets disponibles -->
+        <p class="epilogue greyText my-1 mx-3 p-3"> <span class="redColor"><?php echo $rc; ?> </span>trajets
+            disponible(s)</p>
+        <div class="is-flex w90 mx-auto mb-5">
+            <img src="assets/img/icones/horloge.svg" alt="horloge">
+            <p class="epilogue greyText my-1 px-3">Les trajets sont triés chronologiquement par heure de départ.</p>
         </div>
 
-        <div id="divright"
-            class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
-
-            <header id="headerprofil"
-                class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
-                <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
-                        alt="Le logo Blabla Campus"></a>
-                <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
-                        alt="Icon d'une personne"></a>
-            </header>
-            <!-- <main class="dekstop box"> -->
-
-            <main class="dekstop box">
-                <div class="container my-5">
-                    <!-- coordonnées -->
-                    <p class="bungee my-4 mx-3">Trajets disponibles</p>
-
-                    <!-- grey area date/trajet/arrow -->
-                    <div
-                        class="greyBack is-flex is-justify-content-space-between is-align-items-center w90 mx-auto greyArea p-5">
-                        <div class="date_D_M">
-                            <p class="bungee redColor"><?php echo $day; ?></p>
-                            <p class="bungee"><?php echo $month; ?></p>
-                        </div>
-                        <div class="trajet w60">
-                            <p class="bungee greyText epilogue"><?php echo $o_loc; ?></p>
-                            <p class="bungee greyText epilogue"><?php echo $o_arr; ?></p>
-                        </div>
-                        <div class="arrow redColor">
-                            <img src="assets/img/icones/arrow.svg" alt="flèche">
-                        </div>
-                    </div>
-                    <!-- nombre de trajets disponibles -->
-                    <p class="epilogue greyText my-1 mx-3 p-3"> <span class="redColor"><?php echo $rc; ?> </span>trajets
-                        disponible(s)</p>
-                    <div class="is-flex w90 mx-auto mb-5">
-                        <img src="assets/img/icones/horloge.svg" alt="horloge">
-                        <p class="epilogue greyText my-1 px-3">Les trajets sont triés chronologiquement par heure de
-                            départ.</p>
-                    </div>
-
-                    <!-- cards Trajet -->
-                    <?php
+        <!-- cards Trajet -->
+        <?php
 
             for ($i=0; $i < $rc; $i++) {
                 $cal_search = $_SESSION["cal_search".$i];
@@ -135,7 +114,7 @@ include_once 'headerSimple.php';
                 $min = $time_search[1];
                 $sec = $time_search[2];
 
-                echo '<a href="PHP/includes/reserve.inc.php?idt='.$route_id.'"><div class=" card w90 mx-auto">
+                echo '<a href="PHP/includes/reserve.inc.php?idt='.$route_id.'&idowner='.$route_id_owner.'"><div class=" card w90 mx-auto">
                 <div class="workSansUppercase greyText has-text-right pr-4 pt-5">
                     <p>
                         Place disponible : <strong class="redColor">'.$place_search.' </strong>
@@ -191,25 +170,24 @@ include_once 'headerSimple.php';
                         <p class="subtitle"><i><'.$bio_search.'></i></p>
                     </div>
                 </div>
-            </div></a>
+            </div></a>';
                     
 
 
-            ';
+      
+
     } ?>
-
-    </section>
-    </main>
-
-
+        
+        
+    
 
 
 
 
 
 
+    </div>
 
+    </body>
 
-</body>
-
-</html>
+    </html>

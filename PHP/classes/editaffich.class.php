@@ -12,6 +12,8 @@ class Editaffich extends Dbh{
         session_start();
 
         $_SESSION["trajet_depart"] = $trajt["depart"];
+        $_SESSION["trajet_depart1"] = $trajt["depart1"];
+        $_SESSION["trajet_depart2"] = $trajt["depart2"];
         $_SESSION["trajet_routehours"] = $trajt["routehours"];
         $_SESSION["trajet_arriver"] = $trajt["arriver"];
         $_SESSION["trajet_calendar"] = $trajt["calendar"];

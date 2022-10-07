@@ -4,9 +4,20 @@ session_start();
 
 if(isset($_POST["submit"]) && $_POST["submit"]=="reserver"){
     $b= $_POST["submit"];
-    $i=$_SESSION["rc_search"];
-    $id_receiver2 = $_SESSION["idowner"];
-    $id_receiver = $_SESSION["route_id_owner".$i];
+    // $i=$_SESSION["rc_search"];
+    $id_receiver = $_SESSION["idowner"];
+    // $id_receiver = $_SESSION["route_id_owner".$i];
+
+    $try = $_SESSION["rc_search"];
+    $see = $_SESSION["route_id_owner".$try];
+    echo "<br>";
+    echo $try." <- echo rc";
+    echo "<br>";
+
+    echo "<br>";
+    echo $see." <- echo id owner";
+    echo "<br>";
+
     echo "id_receiver = ".$id_receiver."<br>";
     // echo "echo after isset <br>";
     

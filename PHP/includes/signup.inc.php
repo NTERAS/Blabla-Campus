@@ -17,7 +17,7 @@ if(isset($_POST["action"])){
     $password = $_POST["password"];
     $email = $_POST["email"];
     $answer = $_POST["answer"];
-      // echo $answer;
+    // echo $answer;
     $biographie = $_POST["biographie"];
     // $Img = file_get_contents($_FILES['resume']);
 
@@ -35,7 +35,7 @@ if(isset($_POST["action"])){
 
     if (in_array($fileActualExt,$allowed )) {
         if ($fileError === 0) {
-            if ($fileSize < 10000000) {
+            if ($fileSize < 100000) {
                 $image = base64_encode(file_get_contents(addslashes($fileTmpName)));
             }
         }
@@ -56,3 +56,4 @@ if(isset($_POST["action"])){
     header("Location: ../../confirmation.php?action=accountCreation");
     
 }
+
