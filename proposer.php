@@ -149,14 +149,15 @@ if(isset($_SESSION["username"])){
                 </div>
             </div>
             <div class="mx-auto">
+            <input id="h-arrive" type="time" value="" name="h-arrive" class="h-arrive dsn">
+        <input id="h-mid1" type="time" value="" name="h-mid1" class="dsn">
+        <input id="h-mid2" type="time" value="" name="h-mid2" class="dsn">
                 <button type="submit" class="button redBtn mt-5" name="action" value="newTrajet">
                     <p>Proposer un trajet</p>
                 </button>
             </div>
         </form>
-        <input id="h-arrive" type="time" value="" name="h-arrive" class="h-arrive dsn">
-        <input id="h-mid1" type="time" value="" name="h-mid1" class="dsn">
-        <input id="h-mid2" type="time" value="" name="h-mid2" class="dsn">
+        
 </main>
 </div>
 
