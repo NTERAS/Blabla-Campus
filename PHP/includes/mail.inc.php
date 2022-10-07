@@ -14,7 +14,7 @@ if(isset($_POST["submit"]) && $_POST["submit"]=="reserver"){
     echo $try." <- echo rc";
     echo "<br>";
 
-    echo "<br>";
+    // echo "<br>";
     echo $see." <- echo id owner";
     echo "<br>";
 
