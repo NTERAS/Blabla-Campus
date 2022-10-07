@@ -63,8 +63,8 @@ include_once 'header.php';
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
 
             <!-- <main class="dekstop box"> -->
-                
-                <main class="dekstop">
+
+            <main class="dekstop">
                 <header id="headerprofil"
                     class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
                     <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
@@ -76,30 +76,32 @@ include_once 'header.php';
                     <!-- coordonnées -->
                     <p class="bungee my-4 mx-3">Trajets disponibles</p>
 
-        <!-- grey area date/trajet/arrow -->
-        <div class="greyBack is-flex is-justify-content-space-between is-align-items-center w90 mx-auto greyArea p-5">
-            <div class="date_D_M">
-                <p class="bungee redColor"><?php echo $day; ?></p>
-                <p class="bungee"><?php echo $month; ?></p>
-            </div>
-            <div class="trajet w60">
-                <p class="bungee greyText epilogue"><?php echo $o_loc; ?></p>
-                <p class="bungee greyText epilogue"><?php echo $o_arr; ?></p>
-            </div>
-            <div class="arrow redColor">
-                <img src="assets/img/icones/arrow.svg" alt="flèche">
-            </div>
-        </div>
-        <!-- nombre de trajets disponibles -->
-        <p class="epilogue greyText my-1 mx-3 p-3"> <span class="redColor"><?php echo $rc; ?> </span>trajets
-            disponible(s)</p>
-        <div class="is-flex w90 mx-auto mb-5">
-            <img src="assets/img/icones/horloge.svg" alt="horloge">
-            <p class="epilogue greyText my-1 px-3">Les trajets sont triés chronologiquement par heure de départ.</p>
-        </div>
+                    <!-- grey area date/trajet/arrow -->
+                    <div
+                        class="greyBack is-flex is-justify-content-space-between is-align-items-center w90 mx-auto greyArea p-5">
+                        <div class="date_D_M">
+                            <p class="bungee redColor"><?php echo $day; ?></p>
+                            <p class="bungee"><?php echo $month; ?></p>
+                        </div>
+                        <div class="trajet w60">
+                            <p class="bungee greyText epilogue"><?php echo $o_loc; ?></p>
+                            <p class="bungee greyText epilogue"><?php echo $o_arr; ?></p>
+                        </div>
+                        <div class="arrow redColor">
+                            <img src="assets/img/icones/arrow.svg" alt="flèche">
+                        </div>
+                    </div>
+                    <!-- nombre de trajets disponibles -->
+                    <p class="epilogue greyText my-1 mx-3 p-3"> <span class="redColor"><?php echo $rc; ?> </span>trajets
+                        disponible(s)</p>
+                    <div class="is-flex w90 mx-auto mb-5">
+                        <img src="assets/img/icones/horloge.svg" alt="horloge">
+                        <p class="epilogue greyText my-1 px-3">Les trajets sont triés chronologiquement par heure de
+                            départ.</p>
+                    </div>
 
-        <!-- cards Trajet -->
-        <?php
+                    <!-- cards Trajet -->
+                    <?php
 
             for ($i=0; $i < $rc; $i++) {
                 $cal_search = $_SESSION["cal_search".$i];
@@ -119,12 +121,7 @@ include_once 'header.php';
                 $t2_search = $_SESSION["time_step2_search".$i];
                 $t_fin_search = $_SESSION["time_final_search".$i];
                 
-                // echo "<br>";
-                echo $route_id_owner;
-                echo $depart_search." depart <br>";
-                echo $depart1_search." depart1 <br>";
-                echo $depart2_search." depart2 <br>";
-
+            
                 // $time = $time_search;
                 $time_search = explode(':', $time_search);
                 $hours = $time_search[0];
@@ -206,17 +203,17 @@ include_once 'header.php';
       
 
     } ?>
-        
-        
-    
 
 
 
 
 
 
-    </div>
 
-    </body>
 
-    </html>
+
+                </div>
+
+</body>
+
+</html>

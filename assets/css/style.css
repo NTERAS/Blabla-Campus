@@ -879,15 +879,6 @@ a.trajetCard:nth-child(5) {
     background: none;
 }
 
-.container p:nth-child(1),
-p:nth-child(5) {
-    margin-left: 27px !important;
-}
-
-
-/* .control.has-icons-left .icon.is-left {
-    top: 24px;
-} */
 
 /* ***** input addTrajet ****** */
 .addTrajet {
