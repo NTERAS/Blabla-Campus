@@ -142,11 +142,3 @@ if (p != null) {
         strength();
     })
 }
-
-let a = querySelectorAll("a")
-opac.forEach(a => {
-    a.addEventListener("click", () => {
-        document.querySelector(body).style.opacity = "0.5"
-    })
-
-});

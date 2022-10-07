@@ -4,7 +4,6 @@ include 'header.php';
 
 if(isset($_GET["id"])){
     $id = $_GET["id"];
-    echo $id;
 }else{
     header("location: index.php");
 }

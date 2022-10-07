@@ -5,19 +5,10 @@ if(isset($_SESSION["username"])){
     $a = $_SESSION["username"];
     $d = $_SESSION["biog"];
 
-
-
-
-
-    }
-    else{
-    
-    echo "NOT logged in";
+}
+else{
     header('Location: index.php?error=NotLoggedInYet');
-    }
-
-
-
+}
 
 $title = "profil Blalba Campus";
 include_once "headerSimple.php";
@@ -33,15 +24,15 @@ include_once "headerSimple.php";
         <div id="divright"
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
 
-            <header id="headerprofil"
-                class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
-                <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
-                        alt="Le logo Blabla Campus"></a>
-                <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
-                        alt="Icon d'une personne"></a>
-            </header>
             <!-- <main class="dekstop box"> -->
-            <main class="dekstop">
+                <main class="dekstop">
+                <header id="headerprofil"
+                    class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
+                    <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
+                            alt="Le logo Blabla Campus"></a>
+                    <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
+                            alt="Icon d'une personne"></a>
+                </header>
                 <div id="cardgeneral" class="w100 is-flex is-justify-content-center mt-5">
                     <div id="bulleprofil"
                         class="box w90 is-flex is-justify-content-space-evenly is-align-items-center is-flex-direction-column">
@@ -64,24 +55,24 @@ include_once "headerSimple.php";
                         </a>
                         <div id="prolien"
                             class="w100 is-flex is-justify-content-space-around is-align-items-flex-start is-flex-direction-column">
-                            <button class=" btnbacknone is-flex is-justify-content-center align-items-center is-flex">
+                            <button class=" btnbacknone is-flex is-justify-content-center is-align-items-center is-flex">
                                 <img src="assets/img/icones/person.svg" alt="Logo d'une personne">
                                 <a href="PHP/includes/my-routes.inc.php" class="ml-4 blackColor">Mes trajets</a>
                             </button>
-                            <button class=" btnbacknone is-flex is-justify-content-center align-items-center is-flex">
+                            <button class=" btnbacknone is-flex is-justify-content-center is-align-items-center is-flex">
                                 <img src="assets/img/icones/book.svg" alt="Logo d'un livre">
                                 <a href="PHP/includes/search-mail-type-2.inc.php" class="ml-4 blackColor">Mes
                                     réservations</a>
                             </button>
-                            <button class=" btnbacknone is-flex is-justify-content-center align-items-center is-flex">
+                            <button class=" btnbacknone is-flex is-justify-content-center is-align-items-center is-flex">
                                 <img src="assets/img/icones/person.svg" alt="Logo d'une personne">
                                 <a href="editCompte.php" class="ml-4 blackColor">Modifier mes informations</a>
                             </button>
-                            <button class=" btnbacknone is-flex is-justify-content-center align-items-center is-flex">
+                            <button class=" btnbacknone is-flex is-justify-content-center is-align-items-center is-flex">
                                 <img src="assets/img/icones/message.svg" alt="Logo d'une bulle de message">
                                 <a href="PHP/includes/search-mail.inc.php" class="pl4px ml-4 blackColor">Messagerie</a>
                             </button>
-                            <button class=" btnbacknone is-flex is-justify-content-center align-items-center is-flex">
+                            <button class=" btnbacknone is-flex is-justify-content-center is-align-items-center is-flex">
                                 <img src="assets/img/icones/lineleft.svg" alt="Logo d'une flèche par la gauche">
                                 <a href="PHP/includes/logout.inc.php" class="pl4px ml-4 blackColor">Se déconnecter</a>
                             </button>

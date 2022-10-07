@@ -7,11 +7,6 @@ $rc = $_SESSION["rc_search"];
 }
 // $o_loc = $_SESSION["original_location"];
 $o_date = $_SESSION["original_date"];
-// echo $o_loc;
-// echo $o_arr;
-echo $o_date;
-echo $rc;
-
 
 if($rc>0){
     
@@ -67,16 +62,16 @@ include_once 'headerSimple.php';
         <div id="divright"
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
 
-            <header id="headerprofil"
-                class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
-                <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
-                        alt="Le logo Blabla Campus"></a>
-                <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
-                        alt="Icon d'une personne"></a>
-            </header>
             <!-- <main class="dekstop box"> -->
-
-            <main class="dekstop">
+                
+                <main class="dekstop">
+                <header id="headerprofil"
+                    class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
+                    <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
+                            alt="Le logo Blabla Campus"></a>
+                    <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
+                            alt="Icon d'une personne"></a>
+                </header>
                 <div class="container my-5">
                     <!-- coordonnées -->
                     <p class="bungee my-4 mx-3">Trajets disponibles</p>
