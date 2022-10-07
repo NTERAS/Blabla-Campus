@@ -1,6 +1,6 @@
 <?php
 $title = 'Reservation - Blabla Campus';
-include_once 'headerSimple.php';
+include_once 'header.php';
 
 session_start();
 
@@ -102,9 +102,9 @@ if(isset($_SESSION["reserve_rc"])){
     }
 ?>
 
-                    </div>
-                </main>
-                <script src="assets/js/app.js"></script>
+    </div>
+</main>
+<script src="assets/js/app.js"></script>
 </body>
 
 </html>

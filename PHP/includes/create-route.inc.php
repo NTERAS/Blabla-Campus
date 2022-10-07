@@ -13,6 +13,9 @@ if(isset($_GET["action"]) && !empty($_GET["location"]) && !empty($_GET["heure"])
     $date = $_GET["date"];
     $place = $_GET["place"];
     $road = $_GET["road"];
+    $final_hour = $_GET["h-arrive"];
+    $step_hour1 = $_GET["h-mid1"];
+    $step_hour2 = $_GET["h-mid2"];
     if(empty($_GET["locationAdd"])){
         $etapes1=null;
     }else{
@@ -32,7 +35,7 @@ if(isset($_GET["action"]) && !empty($_GET["location"]) && !empty($_GET["heure"])
     include "../classes/dbh.class.php";
     include "../classes/create-route.class.php";
     include "../classes/create-routecontrl.class.php";
-    $newroute = new CreateRouteContrl($location,$heure,$arrivee,$date,$place,$lesEtapes,$road,$etapes1,$etapes2);
+    $newroute = new CreateRouteContrl($location,$heure,$arrivee,$date,$place,$lesEtapes,$road,$etapes1,$etapes2,$final_hour,$step_hour1,$step_hour2);
     
 
     // error handlers and sign up------------------------------------------
@@ -50,6 +53,6 @@ if(isset($_GET["action"]) && !empty($_GET["location"]) && !empty($_GET["heure"])
 }else{
     
 
-    header("location: ../../confirmation.php?action=emptyInputs");
+    // header("location: ../../confirmation.php?action=emptyInputs");
 
 }

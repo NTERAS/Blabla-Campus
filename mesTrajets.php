@@ -1,6 +1,6 @@
 <?php
 $title = "messagerie - Blabla Campus";
-include_once 'headerSimple.php';
+include_once 'header.php';
 session_start();
 if(isset($_SESSION["username"]) && isset($_SESSION["rc"])){
     
@@ -95,13 +95,13 @@ if(isset($_SESSION["username"]) && isset($_SESSION["rc"])){
                 
                 }
                 ?>
-        </div>
-      </main>
+  </div>
+</main>
 
 
 
 
-      <script src="assets/js/app.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 
 </html>

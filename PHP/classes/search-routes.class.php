@@ -38,6 +38,9 @@ class Routes extends Dbh {
             $_SESSION["arriver_search".$i] = $user[$i]["arriver"];
             $_SESSION["routetype_search".$i] = $user[$i]["routetype"];
             $_SESSION["time_search".$i] = $user[$i]["routehours"];
+            $_SESSION["time_step1_search".$i] = $user[$i]["step_hour_1"];
+            $_SESSION["time_step2_search".$i] = $user[$i]["step_hour_2"];
+            $_SESSION["time_final_search".$i] = $user[$i]["final_hour"];
             $_SESSION["place_search".$i] = $user[$i]["guest"];
             $_SESSION["avatar_search".$i] = $user[$i]["avatar"];
             $_SESSION["bio_search".$i] = $user[$i]["bio"];

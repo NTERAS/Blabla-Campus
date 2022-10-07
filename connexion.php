@@ -18,7 +18,6 @@ include_once "headerSimple.php";
 
 
 
-
 <body>
     <section id="containerbox" class="w100 minh100 is-flex is-justify-content is-align-items-center">
         <div id="divleft"

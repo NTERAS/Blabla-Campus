@@ -3,6 +3,15 @@ session_start();
 
 if(isset($_GET["action"]) && $_GET["action"]=="newTrajet" ){
     $b = $_SESSION["userid"];
+    $try = $_SESSION["rc_search"];
+    $see = $_SESSION["route_id_owner".$try];
+    echo "<br>";
+    echo $try." <- echo rc";
+    echo "<br>";
+
+    echo "<br>";
+    echo $see." <- echo id owner";
+    echo "<br>";
     $req = array();
     $value = array();
 

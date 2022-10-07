@@ -50,35 +50,32 @@ $trip_arrival = $_SESSION["trip_arrival".$i];
                         <!-- coordonnées -->
                         <p class="bungee my-4">Validation de la réservation</p>
 
-                        <figure class="is-flex my-5 w90 profil">
-                            <img class="is-rounded ppTrajet" src="data:image;base64,<?php echo $img_sender;?>"
-                                alt="Image d'une personne">
-                            <div class="text">
-                                <h2 class="epilogue"><strong class="redColor"><?php echo $name_sender;?></strong></h2>
-                                <p class="subtitle"><i><?php echo $msg_type." de "; echo $full_message;?></i></p>
-                            </div>
-                        </figure>
+        <figure class="is-flex my-5 w90 profil">
+            <img class="is-rounded ppTrajet" src="data:image;base64,<?php echo $img_sender;?>" alt="Image d'une personne">
+            <div class="text">
+                <h2 class="epilogue"><strong class="redColor"><?php echo $name_sender;?></strong></h2>
+                <p class="subtitle"><i><?php echo $msg_type." de "; echo $full_message;?></i></p>
+            </div>
+        </figure>
 
-                        <!-- message prédéfini -->
-                        <div class="w90 mx-auto epilogue greyText px-4 ">
-                            <p class="my-3">Bonjour <span class="redColor"><?php echo $name_sender;?></span></p>
-                            <p class="my-2">Je t'informe qu'une place t'attend dans ma voiture pour le <span
-                                    class="redColor"><?php echo $trip_depart." - ".$trip_arrival;?></span></p>
-                            <p class="my-3">A tout bientôt.</p>
-                        </div>
+        <!-- message prédéfini -->
+        <div class="w90 mx-auto epilogue greyText px-4 ">
+            <p class="my-3">Bonjour <span class="redColor"><?php echo $name_sender;?></span></p>
+            <p class="my-2">Je t'informe qu'une place t'attend dans ma voiture pour le <span class="redColor"><?php echo $trip_depart." - ".$trip_arrival;?></span></p>
+            <p class="my-3">À tout bientôt.</p>
+        </div>
 
-                        <form action="PHP/includes/toValidate.inc.php?i=<?php echo $i; ?>&tr=<?php echo $tr; ?>"
-                            method="post">
-                            <div>
-                                <button name="submit" class="button redBtn mt-5">
-                                    <p>Valider la réservation</p>
-                                </button>
-                            </div>
-                        </form>
+        <form action="PHP/includes/toValidate.inc.php?i=<?php echo $i; ?>&tr=<?php echo $tr; ?>" method="post">
+            <div>
+                <button name="submit" class="button redBtn mt-5">
+                    <p>Valider la réservation</p>
+                </button>
+            </div>
+        </form>
 
-                    </div>
+    </div>
 
-                </main>
+</main>
 </body>
 
 </html>

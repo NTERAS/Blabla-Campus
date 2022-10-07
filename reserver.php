@@ -37,7 +37,7 @@ $cal = $_SESSION["specific_calendar"];
         }
 
 $title = "Réservation - Blabla Campus";
-include_once 'headerSimple.php';
+include_once 'header.php';
 ?>
 
 <body>
@@ -64,19 +64,18 @@ include_once 'headerSimple.php';
                     <!-- coordonnées -->
                     <p class="bungee my-4 mx-5 w90">réserver une place</p>
 
-                    <!-- grey area date/trajet/arrow -->
-                    <div
-                        class="greyBack is-flex is-justify-content-space-between is-align-items-center w90 mx-auto greyArea p-5">
-                        <div class="date_D_M">
-                            <p class="bungee redColor"><?php echo $day; ?></p>
-                            <p class="bungee"><?php echo $month; ?></p>
-                        </div>
-                        <div class="trajet w60">
-                            <p class="bungee greyText epilogue"><?php echo $dep; ?></p>
-                            <p class="bungee greyText epilogue"><?php echo $arr; ?></p>
-                        </div>
-                        <div class="arrow redColor">
-                            <?php 
+        <!-- grey area date/trajet/arrow -->
+        <div class="greyBack is-flex is-justify-content-space-between is-align-items-center w90 mx-auto greyArea p-5">
+            <div class="date_D_M">
+                <p class="bungee redColor"><?php echo $day; ?></p>
+                <p class="bungee"><?php echo $month; ?></p>
+            </div>
+            <div class="trajet w60">
+                <p class="bungee greyText epilogue"><?php echo $dep; ?></p>
+                <p class="bungee greyText epilogue"><?php echo $arr; ?></p>
+            </div>
+            <div class="arrow redColor">
+                <?php 
                 if($retour == "simple"){
                     echo '<img src="assets/img/icones/arrowDown.svg" alt="flèche">';
                 }else{
@@ -84,36 +83,35 @@ include_once 'headerSimple.php';
                 }
                 
                 ?>
-                        </div>
-                    </div>
+            </div>
+        </div>
 
-                    <!-- message prédéfini -->
-                    <div class="w90 mx-auto epilogue greyText px-4 ">
-                        <p class="my-3">Bonjour <span class="redColor"><?php echo $id_owner; ?></span></p>
-                        <p class="my-2">Je souhaiterai réserver une place dans ta voiture pour le trajet <span
-                                class="redColor"><?php
+        <!-- message prédéfini -->
+        <div class="w90 mx-auto epilogue greyText px-4 ">
+            <p class="my-3">Bonjour <span class="redColor"><?php echo $id_owner; ?></span></p>
+            <p class="my-2">Je souhaiterai réserver une place dans ta voiture pour le trajet <span class="redColor"><?php
                     echo $dep."-".$arr; ?></span></p>
-                        <p class="my-3">En te remerciant.</p>
-                    </div>
+            <p class="my-3">En te remerciant.</p>
+        </div>
 
-                    <form action="PHP/includes/mail.inc.php" method="post">
-                        <div>
-                            <input type="hidden" name="id_receiver" value="<?php echo $id_owner; ?>">
-                            <input type="hidden" name="name_sender" value="<?php echo $user_name; ?>">
-                            <input type="hidden" name="id_sender" value="<?php echo $user_connected; ?>">
-                            <input type="hidden" name="depart" value="<?php echo $dep; ?>">
-                            <input type="hidden" name="arriver" value="<?php echo $arr; ?>">
-                            <input type="hidden" name="day" value="<?php echo $day; ?>">
-                            <input type="hidden" name="month" value="<?php echo $month; ?>">
-                            <input type="hidden" name="year" value="<?php echo $year; ?>">
-                            <button class="button redBtn mt-5" name="submit" value="reserver">
-                                <p>Envoyer ma demande</p>
-                            </button>
-                        </div>
-                    </form>
+        <form action="PHP/includes/mail.inc.php" method="post">
+            <div>
+                <input type="hidden" name="id_receiver" value="<?php echo $id_owner; ?>">
+                <input type="hidden" name="name_sender" value="<?php echo $user_name; ?>">
+                <input type="hidden" name="id_sender" value="<?php echo $user_connected; ?>">
+                <input type="hidden" name="depart" value="<?php echo $dep; ?>">
+                <input type="hidden" name="arriver" value="<?php echo $arr; ?>">
+                <input type="hidden" name="day" value="<?php echo $day; ?>">
+                <input type="hidden" name="month" value="<?php echo $month; ?>">
+                <input type="hidden" name="year" value="<?php echo $year; ?>">
+                <button class="button redBtn mt-5" name="submit" value="reserver">
+                    <p>Envoyer ma demande</p>
+                </button>
+            </div>
+        </form>
 
-                </div>
-            </main>
+    </div>
+</main>
 </body>
 
 </html>

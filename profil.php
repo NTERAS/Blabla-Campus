@@ -11,7 +11,7 @@ else{
 }
 
 $title = "profil Blalba Campus";
-include_once "headerSimple.php";
+include_once "header.php";
 ?>
 
 <body>
@@ -43,43 +43,41 @@ include_once "headerSimple.php";
                 echo '<img class="is-rounded" src="data:image;base64,' . $c . '" alt="Image dune personne"/>';
                 // <img class="is-rounded" src="assets/img/logo/Pauline.png" alt="Image d'une personne">
                 ?>
-                            <div class="text is-flex is-justify-content-flex-start is-flex-direction-column">
-                                <h2 class="redColor bungee"><?php echo $a; ?></h2>
-                                <p><?php echo $d; ?></p>
-                            </div>
-                        </figure>
-                        <a href="proposer.php" id="protrajet"
-                            class="w100 redBtn is-flex is-justify-content-center is-align-items-center mt-3 p-5">
-                            <img src="assets/img/icones/road.svg" alt="logo d'une route avec un plus">
-                            <h3>PROPOSER UN TRAJET</h3>
-                        </a>
-                        <div id="prolien"
-                            class="w100 is-flex is-justify-content-space-around is-align-items-flex-start is-flex-direction-column">
-                            <button class=" btnbacknone is-flex is-justify-content-center is-align-items-center is-flex">
-                                <img src="assets/img/icones/person.svg" alt="Logo d'une personne">
-                                <a href="PHP/includes/my-routes.inc.php" class="ml-4 blackColor">Mes trajets</a>
-                            </button>
-                            <button class=" btnbacknone is-flex is-justify-content-center is-align-items-center is-flex">
-                                <img src="assets/img/icones/book.svg" alt="Logo d'un livre">
-                                <a href="PHP/includes/search-mail-type-2.inc.php" class="ml-4 blackColor">Mes
-                                    réservations</a>
-                            </button>
-                            <button class=" btnbacknone is-flex is-justify-content-center is-align-items-center is-flex">
-                                <img src="assets/img/icones/person.svg" alt="Logo d'une personne">
-                                <a href="editCompte.php" class="ml-4 blackColor">Modifier mes informations</a>
-                            </button>
-                            <button class=" btnbacknone is-flex is-justify-content-center is-align-items-center is-flex">
-                                <img src="assets/img/icones/message.svg" alt="Logo d'une bulle de message">
-                                <a href="PHP/includes/search-mail.inc.php" class="pl4px ml-4 blackColor">Messagerie</a>
-                            </button>
-                            <button class=" btnbacknone is-flex is-justify-content-center is-align-items-center is-flex">
-                                <img src="assets/img/icones/lineleft.svg" alt="Logo d'une flèche par la gauche">
-                                <a href="PHP/includes/logout.inc.php" class="pl4px ml-4 blackColor">Se déconnecter</a>
-                            </button>
-                        </div>
-                    </div>
+                <div class="text is-flex is-justify-content-flex-start is-flex-direction-column">
+                    <h2 class="redColor bungee"><?php echo $a; ?></h2>
+                    <p><?php echo $d; ?></p>
                 </div>
-            </main>
+            </figure>
+            <a href="proposer.php" id="protrajet"
+                class="w100 redBtn is-flex is-justify-content-center is-align-items-center mt-3 p-5">
+                <img src="assets/img/icones/road.svg" alt="logo d'une route avec un plus">
+                <h3>PROPOSER UN TRAJET</h3>
+            </a>
+            <div id="prolien"
+                class="w100 is-flex is-justify-content-space-around is-align-items-flex-start is-flex-direction-column">
+                <button class=" btnbacknone is-flex is-justify-content-center align-items-center is-flex">
+                    <img src="assets/img/icones/person.svg" alt="Logo d'une personne">
+                    <a href="PHP/includes/my-routes.inc.php" class="ml-4 blackColor">Mes trajets</a>
+                </button>
+                <button class=" btnbacknone is-flex is-justify-content-center align-items-center is-flex">
+                    <img src="assets/img/icones/book.svg" alt="Logo d'un livre">
+                    <a href="PHP/includes/search-mail-type-2.inc.php" class="ml-4 blackColor">Mes réservations</a>
+                </button>
+                <button class=" btnbacknone is-flex is-justify-content-center align-items-center is-flex">
+                    <img src="assets/img/icones/person.svg" alt="Logo d'une personne">
+                    <a href="editCompte.php" class="ml-4 blackColor">Modifier mes informations</a>
+                </button>
+                <button class=" btnbacknone is-flex is-justify-content-center align-items-center is-flex">
+                    <img src="assets/img/icones/message.svg" alt="Logo d'une bulle de message">
+                    <a href="PHP/includes/search-mail.inc.php" class="ml-4 blackColor">Messagerie</a>
+                </button>
+                <button class=" btnbacknone is-flex is-justify-content-center align-items-center is-flex">
+                    <img src="assets/img/icones/lineleft.svg" alt="Logo d'une flèche par la gauche">
+                    <a href="PHP/includes/logout.inc.php" class="ml-4 blackColor">Se déconnecter</a>
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

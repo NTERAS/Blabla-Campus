@@ -1,6 +1,6 @@
 <?php
 $title = "Supprimer - Blabla Campus";
-include_once 'headerSimple.php';
+include_once 'header.php';
 if(isset($_GET['id'])){
     $idt = $_GET['id'];
 }else{
@@ -43,7 +43,7 @@ if(isset($_GET['id'])){
                         </form>
 
 
-                </main>
-</body>
+    </main>
+</body> 
 
 </html>

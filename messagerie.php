@@ -14,7 +14,7 @@ if(isset($_SESSION["mail-rc"])){
 
 
 $title = "messagerie - Blabla Campus";
-include_once 'headerSimple.php';
+include_once 'header.php';
 ?>
 
 <body>
@@ -43,8 +43,8 @@ include_once 'headerSimple.php';
                         <p class="bungee my-5 mx-4 py-5">Messagerie</p>
 
 
-                        <!-- messages -->
-                        <?php
+        <!-- messages -->
+        <?php
         for ($i=0; $i <$mail_rc ; $i++) {
             $user_id = $_SESSION["id-sender".$i];
             $full_message = $_SESSION["full-message".$i];
@@ -88,9 +88,9 @@ include_once 'headerSimple.php';
 
 
 
-                    </div>
+    </div>
 
-                </main>
+</main>
 </body>
 
 </html>
