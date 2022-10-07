@@ -63,13 +63,6 @@
     }
 }
 
-
-
-
-/* ******
-
-
-
 /* **************** fonts ****************** */
 
 @font-face {
@@ -88,7 +81,9 @@
 .dsn {
     display: none !important;
 }
-
+.pl4px{
+    padding-left: 4px;
+}
 .posab {
     position: absolute;
 }
@@ -877,7 +872,9 @@ a.trajetCard:nth-child(5) {
 #prolien button #headerprofil button {
     background: none;
 }
-
+.container p:nth-child(1), p:nth-child(5){
+    margin-left: 27px !important;
+}
 
 
 /* .control.has-icons-left .icon.is-left {

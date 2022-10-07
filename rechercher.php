@@ -10,7 +10,7 @@ if(isset($_SESSION["username"])){
         header('Location: confirmation.php?action=NotloggedIn');
     }
 $title = "rechercher Blabla Campus";
-include_once "header.php";
+include_once "headerSimple.php";
 
 ?>
 

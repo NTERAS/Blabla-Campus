@@ -1,6 +1,6 @@
 <?php
 $title = 'Proposition - Blabla Campus';
-include_once 'header.php';
+include_once 'headerSimple.php';
 
 session_start();
 if(isset($_SESSION["username"])){
