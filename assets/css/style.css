@@ -1,12 +1,6 @@
 @import "bulma.css";
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Overpass&display=swap');
 
-*{
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
 :root {
     --marine: #334747;
     --rouge: #D41E45;
@@ -32,6 +26,27 @@
     height: 52px;
     width: 100%;
 }
+
+.opac {
+    animation: opac ease-in 1s 1;
+    opacity: 1;
+}
+
+@keyframes opac {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* ******
+
+
+
 /* **************** fonts ****************** */
 
 @font-face {
@@ -50,9 +65,7 @@
 .dsn {
     display: none !important;
 }
-.pl4px{
-    padding-left: 4px;
-}
+
 .posab {
     position: absolute;
 }
@@ -71,6 +84,10 @@
 
 .w20 {
     width: 20%;
+}
+
+.w30 {
+    width: 30%;
 }
 
 .w35 {
@@ -302,7 +319,6 @@ a {
     min-height: 100vh;
     position: relative;
 }
-
 
 /* ********* input   custom ********** */
 input[type=radio] {
@@ -562,7 +578,7 @@ button.button:nth-child(2)>a:nth-child(1) {
 /* ************ karolos  genre*************** */
 label.radio:nth-child(1)>img:nth-child(2) {
     opacity: 10%;
-    transform: translate(-294%, 50%);
+    transform: translate(-274%, 50%);
     position: relative;
     z-index: -7;
     padding-right: 2px;
@@ -570,7 +586,7 @@ label.radio:nth-child(1)>img:nth-child(2) {
 
 label.radio:nth-child(2)>img:nth-child(2) {
     opacity: 12%;
-    transform: translate(-240%, 14%);
+    transform: translate(-236%, 14%);
     position: relative;
     z-index: -7;
 }
@@ -624,7 +640,8 @@ a.trajetCard:nth-child(5) {
     border-radius: 50%;
     width: 20px;
     height: 20px;
-    margin: 0 auto;
+    margin-left: 3px;
+
     border: 3px solid black;
     position: relative;
     background: white;
@@ -757,15 +774,6 @@ a.trajetCard:nth-child(5) {
     border: none;
 }
 
-/********** EditCompte **********/
-.container p:nth-child(1){
-    margin-left: 20px !important;
-}
-
-
-
-
-
 /********** Profil **********/
 #headerprofil {
     padding: 10px 25px 0 25px;
@@ -874,6 +882,7 @@ a.trajetCard:nth-child(5) {
 .dekstop {
     overflow: auto;
     height: 86vh;
+    width: 90%;
 }
 
 
@@ -884,6 +893,7 @@ a.trajetCard:nth-child(5) {
     }
 
     .dekstop {
+        overflow: none;
         min-height: 100vh;
         width: 95% !important;
     }

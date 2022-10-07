@@ -22,6 +22,7 @@ if(isset($_POST["action"])){
     // $Img = file_get_contents($_FILES['resume']);
 
     // ALL ABOUT IMAGE HERE----------------------------------------------------------------------------
+   
     $image = $_FILES['resume'];
     $fileName = $_FILES['resume']['name'];
     $fileTmpName = $_FILES['resume']['tmp_name'];
@@ -40,7 +41,7 @@ if(isset($_POST["action"])){
             }
         }
     }
-
+    
     
 
     //instantiate signup class
