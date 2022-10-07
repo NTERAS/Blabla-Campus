@@ -8,12 +8,12 @@ if(isset($_SESSION["username"]) && isset($_SESSION["specific_calendar"])){
     header("location: index.php");
 }
 
-
 $cal = $_SESSION["specific_calendar"];
-        $dep = $_SESSION["specific_depart"];
-        $arr = $_SESSION["specific_arriver"];
-        $retour = $_SESSION["specific_routetype"];
-        $id_owner = $_SESSION["specific_owner"];
+$dep = $_SESSION["specific_depart"];
+$arr = $_SESSION["specific_arriver"];
+$retour = $_SESSION["specific_routetype"];
+$id_owner = $_SESSION["specific_owner"];
+$tr_trajet = $_SESSION["idowner"];
 
         $cal = explode('-', $cal);
         $year = $cal[0];
