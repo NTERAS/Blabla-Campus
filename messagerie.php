@@ -14,7 +14,7 @@ if(isset($_SESSION["mail-rc"])){
 
 
 $title = "messagerie - Blabla Campus";
-include_once 'headerSimple.php';
+include_once 'header.php';
 ?>
 
 <body>
@@ -27,15 +27,15 @@ include_once 'headerSimple.php';
         <div id="divright"
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
 
-            <header id="headerprofil"
-                class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
-                <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
-                        alt="Le logo Blabla Campus"></a>
-                <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
-                        alt="Icon d'une personne"></a>
-            </header>
             <!-- <main class="dekstop box"> -->
-            <main class="mainh100 dekstop">
+                <main class="mainh100 dekstop">
+                <header id="headerprofil"
+                    class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
+                    <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
+                            alt="Le logo Blabla Campus"></a>
+                    <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
+                            alt="Icon d'une personne"></a>
+                </header>
 
                 <main>
                     <div class="container my-5">
@@ -43,8 +43,8 @@ include_once 'headerSimple.php';
                         <p class="bungee my-5 mx-4 py-5">Messagerie</p>
 
 
-                        <!-- messages -->
-                        <?php
+        <!-- messages -->
+        <?php
         for ($i=0; $i <$mail_rc ; $i++) {
             $user_id = $_SESSION["id-sender".$i];
             $full_message = $_SESSION["full-message".$i];
@@ -88,9 +88,9 @@ include_once 'headerSimple.php';
 
 
 
-                    </div>
+    </div>
 
-                </main>
+</main>
 </body>
 
 </html>

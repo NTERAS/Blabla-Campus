@@ -1,10 +1,9 @@
 <?php
 $title = "Annulation réservation - Blabla Campus";
-include 'header.php';
+include 'headerSimple.php';
 
 if(isset($_GET["id"])){
     $id = $_GET["id"];
-    echo $id;
 }else{
     header("location: index.php");
 }

@@ -1,14 +1,19 @@
-<?php 
+<?php
+// session_start();
+
+    // grabbing values----------------------------------------------------------------------------------
     $email = $_GET["email"];
-    echo $email;
+    $email = htmlspecialchars($_GET['email']);
 
+
+    //instantiate class-----------------------------------------------------------------------------
     include "../classes/dbh.class.php";
-    include "../classes/resetcontrl.class.php";
-    include "../classes/resetpassword.class.php";
+    include "../classes/forget-password.class.php";
+    include "../classes/reset-password-contrl.class.php";
+    $new = new PasswordForgot($email);
 
-    $reset = new ResetContrl($email);
-    $reset->Myemail();
+    // error handlers and got o controler ----------------------------------------------------------
+    $new->changePassword();
 
-    //back to page
-    header("location: ../../rechercher.php?error=none");
-?>
+    //back to page--------------------------------------------------------------------------------------
+    // header("location: ../../reserver.php?error=none");

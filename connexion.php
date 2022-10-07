@@ -5,7 +5,6 @@ session_start();
 if(isset($_SESSION["username"])){
     $a = $_SESSION["username"];
 
-    echo "hello $a";
     header("location: rechercher.php?connected");
     // echo $test2;
     }
@@ -16,7 +15,6 @@ if(isset($_SESSION["username"])){
     $title = "connexion";
 include_once "headerSimple.php";
 ?>
-
 
 
 
@@ -31,13 +29,13 @@ include_once "headerSimple.php";
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
 
 
-            <header id="headerprofil"
-                class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
-                <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
-                        alt="Le logo Blabla Campus"></a>
-                <p>se connecter</p>
-            </header>
             <main class='dekstop'>
+                <header id="headerprofil"
+                    class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
+                    <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
+                            alt="Le logo Blabla Campus"></a>
+                    <p>se connecter</p>
+                </header>
                 <div class="container is-flex is-justify-content-center is-flex-direction-column my-5">
                     <p class="bungee my-5 mx-3">ENTREZ VOS INFORMATIONS</p>
                     <form action="PHP/includes/login.inc.php" method="POST"

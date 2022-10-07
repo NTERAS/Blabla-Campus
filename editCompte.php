@@ -7,17 +7,10 @@ if(isset($_SESSION["userid"])){
   $bio = $_SESSION["biog"];
   $email = $_SESSION["email"];
   $my_pwd = $_SESSION["mypwd"];
-  print_r($my_pwd);
+  // print_r($my_pwd);
 }else{
   header("location: index.php");
 }
-
-
-
-// echo $user_id."<br>";
-
-
-// echo $image."<br>";
 $title = "edition compte - Blabla Campus";
 include_once 'headerSimple.php';
 ?>

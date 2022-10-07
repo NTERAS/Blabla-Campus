@@ -1,6 +1,13 @@
 @import "bulma.css";
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Overpass&display=swap');
 
+* {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 :root {
     --marine: #334747;
     --rouge: #D41E45;
@@ -10,8 +17,26 @@
     --black: rgb(51, 51, 51);
 }
 
-/* test :  */
+::-webkit-scrollbar {
+    width: 5px;
+}
 
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #D41E45;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #800722;
+}
+
+/* test :  */
 .h-arrive {
     padding: 5px;
     background: var(--colorChamp);
@@ -42,11 +67,6 @@
     }
 }
 
-
-/* ******
-
-
-
 /* **************** fonts ****************** */
 
 @font-face {
@@ -64,6 +84,10 @@
 /* *************classes généralistes ******************* */
 .dsn {
     display: none !important;
+}
+
+.pl4px {
+    padding-left: 4px;
 }
 
 .posab {
@@ -855,6 +879,10 @@ a.trajetCard:nth-child(5) {
     background: none;
 }
 
+.container p:nth-child(1),
+p:nth-child(5) {
+    margin-left: 27px !important;
+}
 
 
 /* .control.has-icons-left .icon.is-left {
@@ -895,12 +923,12 @@ a.trajetCard:nth-child(5) {
     .dekstop {
         overflow: none;
         min-height: 100vh;
-        width: 95% !important;
+        width: 100% !important;
     }
 
-    #headerprofil {
+    /* #headerprofil{
         margin-top: 3.5rem !important;
-    }
+    } */
 
     .mainSection {
         width: 100%;
@@ -917,6 +945,7 @@ a.trajetCard:nth-child(5) {
 
     #divright {
         width: 100%;
+
     }
 
     .boxvritine {

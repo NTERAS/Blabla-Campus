@@ -15,14 +15,14 @@ include_once 'headerSimple.php';
         <div id="divright"
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
 
-            <header id="headerprofil"
-                class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
-                <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
-                        alt="Le logo Blabla Campus"></a>
-                <p>MOT DE PASSE PERDU</p>
-            </header>
             <!-- <main class="dekstop box"> -->
-            <main class="dekstop">
+                <main class="dekstop">
+                <header id="headerprofil"
+                    class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
+                    <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
+                            alt="Le logo Blabla Campus"></a>
+                    <p>MOT DE PASSE PERDU</p>
+                </header>
                 <div class="container is-flex is-justify-content-center is-flex-direction-column my-5">
                     <p class="bungee mt-5 mx-3">PAS DE STRESS</p>
                     <p class="my-5 mx-2 px-3 greyText">Vous ne vous souvenez plus de votre mot de passe et ne parvenez

@@ -7,11 +7,6 @@ $rc = $_SESSION["rc_search"];
 }
 // $o_loc = $_SESSION["original_location"];
 $o_date = $_SESSION["original_date"];
-// echo $o_loc;
-// echo $o_arr;
-echo $o_date;
-echo $rc;
-
 
 if($rc>0){
     
@@ -54,7 +49,7 @@ if($rc>0){
 
 
 $title = "Résultat - Blabla Campus";
-include_once 'headerSimple.php';
+include_once 'header.php';
 ?>
 
 <body>
@@ -67,46 +62,44 @@ include_once 'headerSimple.php';
         <div id="divright"
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
 
-            <header id="headerprofil"
-                class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
-                <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
-                        alt="Le logo Blabla Campus"></a>
-                <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
-                        alt="Icon d'une personne"></a>
-            </header>
             <!-- <main class="dekstop box"> -->
-
-            <main class="dekstop">
+                
+                <main class="dekstop">
+                <header id="headerprofil"
+                    class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
+                    <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
+                            alt="Le logo Blabla Campus"></a>
+                    <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
+                            alt="Icon d'une personne"></a>
+                </header>
                 <div class="container my-5">
                     <!-- coordonnées -->
                     <p class="bungee my-4 mx-3">Trajets disponibles</p>
 
-                    <!-- grey area date/trajet/arrow -->
-                    <div
-                        class="greyBack is-flex is-justify-content-space-between is-align-items-center w90 mx-auto greyArea p-5">
-                        <div class="date_D_M">
-                            <p class="bungee redColor"><?php echo $day; ?></p>
-                            <p class="bungee"><?php echo $month; ?></p>
-                        </div>
-                        <div class="trajet w60">
-                            <p class="bungee greyText epilogue"><?php echo $o_loc; ?></p>
-                            <p class="bungee greyText epilogue"><?php echo $o_arr; ?></p>
-                        </div>
-                        <div class="arrow redColor">
-                            <img src="assets/img/icones/arrow.svg" alt="flèche">
-                        </div>
-                    </div>
-                    <!-- nombre de trajets disponibles -->
-                    <p class="epilogue greyText my-1 mx-3 p-3"> <span class="redColor"><?php echo $rc; ?> </span>trajets
-                        disponible(s)</p>
-                    <div class="is-flex w90 mx-auto mb-5">
-                        <img src="assets/img/icones/horloge.svg" alt="horloge">
-                        <p class="epilogue greyText my-1 px-3">Les trajets sont triés chronologiquement par heure de
-                            départ.</p>
-                    </div>
+        <!-- grey area date/trajet/arrow -->
+        <div class="greyBack is-flex is-justify-content-space-between is-align-items-center w90 mx-auto greyArea p-5">
+            <div class="date_D_M">
+                <p class="bungee redColor"><?php echo $day; ?></p>
+                <p class="bungee"><?php echo $month; ?></p>
+            </div>
+            <div class="trajet w60">
+                <p class="bungee greyText epilogue"><?php echo $o_loc; ?></p>
+                <p class="bungee greyText epilogue"><?php echo $o_arr; ?></p>
+            </div>
+            <div class="arrow redColor">
+                <img src="assets/img/icones/arrow.svg" alt="flèche">
+            </div>
+        </div>
+        <!-- nombre de trajets disponibles -->
+        <p class="epilogue greyText my-1 mx-3 p-3"> <span class="redColor"><?php echo $rc; ?> </span>trajets
+            disponible(s)</p>
+        <div class="is-flex w90 mx-auto mb-5">
+            <img src="assets/img/icones/horloge.svg" alt="horloge">
+            <p class="epilogue greyText my-1 px-3">Les trajets sont triés chronologiquement par heure de départ.</p>
+        </div>
 
-                    <!-- cards Trajet -->
-                    <?php
+        <!-- cards Trajet -->
+        <?php
 
             for ($i=0; $i < $rc; $i++) {
                 $cal_search = $_SESSION["cal_search".$i];
@@ -122,6 +115,9 @@ include_once 'headerSimple.php';
                 $pseudo_search = $_SESSION["pseudo_search".$i];
                 $route_id = $_SESSION["route_id".$i];
                 $route_id_owner = $_SESSION["route_id_owner".$i];
+                $t1_search = $_SESSION["time_step1_search".$i];
+                $t2_search = $_SESSION["time_step2_search".$i];
+                $t_fin_search = $_SESSION["time_final_search".$i];
                 
                 // echo "<br>";
                 echo $route_id_owner;
@@ -129,13 +125,25 @@ include_once 'headerSimple.php';
                 echo $depart1_search." depart1 <br>";
                 echo $depart2_search." depart2 <br>";
 
-                $time = $time_search;
+                // $time = $time_search;
                 $time_search = explode(':', $time_search);
                 $hours = $time_search[0];
                 $min = $time_search[1];
                 $sec = $time_search[2];
 
-                echo '<a href="PHP/includes/reserve.inc.php?idt='.$route_id.'"><div class=" card w90 mx-auto">
+                $t1_search = explode(':', $t1_search);
+                $hours1 = $t1_search[0];
+                $min1 = $t1_search[1];
+                // $sec = $time_search[2];
+                $t2_search = explode(':', $t2_search);
+                $hours2 = $t2_search[0];
+                $min2 = $t2_search[1];
+
+                $t_fin_search = explode(':', $t_fin_search);
+                $hours3 = $t_fin_search[0];
+                $min3 = $t_fin_search[1];
+
+                echo '<a href="PHP/includes/reserve.inc.php?idt='.$route_id.'&idowner='.$route_id_owner.'"><div class=" card w90 mx-auto">
                 <div class="workSansUppercase greyText has-text-right pr-4 pt-5">
                     <p>
                         Place disponible : <strong class="redColor">'.$place_search.' </strong>
@@ -154,7 +162,7 @@ include_once 'headerSimple.php';
                     <div class="etapeAdd">';
                     if($depart1_search!=NULL){
                         echo '<div class="etape1 is-flex w60 pl-5">
-                        <div class="h_depart redColor epilogue mb-5"><strong>12h45</strong>
+                        <div class="h_depart redColor epilogue mb-5"><strong>'.$hours1.'H'.$min1.'</strong>
                         </div>
                         <div>
                             <div class="circle1"></div>
@@ -164,7 +172,7 @@ include_once 'headerSimple.php';
                     }
                        if($depart2_search!=NULL){
                         echo '<div class="etape2 is-flex w60 pl-5">
-                        <div class="h_depart redColor epilogue mb-5"><strong>13h45</strong></div>
+                        <div class="h_depart redColor epilogue mb-5"><strong>'.$hours2.'H'.$min2.'</strong></div>
                         <div>
                             <div class="circle1"></div>
                         </div>
@@ -175,7 +183,7 @@ include_once 'headerSimple.php';
                         echo '</div>
                     
                         <div class="secondLine is-flex w60 pl-5">
-                            <div class="h_arrivee epilogue redColor"><strong>11h45</strong></div>
+                            <div class="h_arrivee epilogue redColor"><strong>'.$hours3.'H'.$min3.'</strong></div>
                             <div class="">
                                 <div class="circle"></div>
                             </div>
@@ -191,25 +199,24 @@ include_once 'headerSimple.php';
                         <p class="subtitle"><i><'.$bio_search.'></i></p>
                     </div>
                 </div>
-            </div></a>
+            </div></a>';
                     
 
 
-            ';
+      
+
     } ?>
-
-    </section>
-    </main>
-
-
+        
+        
+    
 
 
 
 
 
 
+    </div>
 
+    </body>
 
-</body>
-
-</html>
+    </html>
