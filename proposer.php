@@ -18,7 +18,7 @@ if(isset($_SESSION["username"])){
             <?php include_once 'vitrineLeft.php'; ?>
         </div>
 
-        <div id="divright"
+        <div id="divright box"
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
 
             <header id="headerprofil"
@@ -29,7 +29,7 @@ if(isset($_SESSION["username"])){
                         alt="Icon d'une personne"></a>
             </header>
             <!-- <main class="dekstop box"> -->
-            <main class="dekstop box main">
+            <main class="dekstop main">
                 <div id="cache"></div>
                 <div class="container is-flex is-justify-content-center is-flex-direction-column my-5">
                     <!-- coordonnées -->

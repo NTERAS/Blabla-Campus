@@ -17,7 +17,7 @@ if(isset($_SESSION['username'])){
       <?php include_once 'vitrineLeft.php'; ?>
     </div>
 
-    <div id="divright"
+    <div id="divright box"
       class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
 
       <header id="headerprofil"
@@ -26,7 +26,7 @@ if(isset($_SESSION['username'])){
         <p>Creer un compte</p>
       </header>
 
-      <main class='dekstop box'>
+      <main class='dekstop'>
         <div class="container is-flex is-justify-content-center is-flex-direction-column my-5">
           <!-- coordonnées -->
 

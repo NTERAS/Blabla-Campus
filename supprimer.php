@@ -16,7 +16,7 @@ if(isset($_GET['id'])){
             <?php include_once 'vitrineLeft.php'; ?>
         </div>
 
-        <div id="divright"
+        <div id="divright box"
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
 
             <header id="headerprofil"
@@ -27,7 +27,7 @@ if(isset($_GET['id'])){
                         alt="Icon d'une personne"></a>
             </header>
             <!-- <main class="dekstop box"> -->
-            <main class="dekstop box">
+            <main class="dekstop">
                 <main>
                     <div
                         class="container my-5 is-flex is-justify-content-center is-flex-direction-column is-align-items-center">

@@ -21,7 +21,7 @@ if(isset($_SESSION["reserve_rc"])){
             <?php include_once 'vitrineLeft.php'; ?>
         </div>
 
-        <div id="divright"
+        <div id="divright box"
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
 
             <header id="headerprofil"
@@ -32,7 +32,7 @@ if(isset($_SESSION["reserve_rc"])){
                         alt="Icon d'une personne"></a>
             </header>
             <!-- <main class="dekstop box"> -->
-            <main class="mainh100 dekstop box">
+            <main class="mainh100 dekstop">
                 ?>
                 <main>
                     <div
