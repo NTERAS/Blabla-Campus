@@ -22,7 +22,7 @@ if(isset($_GET['action'])){
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
 
             <!-- <main class="dekstop box"> -->
-                <main class="mainh100 dekstop">
+            <main class="mainh100 dekstop">
                 <header id="headerprofil"
                     class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
                     <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
@@ -32,17 +32,17 @@ if(isset($_GET['action'])){
                 </header>
 
 
-        <?php if ($action == 'edittraj') { ?>
-        <div class="container  my-5">
-            <p class="greyText my-5 mx-5">Votre trajet a bien été modifié !</p>
-        </div>
-        <?php
+                <?php if ($action == 'edittraj') { ?>
+                <div class="container  my-5">
+                    <p class="greyText my-5 mx-5">Votre trajet a bien été modifié !</p>
+                </div>
+                <?php
         header("Refresh: 1; mesTrajets.php"); 
         ?>
-        <?php } ?>
+                <?php } ?>
 
 
-        <?php
+                <?php
 
 function positiveMsg(){
     echo '<div class="container is-flex is-justify-content-center is-flex-direction-column my-5">
@@ -61,13 +61,13 @@ function negativeMsg(){
 
 
          if ($action == "delete") { ?>
-        <div class="container  my-5">
-            <p class="greyText my-5 mx-5">Votre trajet a bien été supprimer ! :)</p>
-        </div>
-        <?php header("Refresh: 1; PHP/includes/redirection.inc.php"); ?>
-        <?php } ?>
+                <div class="container  my-5">
+                    <p class="greyText my-5 mx-5">Votre trajet a bien été supprimer ! :)</p>
+                </div>
+                <?php header("Refresh: 1; PHP/includes/redirection.inc.php"); ?>
+                <?php } ?>
 
-        <?php
+                <?php
         if($action == "accountCreation"){
             echo '<div class="container  my-5"><p class="greyText my-5 mx-5">Votre compte a bien été crée ! :)</p></div>';
             header("Refresh: 1; connexion.php");
@@ -103,7 +103,7 @@ function negativeMsg(){
         // -------------------------ERRORS--------------------------------------------------------------------------------
         if($action == "emptyInputs"){
             negativeMsg();
-            echo '<div class="container  my-5"><p class="greyText my-5 mx-5">empty inputs!!!</p></div>';
+            echo '<div class="container  my-5"><p class="greyText my-5 mx-5">Le formulaire n\'est pas rempli correctement"</p></div>';
             header("Refresh: 1; rechercher.php");
         }
 
@@ -152,18 +152,18 @@ function negativeMsg(){
         ?>
 
 
-        <!-- <div class="container my-5">
+                <!-- <div class="container my-5">
             <p class="greyText my-5 mx-5 w80">Un email vient de vous être envoye pour réinitialiser votre mot de passe
             </p>
         </div> -->
-        <!--  -->
+                <!--  -->
 
 
-        <!-- <div class="container my-5"> -->
-        <!-- <p class="greyText my-5 mx-5 w80">Un email vient de vous être envoyé pour réinitialiser votre mot de passe ! -->
-        <!-- </p> -->
-        <!-- </div> -->
-    </main>
+                <!-- <div class="container my-5"> -->
+                <!-- <p class="greyText my-5 mx-5 w80">Un email vient de vous être envoyé pour réinitialiser votre mot de passe ! -->
+                <!-- </p> -->
+                <!-- </div> -->
+            </main>
 </body>
 
 </html>

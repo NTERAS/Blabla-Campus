@@ -110,7 +110,7 @@
     } */
 
     .downBulle {
-      transform: scale(0.78) translate(0.20em, 0.40em);
+      transform: scale(0.8) translate(0.20em, 0.40em);
     }
 
     #logo {

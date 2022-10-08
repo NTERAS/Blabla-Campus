@@ -21,13 +21,15 @@ if(isset($_SESSION["username"]) && isset($_SESSION["rc"])){
 
     <div id="divright"
       class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
-
+      <img class="posabL" src="assets/img/autres/pos1.svg" alt="">
+      <img class="posabR" src="assets/img/autres/pos2.svg" alt="">
       <!-- <main class="dekstop box"> -->
-        <main class="dekstop">
+      <main class="dekstop">
         <header id="headerprofil"
           class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
           <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg" alt="Le logo Blabla Campus"></a>
-          <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg" alt="Icon d'une personne"></a>
+          <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
+              alt="Icon d'une personne"></a>
         </header>
         <div class="container my-5 is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
           <p class="bungee my-4 mx-5 w90">Mes trajets</p>
@@ -95,13 +97,13 @@ if(isset($_SESSION["username"]) && isset($_SESSION["rc"])){
                 
                 }
                 ?>
-  </div>
-</main>
+        </div>
+      </main>
 
 
 
 
-<script src="assets/js/app.js"></script>
+      <script src="assets/js/app.js"></script>
 </body>
 
 </html>

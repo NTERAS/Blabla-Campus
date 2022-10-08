@@ -13,7 +13,7 @@ var inputElement = document.getElementById("locationAdd");
 var info = document.getElementById("info");
 var firstAutoC = document.querySelector(".firstAutoC");
 inputElement2.addEventListener("click", function () {
-  info.textContent = "🛑Veuillez entrer une adresse complète🛑 ";
+  info.textContent = "🛑adresse complète nécessaire🛑 ";
   info.classList.add("redColor");
 });
 

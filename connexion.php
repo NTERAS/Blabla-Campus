@@ -27,11 +27,10 @@ include_once "headerSimple.php";
 
         <div id="divright"
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
+            <img class="posabL" src="assets/img/autres/pos1.svg" alt="">
+            <img class="posabR" src="assets/img/autres/pos2.svg" alt="">
 
-            <div id="positionpos">
-                <img class="posabL" src="assets/img/autres/pos1.svg" alt="">
-                <img class="posabR" src="assets/img/autres/pos2.svg" alt="">
-            </div>
+
 
             <main class='dekstop'>
                 <header id="headerprofil"

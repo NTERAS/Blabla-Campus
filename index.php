@@ -55,7 +55,7 @@ if(isset($_SESSION["username"])){
                 </div>
                 <div class="boxvritine w45 is-flex-direction-column is-justify-content-center is-align-items-center">
                     <img class="logoAnim" src="assets/img/logo/logoName.svg" alt="Logo du site">
-                    <img id="picpaysage" src="assets/img/autres/paysage2.svg" alt="Paysage">
+                    <img id="picpaysage" src="assets/img/autres/paysage3.svg" alt="Paysage">
                     <form action="" class="is-flex is-flex-direction-column">
                         <a class="button workSans redBtn thebegin btnworksansred mb-5 connect"><img class="pr-5"
                                 src="assets/img/icones/car.svg" alt="image d'une voiture">
