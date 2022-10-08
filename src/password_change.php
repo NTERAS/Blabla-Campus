@@ -1,3 +1,17 @@
+<?php 
+    require_once __DIR__.'/../config/config.php';
+    if(isset($_GET['u']) && !empty($_GET['u'])){
+        $token = htmlspecialchars(base64_decode($_GET['u']));
+        $check = $bdd->prepare('SELECT * FROM password_recover WHERE token_user = ?');
+        $check->execute(array($token));
+        $row = $check->rowCount();
+
+        if($row == 0){
+            echo "Lien non valide";
+            die();
+        }
+    }
+?>
 <!doctype html>
 <html lang="fr">
 
@@ -19,7 +33,7 @@
                 <div class="card-body">
                     <h4 class="card-title p-3">Réinitialiser mon mot de passe</h4>
                     <div class="form-group">
-                        <form action="PHP/includes/pass2.inc.php" method="POST">
+                        <form action="password_change_post.php" method="POST">
                             <input type="hidden" name="token"
                                 value="<?php echo base64_decode(htmlspecialchars($_GET['u'])); ?>" />
                             <input type="password" name="password" class="form-control" placeholder="Mot de passe"

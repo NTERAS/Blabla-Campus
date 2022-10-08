@@ -90,8 +90,6 @@ if(isset($_SESSION['username'])){
 
         <div class="mx-auto">
 
-
-
           <button class="button redBtn mt-5" name="action" value="register">
             <p>Creer mon compte</p>
           </button>

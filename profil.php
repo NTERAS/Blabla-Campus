@@ -4,11 +4,8 @@ if(isset($_SESSION["username"])){
     $c = $_SESSION["image"];
     $a = $_SESSION["username"];
     $d = $_SESSION["biog"];
-
 }
-else{
-    header('Location: index.php?error=NotLoggedInYet');
-}
+else{ header('Location: index.php?error=NotLoggedInYet'); }
 
 $title = "profil Blalba Campus";
 include_once "header.php";

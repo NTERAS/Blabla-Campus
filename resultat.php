@@ -1,11 +1,10 @@
 <?php
 session_start();
 if(isset($_SESSION["rc_search"])){
-$rc = $_SESSION["rc_search"];
+    $rc = $_SESSION["rc_search"];
 }else{
     header("location: index.php");
 }
-// $o_loc = $_SESSION["original_location"];
 $o_date = $_SESSION["original_date"];
 
 if($rc>0){
@@ -39,8 +38,6 @@ if($rc>0){
     }
 
     $o_loc = $_SESSION["original_location"];
-
-
     $o_arr = $_SESSION["original_arrival"];
 
 
@@ -118,14 +115,7 @@ include_once 'header.php';
                 $t1_search = $_SESSION["time_step1_search".$i];
                 $t2_search = $_SESSION["time_step2_search".$i];
                 $t_fin_search = $_SESSION["time_final_search".$i];
-                
-                // echo "<br>";
-                echo $route_id_owner;
-                echo $depart_search." depart <br>";
-                echo $depart1_search." depart1 <br>";
-                echo $depart2_search." depart2 <br>";
 
-                // $time = $time_search;
                 $time_search = explode(':', $time_search);
                 $hours = $time_search[0];
                 $min = $time_search[1];
@@ -134,7 +124,7 @@ include_once 'header.php';
                 $t1_search = explode(':', $t1_search);
                 $hours1 = $t1_search[0];
                 $min1 = $t1_search[1];
-                // $sec = $time_search[2];
+
                 $t2_search = explode(':', $t2_search);
                 $hours2 = $t2_search[0];
                 $min2 = $t2_search[1];
@@ -145,51 +135,33 @@ include_once 'header.php';
 
                 echo '<a href="PHP/includes/reserve.inc.php?idt='.$route_id.'&idowner='.$route_id_owner.'"><div class=" card w90 mx-auto">
                 <div class="workSansUppercase greyText has-text-right pr-4 pt-5">
-                    <p>
-                        Place disponible : <strong class="redColor">'.$place_search.' </strong>
-                    </p>
+                    <p>Place disponible : <strong class="redColor">'.$place_search.' </strong></p>
                 </div>
                 <div classe="trajet w30">
                     <div class="firstLine is-flex w60 pl-5">
-                        <p class="h_depart redColor epilogue mb-5"><strong class="redColor">'.$hours.'H'.$min.'</strong>
-                        </p>
-                        <div>
-                            <div class="circle1"></div>
-                        </div>
+                        <p class="h_depart redColor epilogue mb-5"><strong class="redColor">'.$hours.'H'.$min.'</strong></p>
+                        <div><div class="circle1"></div></div>
                         <div class="l_depart epilogue mb-5"><strong>'.$depart_search.'</strong></div>
                     </div>
-                    
                     <div class="etapeAdd">';
                     if($depart1_search!=NULL){
                         echo '<div class="etape1 is-flex w60 pl-5">
-                        <div class="h_depart redColor epilogue mb-5"><strong>'.$hours1.'H'.$min1.'</strong>
-                        </div>
-                        <div>
-                            <div class="circle1"></div>
-                        </div>
-                        <div class="l_depart epilogue mb-5"><strong>'.$depart1_search.'</strong></div>
-                    </div>';
+                        <div class="h_depart redColor epilogue mb-5"><strong>'.$hours1.'H'.$min1.'</strong></div>
+                        <div><div class="circle1"></div></div>
+                        <div class="l_depart epilogue mb-5"><strong>'.$depart1_search.'</strong></div></div>';
                     }
                        if($depart2_search!=NULL){
                         echo '<div class="etape2 is-flex w60 pl-5">
                         <div class="h_depart redColor epilogue mb-5"><strong>'.$hours2.'H'.$min2.'</strong></div>
-                        <div>
-                            <div class="circle1"></div>
-                        </div>
-                        <div class="l_depart epilogue mb-5"><strong>'.$depart2_search.'</strong></div>
-                    </div>';
+                        <div><div class="circle1"></div></div>
+                        <div class="l_depart epilogue mb-5"><strong>'.$depart2_search.'</strong></div></div>';
                        } 
                         
                         echo '</div>
-                    
                         <div class="secondLine is-flex w60 pl-5">
                             <div class="h_arrivee epilogue redColor"><strong>'.$hours3.'H'.$min3.'</strong></div>
-                            <div class="">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="l_arrivee epilogue"><strong>'.$arriver_search.'</strong>
-                        </div>
-                    </div>
+                            <div class=""><div class="circle"></div></div>
+                            <div class="l_arrivee epilogue"><strong>'.$arriver_search.'</strong></div></div>
                 </div>
     
                 <div class="is-flex is-align-items-center my-5 profil px-5 py-5">
@@ -200,10 +172,6 @@ include_once 'header.php';
                     </div>
                 </div>
             </div></a>';
-                    
-
-
-      
 
     } ?>
         

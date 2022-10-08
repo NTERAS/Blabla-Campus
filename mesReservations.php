@@ -10,8 +10,6 @@ if(isset($_SESSION["reserve_rc"])){
     header("location: index.php");
 }
 
-
-
 ?>
 
 <body>
@@ -66,12 +64,7 @@ if(isset($_SESSION["reserve_rc"])){
                         case '12': $month = 'Dec'; break;
                         default: $month =''; break;
                       }
-    
-        
-        echo $res_id;
 
-        
-        
         echo '<div class="greyBack is-flex is-justify-content-space-between is-align-items-center w90 mx-auto greyArea p-5 my-3 reservation">
             <div class="date_D_M">
                 <p class="bungee redColor">'.$day.'</p>
@@ -89,16 +82,12 @@ if(isset($_SESSION["reserve_rc"])){
             }
             echo ' </div>
             </div>
-    
-    
-    
-            <!-- option annulation  -->
+
             <div class="is-flex is-justify-content-center w90 optionAnnulation dsn">
                 <div class="btnAnnulationContainer is-flex is-justify-content-center is-align-items-center">
                     <a class="btnAnnulation bungee" href="annulationReservation.php?id='.$res_id.'">annuler</a>
                 </div>
-            </div>';  
-
+                </div>';  
     }
 ?>
 

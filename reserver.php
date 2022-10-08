@@ -14,27 +14,27 @@ $retour = $_SESSION["specific_routetype"];
 $id_owner = $_SESSION["specific_owner"];
 $tr_trajet = $_SESSION["idowner"];
 
-        $cal = explode('-', $cal);
-        $year = $cal[0];
-        $month = $cal[1];
-        $day = $cal[2];
+$cal = explode('-', $cal);
+$year = $cal[0];
+$month = $cal[1];
+$day = $cal[2];
 
-        switch($month) {
-            case '01': $month = 'Jan'; break;
-            case '02': $month = 'Février'; break;
-            case '3': $month = 'Mars'; break;
-            case '4': $month = 'Avril'; break;
-            case '5': $month = 'Mai'; break;
-            case '6': $month = 'Juin'; break;
-            case '7': $month = 'Juillet'; break;
-            case '8': $month = 'Août'; break;
-            case '9': $month = 'Sep'; break;
-            case '10': $month = 'Oct'; break;
-            case '11': $month = 'Nov'; break;
-            case '12': $month = 'Dec'; break;
-            default: $month =''; break;
-        }
-
+switch($month) {
+    case '01': $month = 'Jan'; break;
+    case '02': $month = 'Février'; break;
+    case '3': $month = 'Mars'; break;
+    case '4': $month = 'Avril'; break;
+    case '5': $month = 'Mai'; break;
+    case '6': $month = 'Juin'; break;
+    case '7': $month = 'Juillet'; break;
+    case '8': $month = 'Août'; break;
+    case '9': $month = 'Sep'; break;
+    case '10': $month = 'Oct'; break;
+    case '11': $month = 'Nov'; break;
+    case '12': $month = 'Dec'; break;
+    default: $month =''; break;
+}
+    
 $title = "Réservation - Blabla Campus";
 include_once 'header.php';
 ?>

@@ -5,23 +5,17 @@ include_once 'header.php';
 session_start();
 if(isset($_GET['i'])){
     $i = $_GET["i"];
-$tr = $_GET["tr"];
-$name_sender = $_SESSION["name-sender".$i];
-$msg_type = $_SESSION["msg-type".$i];
-$full_message = $_SESSION["full-message".$i];
-$img_sender = $_SESSION["image-sender".$i];
-$trip_depart = $_SESSION["trip_depart".$i];
-$trip_arrival = $_SESSION["trip_arrival".$i];
+    $tr = $_GET["tr"];
+    $name_sender = $_SESSION["name-sender".$i];
+    $full_message = $_SESSION["full-message".$i];
+    $img_sender = $_SESSION["image-sender".$i];
+    $trip_depart = $_SESSION["trip_depart".$i];
+    $trip_arrival = $_SESSION["trip_arrival".$i];
+    $msg_type = $_SESSION["msg-type".$i];
 }else{
     header("location: index.php");
 }
 
-
-// echo $i."<-rc<br>"; 
-// echo $name_sender."<br>";
-// echo $msg_type."<br>";
-// echo $full_message."<br>";
-// echo '<img class="is-rounded ppTrajet" src="data:image;base64,' . $img_sender . '" alt="Image d`une personne">';
 ?>
 
 
