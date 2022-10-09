@@ -10,11 +10,11 @@ class CreateRoute extends Dbh {
 
         $result = $stmt->execute(array($location,$etapes1,$etapes2,$arrivee,$date,$heure,$road,$place,$etapes,$id,$step_hour1,$step_hour2,$final_hour));
         $stmt->debugDumpParams();
-        // var_dump($result);
+
         if($result==false){
             $stmt = null; //delete the statement
-            echo "stmt failed";
-            // header("location: ../../confirmation.php?action=creationtr");
+
+            header("location: ../../confirmation.php?action=stmtFailed");
             exit();
         }
         $stmt = null;

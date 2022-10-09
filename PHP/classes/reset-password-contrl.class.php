@@ -3,7 +3,6 @@
 class PasswordForgot extends ForgetPassword{
     private $email;
    
-
     public function __construct($email){
         $this->email = $email;
      

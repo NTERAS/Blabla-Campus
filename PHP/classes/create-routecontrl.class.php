@@ -31,7 +31,7 @@ class CreateRouteContrl extends CreateRoute{
     public function newRoute(){
         if($this->emptyInputs()== false){
             echo "error! empty input!";
-            // header("location: ../../proposer.php?error=emptyinput");
+            header("location: ../../confirmation.php?action=emptyInputs");
             exit();
         }
 

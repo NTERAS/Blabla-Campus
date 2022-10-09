@@ -161,6 +161,18 @@ if ($action == "delete") { ?>
             header("Refresh: 1; index.php");
         }
         // -------------------------ADMIN--------------------------------------------------------------------------------
+        if($action == "invalidmail"){
+            echo '<div class="container  my-5"><p class="greyText my-5 mx-5">UNEXCEPTED ERROR</p></div>';
+            header("Refresh: 1; index.php?error=invalidmail");
+        }
+        if($action == "stmtFailed"){
+            echo '<div class="container  my-5"><p class="greyText my-5 mx-5">UNEXCEPTED ERROR.</p></div>';
+            header("Refresh: 1; index.php?error=stmtFailed");
+        }
+        if($action == "stmtFailedMailChecked"){
+            echo '<div class="container  my-5"><p class="greyText my-5 mx-5">UNEXCEPTED ERROR.</p></div>';
+            header("Refresh: 1; index.php?error=stmtFailedMailChecked");
+        }
         
         ?>
 

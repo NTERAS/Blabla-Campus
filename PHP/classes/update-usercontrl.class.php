@@ -18,7 +18,7 @@ class ModifyContrl extends Modify{
         if($this->email != "empty"){
             if($this->invalidEmail()== false){
                 echo "error! invalid email!";
-                header("location: ../../editCompte.php?error=invalidmail");
+                header("location: ../../confirmation.php?action=invalidmail");
                 exit();
             }
         }
@@ -30,13 +30,12 @@ class ModifyContrl extends Modify{
 
     private function invalidEmail(){
         $result;
-        // echo "inside function invalid-email";
         if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
             $result = false;
         }else{
             $result = true;
         }
-        // echo "->".$result;
+        
         return $result;
     }
 

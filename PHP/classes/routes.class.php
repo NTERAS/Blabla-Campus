@@ -1,19 +1,16 @@
 <?php
-// session_start();
 
 class Routes extends Dbh {
 
     protected function searchRoute($id){
         $stmt = $this->connect()->prepare('SELECT * FROM trajet INNER JOIN utilisator ON trajet.id_utilsateur = utilisator.id_user WHERE id_trajet = ?');
-
+        
         $resultat = $stmt->execute(array($id));
-        echo "julieeeeenn!!!!";
-        // $stmt->debugDumpParams();
-        // var_dump($result);
+
         if($resultat==false){
             $stmt = null; //delete the statement
-            echo "stmt failed";
-            header("location: ../../resultat.php?error=stmtFailed");
+
+            header("location: ../../confirmation.php?action=stmtFailed");
             exit();
         }
         
@@ -33,18 +30,6 @@ class Routes extends Dbh {
         $d = $_SESSION["specific_routetype"];
         $e = $_SESSION["specific_owner"];
         $f = $_SESSION["trajet_id_k"];
-     
-
-
-        echo $a."<br>";
-        echo $b."<br>";
-        echo $c."<br>";
-        echo $d."<br>";
-        echo $e."<br>";
-        echo $f."<br>";
-
-
-            // var_dump($user);
 
             $stmt = null;
         }
