@@ -137,7 +137,7 @@ if ($action == "delete") { ?>
         }
         if($action == "noTrajets"){
             negativeMsg();
-            echo '<div class="container  my-5"><p class="greyText my-5 mx-5">Vous n\'avez pas les trajets :(</p></div>';
+            echo '<div class="container  my-5"><p class="greyText my-5 mx-5">Vous n\'avez pas de trajets :(</p></div>';
             header("Refresh: 1; profil.php");
         }
         if($action == "noMailsResevation"){

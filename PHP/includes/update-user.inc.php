@@ -60,7 +60,7 @@ if(isset($_POST["action"]) ){
     include "../classes/update-user.class.php";
     include "../classes/update-usercontrl.class.php";
     $image2 = $_SESSION["image2"];
-    var_dump($image2) ;
+    // var_dump($image2) ;
     // echo $image2;
     $modify = new ModifyContrl($pseudo,$password,$email,$biographie,$image2);
 

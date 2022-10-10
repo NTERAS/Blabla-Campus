@@ -87,7 +87,7 @@ if(isset($_SESSION["username"])){
             logoReplace.style.width = "77%";
             logoReplace.src = "assets/img/logo/logoAnim.svg";
             setTimeout(function () {
-                window.location.href = "http://localhost/blablacampus/inscription.php";
+                window.location.href = "inscription.php";
             }, 2500);
         });
     </script>
