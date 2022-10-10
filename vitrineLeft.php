@@ -10,7 +10,7 @@
             <p>Trouver <span class="redColor">facilement</span> un covoiturage pour se rendre en <span
                     class="redColor">formation</span></p>
         </div>
-        <div id="textpara" class="w65">
+        <div id="textpara" class="w77 overpass">
             <p>Tu es nouveau dans la formation et tu cherches quelqu'un faisant le même chemin que toi pour
                 venir en
                 formation.</p>

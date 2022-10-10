@@ -105,13 +105,13 @@ function ekUpload() {
           }
         }; // Start upload
         // xhr.open('POST', document.getElementById('file-upload').action, true);
+        // console.log(file);
+        // // xhr.open('POST', document.getElementById('file-drag').action, true);
+        // // // xhr.setRequestHeader('image', file.name);
+        // // // xhr.setRequestHeader('image', file.size);
+        // xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+        // xhr.send(file);
 
-
-        xhr.open('POST', document.getElementById('file-drag').action, true); // xhr.setRequestHeader('image', file.name);
-        // xhr.setRequestHeader('image', file.size);
-
-        xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-        xhr.send(file);
       } else {
         output('Votre fichier est trop gros(< ' + fileSizeLimit + ' MB).');
       }
@@ -120,6 +120,7 @@ function ekUpload() {
 
 
   if (window.File && window.FileList && window.FileReader) {
+    console.log("File API supported");
     Init();
   } else {
     document.getElementById('file-drag').style.display = 'none';

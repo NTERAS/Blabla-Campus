@@ -142,14 +142,14 @@ include_once 'header.php';
                     <p>Place disponible : <strong class="redColor">'.$place_search.' </strong></p>
                 </div>
                 <div classe="trajet w30">
-                    <div class="firstLine is-flex w60 pl-5">
+                    <div class="firstLine is-flex  pl-5">
                         <p class="h_depart redColor epilogue mb-5"><strong class="redColor">'.$hours.'H'.$min.'</strong></p>
                         <div><div class="circle1"></div></div>
                         <div class="l_depart epilogue mb-5"><strong>'.$depart_search.'</strong></div>
                     </div>
                     <div class="etapeAdd">';
                     if($depart1_search!=NULL){
-                        echo '<div class="etape1 is-flex w60 pl-5">
+                        echo '<div class="etape1 is-flex  pl-5">
                         <div class="h_depart redColor epilogue mb-5"><strong>'.$hours1.'H'.$min1.'</strong></div>
                         <div><div class="circle1"></div></div>
                         <div class="l_depart epilogue mb-5"><strong>'.$depart1_search.'</strong></div></div>';
@@ -162,7 +162,7 @@ include_once 'header.php';
                        } 
                         
                         echo '</div>
-                        <div class="secondLine is-flex w60 pl-5">
+                        <div class="secondLine is-flex  pl-5">
                             <div class="h_arrivee epilogue redColor"><strong>'.$hours3.'H'.$min3.'</strong></div>
                             <div class=""><div class="circle"></div></div>
                             <div class="l_arrivee epilogue"><strong>'.$arriver_search.'</strong></div></div>
