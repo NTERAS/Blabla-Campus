@@ -2,7 +2,7 @@
 session_start();
 $title = 'Confirmation';
 include 'headerSimple.php';
-// header('Refresh: 1; profil.php');
+
 if(isset($_GET['action'])){
     $action = $_GET['action'];
 }else{
@@ -52,20 +52,16 @@ function positiveMsg(){
 }
 
 function negativeMsg(){
-    echo '<div class="container is-flex is-justify-content-center is-flex-direction-column my-5">
-    <!-- coordonnées -->
-    <p class="bungee my-3 mx-3">ERREUR</p>
-</div>';
+    echo '<div class="container is-flex is-justify-content-center is-flex-direction-column my-5"><p class="bungee my-3 mx-3">ERREUR</p></div>';
 }
 
+if ($action == "delete") { ?>
 
 
-         if ($action == "delete") { ?>
-                <div class="container  my-5">
-                    <p class="greyText my-5 mx-5">Votre trajet a bien été supprimer ! :)</p>
-                </div>
-                <?php header("Refresh: 1; PHP/includes/redirection.inc.php"); ?>
-                <?php } ?>
+        <div class="container  my-5">
+            <p class="greyText my-5 mx-5">Votre trajet a bien été supprimer ! :)</p>
+        </div>
+        <?php header("Refresh: 1; PHP/includes/redirection.inc.php"); } ?>
 
                 <?php
         if($action == "accountCreation"){
@@ -98,6 +94,18 @@ function negativeMsg(){
             positiveMsg();
             echo '<div class="container  my-5"><p class="greyText my-5 mx-5">Votre trajet est bien crée ! :)</p></div>';
             header("Refresh: 1; rechercher.php");
+        }
+        if($action == "youHaveAnEmail"){
+            positiveMsg();
+            echo '<div class="container  my-5"><p class="greyText my-5 mx-5">Un email vient de vous être envoye pour réinitialiser votre mot de passe !</p></div>';
+            header("Refresh: 1; connexion.php");
+        }
+        if($action == "passwordChanged"){
+            positiveMsg();
+            echo '<div class="container  my-5"><p class="greyText my-5 mx-5">Mot de passe changé !</p></div>';
+            sleep(2);
+            // echo "<script>window.close();</script>";
+            header("Refresh: 1; connexion.php");
         }
 
         // -------------------------ERRORS--------------------------------------------------------------------------------
@@ -147,8 +155,25 @@ function negativeMsg(){
             echo '<div class="container  my-5"><p class="greyText my-5 mx-5">Le nom d utilisateur ou email deja existe, choisi un autre.</p></div>';
             header("Refresh: 1; rechercher.php");
         }
+        if($action == "mailNotFound"){
+            negativeMsg();
+            echo '<div class="container  my-5"><p class="greyText my-5 mx-5">Cette adresse email n\'est pas enregistrée.</p></div>';
+            header("Refresh: 1; index.php");
+        }
+        // -------------------------ADMIN--------------------------------------------------------------------------------
+        if($action == "invalidmail"){
+            echo '<div class="container  my-5"><p class="greyText my-5 mx-5">UNEXCEPTED ERROR</p></div>';
+            header("Refresh: 1; index.php?error=invalidmail");
+        }
+        if($action == "stmtFailed"){
+            echo '<div class="container  my-5"><p class="greyText my-5 mx-5">UNEXCEPTED ERROR.</p></div>';
+            header("Refresh: 1; index.php?error=stmtFailed");
+        }
+        if($action == "stmtFailedMailChecked"){
+            echo '<div class="container  my-5"><p class="greyText my-5 mx-5">UNEXCEPTED ERROR.</p></div>';
+            header("Refresh: 1; index.php?error=stmtFailedMailChecked");
+        }
         
-
         ?>
 
 

@@ -1,7 +1,5 @@
 <?php
 
-
-
 class Modify extends Dbh {
 
     protected function modifyUser($pseudo,$password,$email,$biographie,$image){
@@ -11,7 +9,6 @@ class Modify extends Dbh {
 if($password == NULL){
     $stmt = $this->connect()->prepare('UPDATE utilisator SET pseudo = ?, email = ?, bio = ?, avatar = ?  WHERE id_user='.$user_id.' ');
     $result = $stmt->execute(array($pseudo,$email,$biographie,$image));
-    // $stmt->debugDumpParams();
 
 }else {
     $stmt = $this->connect()->prepare('UPDATE utilisator SET pseudo = ?, pass = ?, email = ?, bio = ?, avatar = ?  WHERE id_user='.$user_id.' ');
@@ -21,32 +18,26 @@ if($password == NULL){
     // $stmt->debugDumpParams();
 }
 
-        // var_dump($result);
-        // $result=true;
         if($result==false){
             $stmt = null; //delete the statement
             echo "stmt failed";
-            header("location: ../../editCompte.php?error=stmtFailed");
+            header("location: ../../confirmation.php?error=stmtFailed");
             exit();
         }
         $stmt = null;
 
         $pseudo = $_SESSION["username"];
         $stmt = $this->connect()->prepare('SELECT * FROM utilisator WHERE pseudo = ? ');
-            $resultat = $stmt->execute(array($pseudo));
-            
-            $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->execute(array($pseudo));
+        $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
-            $_SESSION["userid"] = $user[0]["id_user"];
-            $_SESSION["username"] = $user[0]["pseudo"];
-            $_SESSION["image"] = $user[0]["avatar"];
-            $_SESSION["biog"] = $user[0]["bio"];
-            $_SESSION["email"] = $user[0]["email"];
-
-            // var_dump($user);
-
-            $stmt = null;
+        $_SESSION["userid"] = $user[0]["id_user"];
+        $_SESSION["username"] = $user[0]["pseudo"];
+        $_SESSION["image"] = $user[0]["avatar"];
+        $_SESSION["biog"] = $user[0]["bio"];
+        $_SESSION["email"] = $user[0]["email"];
+        
+        $stmt = null;
     }
 
 }

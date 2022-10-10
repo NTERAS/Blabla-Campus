@@ -2,22 +2,15 @@
 session_start();
 
 if(isset($_GET["action"]) && $_GET["action"]=="newTrajet" ){
+    
+    $req = array();
+    $value = array();
+    
+    // grabbing values--------------------------------------------------------
+    
     $b = $_SESSION["userid"];
     $try = $_SESSION["rc_search"];
     $see = $_SESSION["route_id_owner".$try];
-    echo "<br>";
-    echo $try." <- echo rc";
-    echo "<br>";
-
-    echo "<br>";
-    echo $see." <- echo id owner";
-    echo "<br>";
-    $req = array();
-    $value = array();
-
-    // echo "echo after isset <br>";
-
- // grabbing values--------------------------------------------------------
 
  if (!empty($_GET['location'])) {
     array_push($req, 'AND ""?"" IN(depart, depart1, depart2) ');
@@ -46,14 +39,6 @@ array_push($req, 'AND id_utilsateur NOT IN (""?"")');
 array_push($value, $b);
 array_push($req, 'AND guest NOT IN (""?"")');
 array_push($value, '0');
-    print_r($req);
-    print_r($value);
-    
-    echo "<br>";
-    echo $original_location."<br>";
-    echo $original_arrival."<br>";
-    echo $original_date."<br>";
-
 
    //instantiate class------------------------------------------------------------------------------
     include "../classes/dbh.class.php";

@@ -5,9 +5,7 @@ include_once 'headerSimple.php';
 session_start();
 if(isset($_SESSION["username"])){
 
-}else{
-    header("location: index.php");
-}
+}else{ header("location: index.php"); }
 ?>
 
 <body>
@@ -195,15 +193,6 @@ if(isset($_SESSION["username"])){
 
             </main>
         </div>
-
-
-
-
-
-
-
-
-
 
         <!-- <script src="assets/js/geoapify2.js"></script> -->
         <script src="assets/js/app.js"></script>

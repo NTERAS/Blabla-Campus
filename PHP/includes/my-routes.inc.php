@@ -9,8 +9,7 @@ if(isset($_SESSION["username"])){
     }else{
         $myid = $_SESSION["userid"];
     }
-    
-    echo "your id is: $myid <br>";
+
     //instantiate class-----------------------------------------------------------------------------
     include "../classes/dbh.class.php";
     include "../classes/my-routes.class.php";

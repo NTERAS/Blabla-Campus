@@ -32,7 +32,7 @@ class MailContrl extends Mail{
         $msg = $this->bodymsg();
         
         // $continue = $this->checkMail($this->id_receiver,$this->id_sender,$msg,$this->name_sender,$this->name_receiver);
-        // echo "<br>".$continue."<br>";
+
             $this->setMail($this->id_receiver,$this->id_sender,$msg,$this->name_sender,$this->name_receiver,$this->depart,$this->arriver,$this->msg_type,$this->id_trajet);
         
     }
@@ -40,7 +40,6 @@ class MailContrl extends Mail{
 // FUNCTIONS OF CLASS -------------------------------------------------------------------------------------------------------------------
     private function bodymsg(){
         $result = "réservation pour le trajet ".$this->depart." ".$this->arriver." du ".$this->day." ".$this->month." ".$this->year;
-        echo $result;
         return $result;
     }
 

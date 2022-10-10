@@ -1,13 +1,9 @@
 <?php
 session_start();
 
-
-
  // grabbing values--------------------------------------------------------
 
  $id = $_GET["id"];
-    echo $id."<br>";
-
 
    //instantiate class------------------------------------------------------------------------------
     include "../classes/dbh.class.php";

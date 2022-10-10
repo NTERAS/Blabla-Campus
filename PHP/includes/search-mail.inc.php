@@ -2,12 +2,9 @@
 session_start();
 if(isset($_SESSION["username"])){
     $a = $_SESSION["username"];
-    
-    //echo '<img src="data:image;base64,' . $c . '" />';
 
     // grabbing values
     $user_id = $_SESSION["userid"];
-    echo "hello ".$a." your id is: $user_id <br>";
 
     //instantiate signup class
     include "../classes/dbh.class.php";

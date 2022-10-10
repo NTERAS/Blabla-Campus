@@ -9,7 +9,6 @@ class MailUpContrl extends Mail{
     }
     public function mailUpdate(){
         
-        
         $this->updateMessage($this->tr);
     }
 
