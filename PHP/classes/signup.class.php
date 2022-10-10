@@ -11,7 +11,6 @@ class Signup extends Dbh {
         $date = "2022-01-01";
         $fumeur = "non";
         $token = bin2hex(openssl_random_pseudo_bytes(24));
-        // $image = NULL;
         $result = $stmt->execute(array($name,$pseudo,$hashedPwd, $email, $biographie,$image,$answer,$date,$fumeur,$token));
         // $stmt->debugDumpParams();
         // var_dump($result);

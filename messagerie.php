@@ -70,7 +70,7 @@ include_once 'header.php';
             echo '<div class="mx-4">
             <figure class="is-flex my-5 is-flex-direction-column w90 profil">
             <div class="is-flex">
-                <img class="is-rounded ppTrajet" src="data:image;base64,' . $img_sender . '" alt="Image d`une personne">
+                <img class="is-rounded ppTrajet pp" src="data:image;base64,' . $img_sender . '" alt="Image d`une personne">
                 <div class="text px-2">
                     <h2 class="epilogue"><strong class="redColor">'.$name_sender.'</strong></h2>
                     <p class="subtitle epilogue"><i><strong class="redColor">'.$msg_type.'</strong> '.$full_message.'</i></p>

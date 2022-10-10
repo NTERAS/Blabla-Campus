@@ -77,6 +77,8 @@
     z-index: -1;
 }
 
+
+
 /* **************** fonts ****************** */
 
 @font-face {
@@ -110,6 +112,10 @@
 
 .largeBtn {
     width: 305px !important;
+}
+
+.w0 {
+    width: 0 !important;
 }
 
 .w18 {
@@ -603,10 +609,16 @@ button.button:nth-child(2)>a:nth-child(1) {
 }
 
 .preview {
-    border-radius: 50%;
+    /* border-radius: 50%;
     width: 100px;
     height: 100px;
-    object-fit: cover;
+    object-fit: cover; */
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    outline-style: groove;
+    outline-color: var(--rouge);
+    outline-width: thick;
 }
 
 
@@ -836,10 +848,11 @@ a.trajetCard:nth-child(5) {
     width: 66px;
     height: 66px;
     border-radius: 50%;
-    outline-style: groove;
+    outline-style: solid;
     outline-color: var(--rouge);
     outline-width: thick;
 }
+
 
 .text {
     margin-left: 14px;

@@ -37,8 +37,9 @@ include_once 'headerSimple.php';
           <!-- coordonnées -->
           <p class="bungee my-4 mx-3">modifier vos coordonnées</p>
 
-          <form action="PHP/includes/update-user.inc.php" class="loginForm is-flex is-flex-direction-column container"
-            method="post" enctype="multipart/form-data">
+          <form id="file-upload-form" action="PHP/includes/update-user.inc.php"
+            class="loginForm is-flex is-flex-direction-column container uploader" method="post"
+            enctype="multipart/form-data">
 
             <!-- form login -->
             <!-- <input type="text" name="name" id="name" class="input is-medium" placeholder="Nom"> -->
@@ -57,26 +58,51 @@ include_once 'headerSimple.php';
               value="s"><?php echo $bio; ?></textarea>
             <!-- upload avatar img -->
             <p class="bungee mt-5">modifier votre image de profil</p>
-            <div class="file is-boxed">
+            <!-- <div class="file is-boxed">
               <label class="file-label radiusForm mx-auto">
-                <input class="file-input" type="file" name="resume" accept="image/*" onchange="previewFile()">
-                <span class="file-cta">
-                  <span class="file-icon my-4">
-                    <!-- <?php echo "<img class=\"is-rounded\" src=\"data:image;base64,".$image." alt=\"Image dune personne\"/>"; ?> -->
-                    <?php echo '<img class="is-rounded" src="data:image;base64,' . $image . '" alt="Image dune personne"/>'; ?>
+                <input class="file-input" type="file" name="resume"
+                  accept="image/.jpg, image/jpeg, image/png, image/gif" onchange="previewFile()" dropHandler>
 
+                <span class="file-cta">
+                  <span class="py-1 my-3">
+                    <img class="is-rounded preview pp" src="data:image;base64,<?= $image ?>" alt="" />
                   </span>
                   <span class="file-label is-flex is-align-items-center">
                     <strong>Glisser-déposer ou parcourir un fichier</strong>
                     <p class="greyText">Taille recommandée : JPG, PNG, GIF</p>
-                    <p class="greyText">(150x150px, Max 10mb)</p>
+                    <p class="greyText">(150x150px, Max 1mb)</p>
+                    <span class="imgChild mx-auto dsn">
+                    </span>
                   </span>
                 </span>
               </label>
+            </div> -->
+            <div
+              class="file is-boxed greyBack radiusForm is-flex is-align-items-center is-justify-content-center mx-auto w60">
+              <input id="file-upload" class="w0" type="file" name="resume"
+                accept="image/.jpg, image/jpeg, image/png, image/gif" />
+              <label for="file-upload" id="file-drag"
+                class="is-flex is-align-items-center is-justify-content-center is-flex-direction-column py-3">
+                <img id="file-image" class="pp preview my-4 is-flex is-align-items-center is-justify-content-center"
+                  src="data:image;base64,<?= $image ?>" alt="" class="hidden">
+                <div id="start"
+                  class="is-flex is-align-items-center is-justify-content-center is-flex-direction-column">
+                  <i class="fa fa-download" aria-hidden="true"></i>
+                  <strong class="has-text-centered">Glisser-déposer ou parcourir un fichier</strong>
+                  <p class="greyText has-text-centered">Taille recommandée : JPG, PNG, GIF</p>
+                  <p class="greyText has-text-centered">(150x150px, Max 1mb)</p>
+                  <div id="notimage" class="hidden"></div>
+                  <span id="file-upload-btn" class="btn btn-primary"></span>
+                </div>
+                <div id="response" class="hidden">
+                  <div id="messages"></div>
+                  <progress class="progress dsn" id="file-progress" value="0">
+                    <span>0</span>%
+                  </progress>
+                </div>
+              </label>
             </div>
 
-            <span class="imgChild mx-auto">
-            </span>
             <div class="file-upload-info"></div>
 
             <div class="mx-auto">
@@ -90,6 +116,7 @@ include_once 'headerSimple.php';
         </div>
       </main>
       <script src="assets/js/app.js"></script>
+      <!-- <script src="assets/js/drag.js"></script> -->
 </body>
 
 </html>

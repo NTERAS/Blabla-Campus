@@ -109,7 +109,7 @@ $image2;
 
     $fileExt = explode('.',$fileName);
     $fileActualExt = strtolower(end($fileExt));
-    $allowed = array('jpg','png','gif');
+    $allowed = array('jpg','png','gif','jpeg');
 
     if (in_array($fileActualExt,$allowed )) {
         if ($fileError === 0) {

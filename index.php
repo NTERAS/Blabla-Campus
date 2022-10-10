@@ -15,7 +15,7 @@ if(isset($_SESSION["username"])){
 
             <div class="leftDesc">
                 <div id="fond" class="posab w100">
-                    <img src="assets/img/fond/road.svg" alt="Image d'une route">
+                    <img class="w100" src="assets/img/fond/road.svg" alt="Image d'une route">
                 </div>
                 <div>
                     <img class="logodivleft" src="assets/img/Logo/logoName.svg" alt="logo de blabla campus">
