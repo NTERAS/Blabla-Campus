@@ -118,13 +118,7 @@ include_once 'header.php';
                 $t1_search = $_SESSION["time_step1_search".$i];
                 $t2_search = $_SESSION["time_step2_search".$i];
                 $t_fin_search = $_SESSION["time_final_search".$i];
-                
-                // echo "<br>";
-                echo $route_id_owner;
-                echo $depart_search." depart <br>";
-                echo $depart1_search." depart1 <br>";
-                echo $depart2_search." depart2 <br>";
-
+        
                 // $time = $time_search;
                 $time_search = explode(':', $time_search);
                 $hours = $time_search[0];

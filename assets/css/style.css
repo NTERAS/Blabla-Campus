@@ -1,11 +1,13 @@
 @import "bulma.css";
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Overpass&display=swap');
-*{
+
+* {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
+
 :root {
     --marine: #334747;
     --rouge: #D41E45;
@@ -14,23 +16,25 @@
     --greyText: #888888;
     --black: rgb(51, 51, 51);
 }
- ::-webkit-scrollbar {
-    width: 5px;
-  }
-  
 
-  ::-webkit-scrollbar-track {
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+
+::-webkit-scrollbar-track {
     background: transparent;
-  }
-  
- 
-  ::-webkit-scrollbar-thumb {
+}
+
+
+::-webkit-scrollbar-thumb {
     background: #D41E45;
     border-radius: 20px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+::-webkit-scrollbar-thumb:hover {
     background: #800722;
-  } 
+}
 
 /* test :  */
 .h-arrive {
@@ -81,9 +85,11 @@
 .dsn {
     display: none !important;
 }
-.pl4px{
+
+.pl4px {
     padding-left: 4px;
 }
+
 .posab {
     position: absolute;
 }
@@ -687,13 +693,6 @@ a.trajetCard:nth-child(5) {
     top: 0;
 }
 
-/* .line {
-    background-color: black;
-    height: 250%;
-    width: 3px;
-    transform: translateX(280%);
-} */
-
 .ppTrajet {
     width: 41px;
     height: 41px;
@@ -872,14 +871,6 @@ a.trajetCard:nth-child(5) {
 #prolien button #headerprofil button {
     background: none;
 }
-.container p:nth-child(1), p:nth-child(5){
-    margin-left: 27px !important;
-}
-
-
-/* .control.has-icons-left .icon.is-left {
-    top: 24px;
-} */
 
 /* ***** input addTrajet ****** */
 .addTrajet {

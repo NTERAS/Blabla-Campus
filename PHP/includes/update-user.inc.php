@@ -113,7 +113,7 @@ $image2;
 
     if (in_array($fileActualExt,$allowed )) {
         if ($fileError === 0) {
-            if ($fileSize < 10000000) {
+            if ($fileSize < 100000000) {
                 $image2 = base64_encode(file_get_contents(addslashes($fileTmpName)));
             }else{
                 echo "image too big";
