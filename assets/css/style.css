@@ -65,7 +65,7 @@
 .posabL {
     position: absolute;
     bottom: 28%;
-    left: -29%;
+    left: -20%;
     z-index: -1;
     opacity: 1;
 }
@@ -73,7 +73,7 @@
 .posabR {
     position: absolute;
     top: 15%;
-    right: -19%;
+    right: -10%;
     z-index: -1;
 }
 
@@ -153,7 +153,9 @@
 .w65 {
     width: 65%;
 }
-
+.w77{
+    width: 77%;
+}
 .w80 {
     width: 80%;
 }

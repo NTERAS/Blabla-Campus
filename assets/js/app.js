@@ -35,60 +35,46 @@ Cancel();
 
 
 // voir la pp en prévisualisation
-function previewFile() {
-    const img = document.createElement("div");
-    img.innerHTML = `<img class="preview is-rounded" src=""></img>`
-    const imgChild = document.querySelector(".imgChild")
-    imgChild.appendChild(img)
-    if (imgChild.childElementCount > 1) {
-        imgChild.removeChild(imgChild.lastChild)
-    }
-    const preview = document.querySelector('.preview');
-    const file = document.querySelector('input[type=file]').files[0];
-    const reader = new FileReader();
-    const input = document.querySelector('input[type=file]');
-    const infoArea = document.querySelector('.file-upload-info');
-    const maxSize = 1500000;
+// function previewFile() {
+//     const img = document.createElement("div");
+//     img.innerHTML = `<img class="preview is-rounded previewImg" src=""></img>`
+//     const imgChild = document.querySelector(".imgChild")
+//     imgChild.appendChild(img)
+//     if (imgChild.childElementCount > 1) {
+//         imgChild.removeChild(imgChild.lastChild)
+//     }
+//     // if (previewImg.src == "") {
+//     //     imgChild.removeChild(imgChild.firstChild)
+//     // }
+//     const preview = document.querySelector('.preview');
+//     const file = document.querySelector('input[type=file]').files[0];
+//     const reader = new FileReader();
+//     const input = document.querySelector('input[type=file]');
+//     const infoArea = document.querySelector('.file-upload-info');
+//     const maxSize = 1000000;
+//     const maxWidth = "150px";
+//     const maxHeight = "150px";
 
-    reader.addEventListener("load", function () {
-        // verify if the file is an image or not
-        if (file.type.match('image.*')) {
-            preview.src = reader.result;
-        } else {
-            imgChild.removeChild(imgChild.firstChild)
-            infoArea.classList.add("greyText")
-            infoArea.textContent = "Le fichier n'est pas une image";
-            setTimeout(() => {
-                infoArea.textContent = "";
-            }, 1500)
-        }
-    }, false);
-    if (file) {
-        reader.readAsDataURL(file);
-    }
-    if (file.size > maxSize) {
-        infoArea.classList.add("greyText")
-        infoArea.textContent = "Le fichier est trop volumineux";
-        setTimeout(() => {
-            infoArea.textContent = "";
-        }, 1500)
-        input.value = "";
-        imgChild.removeChild(imgChild.firstChild)
-    }
-}
-
-// const place1 = document.querySelector("#place")
-// let click = true;
-
-// function place() {
-//     place1.addEventListener("click", function () {
-//         if (click && place1.value == "") {
-//             place1.value = 1;
-//             click = false;
+//     reader.addEventListener("load", function () {
+//         // verify if the file is an image or not
+//         if (file.type.match('image.jpg') || file.type.match('image.jpeg') || file.type.match('image.png') || file.type.match('image.gif')) {
+//             if (file.size < maxSize) {
+//                 preview.src = reader.result;
+//             } else {
+//                 // imgChild.removeChild(imgChild.firstChild)
+//                 infoArea.classList.add("greyText")
+//                 infoArea.textContent = "Ce format où la taille n'est pas correct";
+//                 setTimeout(() => {
+//                     infoArea.textContent = "";
+//                 }, 1500)
+//             }
 //         }
-//     })
+//     }, false);
+//     if (file) {
+//         reader.readAsDataURL(file);
+//     }
 // }
-// place();
+
 
 let place1;
 let click = true;
@@ -126,19 +112,30 @@ function strength() {
         strength += 1;
     }
     if (strength == 1) {
-        p.style.backgroundColor = "red";
+        p.style.outlineColor = "red";
     } else if (strength == 2) {
-        p.style.backgroundColor = "orange";
+        p.style.outlineColor = "orange";
     } else if (strength == 3) {
-        p.style.backgroundColor = "yellow";
+        p.style.outlineColor = "yellow";
     } else if (strength == 4) {
-        p.style.backgroundColor = "green";
+        p.style.outlineColor = "green";
     } else if (strength == 5) {
-        p.style.backgroundColor = "blue";
+        p.style.outlineColor = "yellow";
     }
 }
 if (p != null) {
     p.addEventListener("keyup", () => {
         strength();
     })
+}
+
+
+
+// profil defautlt 
+let profil
+if (document.querySelector(".pp") != null) {
+    let profil = document.querySelector(".pp");
+    if (profil.src.length <= 18) {
+        profil.src = "http://localhost/blablacampus/assets/img/icones/People.svg"
+    }
 }
