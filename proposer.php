@@ -65,8 +65,9 @@ if(isset($_SESSION["username"])){
                             <p for="heure" class="greyText mb-2">A quelle heure partez vous ?</p>
                             <span class="icon is-small is-left mt-3">
                                 <i class="fa-regular fa-clock"></i></span>
-                            <input type="time" name="heure" id="heure" class="input is-medium" placeholder="Heure"
-                                value="" required="required">
+                            <input type="text" name="heure" id="heure" class="input is-medium"
+                                placeholder="Heure de départ" value="" required="required" onclick="(this.type='time')"
+                                id="heure" name="heure">
                         </div>
                         <!-- arrivée -->
                         <div class="control has-icons-left my-3 w100">
@@ -108,7 +109,10 @@ if(isset($_SESSION["username"])){
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </div>
-                            <input type="date" name="date" id="date" class="input is-medium" placeholder="Aujourd' hui">
+                            <!-- <input type="date" name="date" id="date" class="input is-medium" placeholder="Aujourd' hui"> -->
+                            <input placeholder="Date" class="input is-medium" type="text" onfocus="(this.type='date')"
+                                onclick="(this.type='date')" id="date" name="date" />
+
                         </div>
                         <!-- Type de trajet -->
                         <label for="type" class="greyText mt-3">Type de trajet : </label>
