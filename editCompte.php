@@ -116,7 +116,7 @@ include_once 'headerSimple.php';
         </div>
       </main>
       <script src="assets/js/app.js"></script>
-      <!-- <script src="assets/js/drag.js"></script> -->
+      <script src="assets/js/drag.js"></script>
 </body>
 
 </html>
