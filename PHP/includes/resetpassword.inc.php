@@ -16,4 +16,4 @@
     $new->changePassword();
 
     //back to page--------------------------------------------------------------------------------------
-    // header("location: ../../reserver.php?error=none");
+    header("location: ../../reserver.php?error=none");

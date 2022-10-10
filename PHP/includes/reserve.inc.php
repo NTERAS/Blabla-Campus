@@ -5,8 +5,6 @@ session_start();
     $idt = $_GET["idt"];
     $idowner = $_GET["idowner"];
     $_SESSION["idowner"] = $idowner;
-    echo $idt."<br>";
-    echo $idowner."<br>";
 
     //instantiate class-----------------------------------------------------------------------------
     include "../classes/dbh.class.php";

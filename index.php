@@ -15,7 +15,7 @@ if(isset($_SESSION["username"])){
 
             <div class="leftDesc">
                 <div id="fond" class="posab w100">
-                    <img class="w100" src="assets/img/fond/road.svg" alt="Image d'une route">
+                    <img src="assets/img/fond/road.svg" alt="Image d'une route" class="w100">
                 </div>
                 <div>
                     <img class="logodivleft" src="assets/img/Logo/logoName.svg" alt="logo de blabla campus">
@@ -87,7 +87,7 @@ if(isset($_SESSION["username"])){
             logoReplace.style.width = "77%";
             logoReplace.src = "assets/img/logo/logoAnim.svg";
             setTimeout(function () {
-                window.location.href = "http://localhost/blablacampus/inscription.php";
+                window.location.href = "inscription.php";
             }, 2500);
         });
     </script>

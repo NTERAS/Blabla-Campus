@@ -5,10 +5,7 @@ if(isset($_SESSION["username"])){
     $a = $_SESSION["username"];
     $b = $_SESSION["userid"];
     }
-    else{
-    
-        header('Location: confirmation.php?action=NotloggedIn');
-    }
+    else{ header('Location: confirmation.php?action=NotloggedIn'); }
 $title = "rechercher Blabla Campus";
 include_once "headerSimple.php";
 

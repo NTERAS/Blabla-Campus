@@ -16,11 +16,6 @@ class SearchRoutesContrl extends Routes{
         $this->original_date = $original_date;
     }
     public function theirRoutes(){
-        // echo "inside control, inside their-routes->";
-        // echo $this->original_location;
-        // echo $this->original_arrival;
-        // echo $this->original_date;
-        // echo "<-inside control, inside their-routes";
         $this->showRoutes($this->req,$this->value,$this->original_location,$this->original_arrival,$this->original_date);
     }
 

@@ -3,14 +3,11 @@ $title = "messagerie - Blabla Campus";
 include_once 'header.php';
 session_start();
 if(isset($_SESSION["username"]) && isset($_SESSION["rc"])){
-    
     $rc = $_SESSION["rc"]; 
-
-    }
-    else{
+  }
+  else{
     header("location: index.php");
-    }
-    
+  }
 ?>
 
 <body>
@@ -43,7 +40,6 @@ if(isset($_SESSION["username"]) && isset($_SESSION["rc"])){
                     $arr = $_SESSION["arriver".$i];
                     $rou = $_SESSION["routetype".$i];
                     $idt = $_SESSION["id_trajet".$i];
-                    // echo $idt."<br>";
 
                     $cal = explode('-', $cal);
                     $year = $cal[0];
@@ -94,16 +90,12 @@ if(isset($_SESSION["username"]) && isset($_SESSION["rc"])){
                       echo '</div>
                        
                       </div>';
-                
                 }
                 ?>
         </div>
       </main>
 
-
-
-
-      <script src="assets/js/app.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 
 </html>

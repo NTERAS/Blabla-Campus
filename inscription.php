@@ -97,6 +97,7 @@ if(isset($_GET['error'])){
             <div class="file-upload-info"></div>
 
             <div class="mx-auto">
+
               <button class="button redBtn mt-5" name="action" value="register">
                 <p>Creer mon compte</p>
               </button>

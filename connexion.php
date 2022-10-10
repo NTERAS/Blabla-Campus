@@ -1,22 +1,13 @@
 <?php
 session_start();
-// $test1 = $_SESSION["username"];
-// $test2 = $_SESSION["userid"];
+
 if(isset($_SESSION["username"])){
     $a = $_SESSION["username"];
-
     header("location: rechercher.php?connected");
-    // echo $test2;
-    }
-    else{
-    
-    // echo "NOT logged in, $test2";
-    }
-    $title = "connexion";
+}else{}
+$title = "connexion";
 include_once "headerSimple.php";
 ?>
-
-
 
 <body>
     <section id="containerbox" class="w100 minh100 is-flex is-justify-content is-align-items-center">
