@@ -58,50 +58,6 @@ include_once 'headerSimple.php';
               value="s"><?php echo $bio; ?></textarea>
             <!-- upload avatar img -->
             <p class="bungee mt-5">modifier votre image de profil</p>
-            <!-- <div class="file is-boxed">
-              <label class="file-label radiusForm mx-auto">
-                <input class="file-input" type="file" name="resume"
-                  accept="image/.jpg, image/jpeg, image/png, image/gif" onchange="previewFile()" dropHandler>
-
-                <span class="file-cta">
-                  <span class="py-1 my-3">
-                    <img class="is-rounded preview pp" src="data:image;base64,<?= $image ?>" alt="" />
-                  </span>
-                  <span class="file-label is-flex is-align-items-center">
-                    <strong>Glisser-déposer ou parcourir un fichier</strong>
-                    <p class="greyText">Taille recommandée : JPG, PNG, GIF</p>
-                    <p class="greyText">(150x150px, Max 1mb)</p>
-                    <span class="imgChild mx-auto dsn">
-                    </span>
-                  </span>
-                </span>
-              </label>
-            </div> -->
-            <!-- <div
-              class="file is-boxed greyBack radiusForm is-flex is-align-items-center is-justify-content-center mx-auto w60 drop-zone">
-              <input id="file-upload" class="drop-zone_input" type="file" name="resume"
-                accept="image/.jpg, image/jpeg, image/png, image/gif" />
-              <label for="file-upload" id="file-drag"
-                class="is-flex is-align-items-center is-justify-content-center is-flex-direction-column py-3">
-              </label>
-              <img id="file-image" class="pp preview my-4 is-flex is-align-items-center is-justify-content-center"
-                src="data:image;base64,<?= $image ?>" alt="" class="hidden">
-              <div id="start"
-                class="drop-zone_prompt is-flex is-align-items-center is-justify-content-center is-flex-direction-column">
-                <i class="fa fa-download" aria-hidden="true"></i>
-                <strong class="has-text-centered">Glisser-déposer ou parcourir un fichier</strong>
-                <p class="greyText has-text-centered">Taille recommandée : JPG, PNG, GIF</p>
-                <p class="greyText has-text-centered">(150x150px, Max 1mb)</p>
-                <div id="notimage" class="hidden"></div>
-                <span id="file-upload-btn" class="btn btn-primary"></span>
-              </div>
-              <div id="response" class="hidden">
-                <div id="messages"></div>
-                <progress class="progress dsn" id="file-progress" value="0">
-                  <span>0</span>%
-                </progress>
-              </div>
-            </div> -->
             <div class="is-flex is-justify-content-center align-items-center">
               <div class="drop-zone file is-boxed greyBack w77 is-flex is-flex-direction-column">
                 <span class="greyText info"></span>

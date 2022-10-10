@@ -76,7 +76,7 @@ if(isset($_GET['error'])){
             <textarea name="biographie" id="biographie" cols="15" rows="4" class="textarea is-medium"
               placeholder="Entrez votre bio ici" required></textarea>
             <!-- upload avatar img -->
-            <p class="bungee mt-5 textLeft">Télécharger une image de profil</p>
+            <!-- <p class="bungee mt-5 textLeft">Télécharger une image de profil</p>
             <div class="file is-boxed mx-auto w95">
               <label class="file-label radiusForm mx-auto">
                 <input class="file-input" type="file" name="resume" accept="image/png, image/gif, image/jpeg ,image/jpg"
@@ -94,7 +94,25 @@ if(isset($_GET['error'])){
               </label>
             </div>
             <span class="imgChild mx-auto"></span>
-            <div class="file-upload-info"></div>
+            <div class="file-upload-info"></div> -->
+            <p class="bungee mt-5">Télécharger une image de profil</p>
+            <div class="is-flex is-justify-content-center align-items-center">
+              <div class="drop-zone file is-boxed greyBack w77 is-flex is-flex-direction-column">
+                <span class="greyText info"></span>
+                <span class="file-label is-flex is-align-items-center drop-zone__prompt">
+                  <span class="file-icon my-4">
+                    <img src="assets/img/icones/picture.svg" alt="">
+                  </span>
+                  <strong>Glisser-déposer ou parcourir un fichier</strong>
+                  <p class="greyText">Taille recommandée : JPG, PNG, GIF</p>
+                  <p class="greyText">(150x150px, Max 1mb)</p>
+                  <span class="imgChild mx-auto dsn">
+                  </span>
+                </span>
+                <input type="file" name="resume" class="drop-zone__input"
+                  accept="image/png, image/gif, image/jpeg ,image/jpg">
+              </div>
+            </div>
 
             <div class="mx-auto">
 
@@ -107,6 +125,7 @@ if(isset($_GET['error'])){
         </div>
       </main>
       <script src="assets/js/app.js"></script>
+      <script src="assets/js/drag2.js"></script>
 </body>
 
 </html>
