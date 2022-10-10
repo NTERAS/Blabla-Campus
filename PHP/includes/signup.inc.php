@@ -36,7 +36,7 @@ if(isset($_POST["action"])){
 
     if (in_array($fileActualExt,$allowed )) {
         if ($fileError === 0) {
-            if ($fileSize < 100000000) {
+            if ($fileSize < 10000000) {
                 $image = base64_encode(file_get_contents(addslashes($fileTmpName)));
             }
         }
@@ -57,4 +57,3 @@ if(isset($_POST["action"])){
     header("Location: ../../confirmation.php?action=accountCreation");
     
 }
-

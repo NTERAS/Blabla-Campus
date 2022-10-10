@@ -25,7 +25,7 @@ if(isset($_SESSION["username"])){
                         <p>Trouver <span class="redColor">facilement</span> un covoiturage pour se rendre en <span
                                 class="redColor">formation</span></p>
                     </div>
-                    <div id="textpara" class="w65">
+                    <div id="textpara" class="w65 overpass">
                         <p>Tu es nouveau dans la formation et tu cherches quelqu'un faisant le même chemin que toi pour
                             venir en
                             formation.</p>
@@ -50,18 +50,19 @@ if(isset($_SESSION["username"])){
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
             <div class="mainSection">
                 <div id="positionpos">
-                    <img class="posab" src="assets/img/autres/pos1.svg" alt="Logo d'une position">
-                    <img class="posab" src="assets/img/autres/pos2.svg" alt="Logo d'une position">
+                    <img class="posabVl" src="assets/img/autres/pos1.svg" alt="">
+                    <img class="posabVr" src="assets/img/autres/pos2.svg" alt="">
                 </div>
                 <div class="boxvritine w45 is-flex-direction-column is-justify-content-center is-align-items-center">
-                    <img src="assets/img/logo/logoName.svg" alt="Logo du site">
-                    <img id="picpaysage" src="assets/img/autres/paysage.svg" alt="Paysage">
+                    <img class="logoAnim" src="assets/img/logo/logoName.svg" alt="Logo du site">
+                    <img id="picpaysage" src="assets/img/autres/paysage3.svg" alt="Paysage">
                     <form action="" class="is-flex is-flex-direction-column">
-                        <a href="inscription.php" class="button workSans redBtn thebegin btnworksansred mb-5"><img
-                                class="pr-5" src="assets/img/icones/car.svg" alt="image d'une voiture">
+                        <a class="button workSans redBtn thebegin btnworksansred mb-5 connect"><img class="pr-5"
+                                src="assets/img/icones/car.svg" alt="image d'une voiture">
                             <p>COMMENCER</p>
                         </a>
-                        <a href="connexion.php" class="workSans btnworksanswhite redText">SE CONNECTER</a></button>
+                        <a href="connexion.php" class="workSans btnworksanswhite redText ">SE
+                            CONNECTER</a></button>
                     </form>
                 </div>
                 <div id="blocphone" class="pt-5 is-justify-content-center is-align-items-center">
@@ -76,6 +77,20 @@ if(isset($_SESSION["username"])){
 
     </section>
     <script src="assets/js/app.js"></script>
+    <script>
+        const logoReplace = document.querySelector('.logoAnim');
+        let connect = document.querySelector(".connect");
+        connect.addEventListener("click", function () {
+            logoReplace.classList.add("opac");
+            logoReplace.style.marginLeft = "49px";
+            logoReplace.style.marginBottom = "-9px";
+            logoReplace.style.width = "77%";
+            logoReplace.src = "assets/img/logo/logoAnim.svg";
+            setTimeout(function () {
+                window.location.href = "http://localhost/blablacampus/inscription.php";
+            }, 2500);
+        });
+    </script>
 </body>
 
 </html>

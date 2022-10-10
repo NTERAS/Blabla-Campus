@@ -377,11 +377,11 @@ html {
   box-sizing: inherit;
 }
 
-img,
+/* img,
 video {
   height: auto;
   max-width: 100%;
-}
+} */
 
 iframe {
   border: 0;
@@ -468,10 +468,10 @@ hr {
   margin: 1.5rem 0;
 }
 
-img {
+/* img {
   height: auto;
   max-width: 100%;
-}
+} */
 
 input[type="checkbox"],
 input[type="radio"] {

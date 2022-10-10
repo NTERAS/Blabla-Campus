@@ -61,10 +61,11 @@ include_once 'header.php';
 
         <div id="divright"
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
-
+            <img class="posabL" src="assets/img/autres/pos1.svg" alt="">
+            <img class="posabR" src="assets/img/autres/pos2.svg" alt="">
             <!-- <main class="dekstop box"> -->
-                
-                <main class="dekstop">
+
+            <main class="dekstop">
                 <header id="headerprofil"
                     class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
                     <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
@@ -74,32 +75,35 @@ include_once 'header.php';
                 </header>
                 <div class="container my-5">
                     <!-- coordonnées -->
-                    <p class="bungee my-4 mx-3">Trajets disponibles</p>
+                    <p class="bungee my-4 pb-5 mx-3">Trajets disponibles</p>
 
-        <!-- grey area date/trajet/arrow -->
-        <div class="greyBack is-flex is-justify-content-space-between is-align-items-center w90 mx-auto greyArea p-5">
-            <div class="date_D_M">
-                <p class="bungee redColor"><?php echo $day; ?></p>
-                <p class="bungee"><?php echo $month; ?></p>
-            </div>
-            <div class="trajet w60">
-                <p class="bungee greyText epilogue"><?php echo $o_loc; ?></p>
-                <p class="bungee greyText epilogue"><?php echo $o_arr; ?></p>
-            </div>
-            <div class="arrow redColor">
-                <img src="assets/img/icones/arrow.svg" alt="flèche">
-            </div>
-        </div>
-        <!-- nombre de trajets disponibles -->
-        <p class="epilogue greyText my-1 mx-3 p-3"> <span class="redColor"><?php echo $rc; ?> </span>trajets
-            disponible(s)</p>
-        <div class="is-flex w90 mx-auto mb-5">
-            <img src="assets/img/icones/horloge.svg" alt="horloge">
-            <p class="epilogue greyText my-1 px-3">Les trajets sont triés chronologiquement par heure de départ.</p>
-        </div>
+                    <!-- grey area date/trajet/arrow -->
+                    <div
+                        class="greyBack is-flex is-justify-content-space-between is-align-items-center w90 mx-auto greyArea p-5">
+                        <div class="date_D_M">
+                            <p class="bungee redColor"><?php echo $day; ?></p>
+                            <p class="bungee"><?php echo $month; ?></p>
+                        </div>
+                        <div class="trajet w60">
+                            <p class="bungee greyText epilogue"><?php echo $o_loc; ?></p>
+                            <p class="bungee greyText epilogue"><?php echo $o_arr; ?></p>
+                        </div>
+                        <div class="arrow redColor">
+                            <img src="assets/img/icones/arrow.svg" alt="flèche">
+                        </div>
+                    </div>
+                    <!-- nombre de trajets disponibles -->
+                    <p class="epilogue greyText mx-3 p-3"> <span class="redColor"><?php echo $rc; ?>
+                        </span>trajets
+                        disponible(s)</p>
+                    <div class="is-flex w90 mx-auto mb-5">
+                        <img src="assets/img/icones/horloge.svg" alt="horloge">
+                        <p class="epilogue greyText my-1 px-3">Les trajets sont triés chronologiquement par heure de
+                            départ.</p>
+                    </div>
 
-        <!-- cards Trajet -->
-        <?php
+                    <!-- cards Trajet -->
+                    <?php
 
             for ($i=0; $i < $rc; $i++) {
                 $cal_search = $_SESSION["cal_search".$i];
@@ -118,7 +122,8 @@ include_once 'header.php';
                 $t1_search = $_SESSION["time_step1_search".$i];
                 $t2_search = $_SESSION["time_step2_search".$i];
                 $t_fin_search = $_SESSION["time_final_search".$i];
-        
+                
+            
                 // $time = $time_search;
                 $time_search = explode(':', $time_search);
                 $hours = $time_search[0];
@@ -138,13 +143,13 @@ include_once 'header.php';
                 $min3 = $t_fin_search[1];
 
                 echo '<a href="PHP/includes/reserve.inc.php?idt='.$route_id.'&idowner='.$route_id_owner.'"><div class=" card w90 mx-auto">
-                <div class="workSansUppercase greyText has-text-right pr-4 pt-5">
+                <div class="workSansUppercase greyText has-text-right pr-4 pt-5 trajetDispo">
                     <p>
                         Place disponible : <strong class="redColor">'.$place_search.' </strong>
                     </p>
                 </div>
                 <div classe="trajet w30">
-                    <div class="firstLine is-flex w60 pl-5">
+                    <div class="firstLine is-flex  pl-5">
                         <p class="h_depart redColor epilogue mb-5"><strong class="redColor">'.$hours.'H'.$min.'</strong>
                         </p>
                         <div>
@@ -155,7 +160,7 @@ include_once 'header.php';
                     
                     <div class="etapeAdd">';
                     if($depart1_search!=NULL){
-                        echo '<div class="etape1 is-flex w60 pl-5">
+                        echo '<div class="etape1 is-flex  pl-5">
                         <div class="h_depart redColor epilogue mb-5"><strong>'.$hours1.'H'.$min1.'</strong>
                         </div>
                         <div>
@@ -165,7 +170,7 @@ include_once 'header.php';
                     </div>';
                     }
                        if($depart2_search!=NULL){
-                        echo '<div class="etape2 is-flex w60 pl-5">
+                        echo '<div class="etape2 is-flex  pl-5">
                         <div class="h_depart redColor epilogue mb-5"><strong>'.$hours2.'H'.$min2.'</strong></div>
                         <div>
                             <div class="circle1"></div>
@@ -176,7 +181,7 @@ include_once 'header.php';
                         
                         echo '</div>
                     
-                        <div class="secondLine is-flex w60 pl-5">
+                        <div class="secondLine is-flex  pl-5">
                             <div class="h_arrivee epilogue redColor"><strong>'.$hours3.'H'.$min3.'</strong></div>
                             <div class="">
                                 <div class="circle"></div>
@@ -200,17 +205,17 @@ include_once 'header.php';
       
 
     } ?>
-        
-        
-    
 
 
 
 
 
 
-    </div>
 
-    </body>
 
-    </html>
+
+                </div>
+
+</body>
+
+</html>

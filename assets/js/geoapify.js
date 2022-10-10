@@ -12,7 +12,7 @@ let info = document.getElementById("info");
 const firstAutoC = document.querySelector(".firstAutoC");
 
 inputElement2.addEventListener("click", function () {
-    info.textContent = "🛑Veuillez entrer une adresse complète🛑 ";
+    info.textContent = "🛑adresse complète nécessaire🛑 ";
     info.classList.add("redColor");
 })
 

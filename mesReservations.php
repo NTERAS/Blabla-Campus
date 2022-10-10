@@ -23,9 +23,10 @@ if(isset($_SESSION["reserve_rc"])){
 
         <div id="divright"
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
-
+            <img class="posabL" src="assets/img/autres/pos1.svg" alt="">
+            <img class="posabR" src="assets/img/autres/pos2.svg" alt="">
             <!-- <main class="dekstop box"> -->
-                <main class="mainh100 dekstop">
+            <main class="mainh100 dekstop">
                 <header id="headerprofil"
                     class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
                     <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
@@ -33,11 +34,11 @@ if(isset($_SESSION["reserve_rc"])){
                     <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
                             alt="Icon d'une personne"></a>
                 </header>
-                    <div
-                        class="container my-5 is-flex is-justify-content-center is-flex-direction-column is-align-items-center ">
-                        <p class="bungee my-4 mx-5 w90">Mes réservations</p>
-                        <!-- grey area date/trajet/arrow -->
-                        <?php
+                <div
+                    class="container my-5 is-flex is-justify-content-center is-flex-direction-column is-align-items-center ">
+                    <p class="bungee my-4 mx-5 w90">Mes réservations</p>
+                    <!-- grey area date/trajet/arrow -->
+                    <?php
     $res_rc =$_SESSION["reserve_rc"];
     for ($i=0; $i <$res_rc ; $i++) { 
         $res_cal = $_SESSION["reserve_calendar".$i];
@@ -102,9 +103,9 @@ if(isset($_SESSION["reserve_rc"])){
     }
 ?>
 
-    </div>
-</main>
-<script src="assets/js/app.js"></script>
+                </div>
+            </main>
+            <script src="assets/js/app.js"></script>
 </body>
 
 </html>
