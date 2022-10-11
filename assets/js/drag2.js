@@ -72,13 +72,4 @@ function updateThumbnail(dropZoneElement, file) {
         info.textContent = "Ce format n'est pas supporté";
 
     }
-    //     const reader = new FileReader();
-
-    //     reader.readAsDataURL(file);
-    //     reader.onload = () => {
-    //         thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
-    //     };
-    // } else {
-    //     thumbnailElement.style.backgroundImage = null;
-    // }
 }

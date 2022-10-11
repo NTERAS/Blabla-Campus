@@ -22,7 +22,7 @@ if(isset($_SESSION["username"])){
                 </div>
                 <div class="pb-6">
                     <div id="texttitle" class="merriweather w80">
-                        <p class="overpass">Trouver <span class="redColor">facilement</span> un covoiturage pour se rendre en <span
+                        <p>Trouver <span class="redColor">facilement</span> un covoiturage pour se rendre en <span
                                 class="redColor">formation</span></p>
                     </div>
                     <div id="textpara" class="w77 overpass">
@@ -30,9 +30,11 @@ if(isset($_SESSION["username"])){
                             chemin que toi pour
                             venir en
                             formation.</p>
-                        <p class="overpass" class="overpass">Pas de soucis <span class="redColor">blabla Campus</span> est là pour toi.
+                        <p class="overpass" class="overpass">Pas de soucis <span class="redColor">blabla Campus</span>
+                            est là pour toi.
                         </p>
-                        <p class="overpass" class="overpass">Crée toi un compte ou connecte toi pour soit proposer un covoiturage, soit
+                        <p class="overpass" class="overpass">Crée toi un compte ou connecte toi pour soit proposer un
+                            covoiturage, soit
                             pour voir toutes
                             les
                             offres disponibles des trajets.</p>
