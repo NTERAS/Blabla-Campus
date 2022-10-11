@@ -25,6 +25,7 @@
         </div>
     </div>
     <div id="textmention" class="posab">
-        <a class="overpass redColor" href="#">Mentions Légales</a>
+        <a class="overpass redColor" href="legale.php">Mentions Légales</a>
     </div>
 </div>
+<!-- javascript:history.back() -->

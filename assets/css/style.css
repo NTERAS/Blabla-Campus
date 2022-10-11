@@ -190,7 +190,9 @@
 .w45 {
     width: 45%;
 }
-
+.w50{
+    width: 50%;
+}
 .w55 {
     width: 55%;
 }
@@ -981,7 +983,7 @@ a.trajetCard:nth-child(5) {
     height: 70px;
 }
 
-/* **** pas la bonne idée bulma */
+/*** pas la bonne idée bulma */
 .select:not(.is-multiple):not(.is-loading)::after {
     border-color: #333333;
     left: 95%;
@@ -996,8 +998,33 @@ a.trajetCard:nth-child(5) {
     height: 86vh;
     width: 90%;
 }
-
-
+/* Mentions légale */
+#legalemen a{
+    color: #D41E45;
+}
+.legalebox{
+  color: #000000;
+  border: 5px solid #D41E45;
+  border-radius: 20px;
+  padding: 20px;
+}
+.legalmen strong{
+    color: #f00;
+}
+#legalemen h2{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.posabp1{
+    position: absolute;
+    bottom: 28%;
+    left: 10%;
+}
+.posabp2{
+    position: absolute;
+    top: 15%;
+    right: 7.5%;
+}
 /*********** VITRINE : section de gauche responsive ***********/
 @media screen and (max-width: 1200px) {
     #divleft {
