@@ -12,6 +12,9 @@ if(isset($_GET["action"]) && !empty($_GET["location"]) && !empty($_GET["heure"])
     $final_hour = $_GET["h-arrive"];
     $step_hour1 = $_GET["h-mid1"];
     $step_hour2 = $_GET["h-mid2"];
+    $gps1 = $_GET["gpsCo1"];
+    $gps2 = $_GET["gpsCo2"];
+    $gps3 = $_GET["gpsCo3"];
 
     if(empty($_GET["locationAdd"])){ $etapes1=null; }
     else{ $etapes1 = $_GET["locationAdd"]; }
@@ -25,7 +28,7 @@ if(isset($_GET["action"]) && !empty($_GET["location"]) && !empty($_GET["heure"])
     include "../classes/dbh.class.php";
     include "../classes/create-route.class.php";
     include "../classes/create-routecontrl.class.php";
-    $newroute = new CreateRouteContrl($location,$heure,$arrivee,$date,$place,$lesEtapes,$road,$etapes1,$etapes2,$final_hour,$step_hour1,$step_hour2);
+    $newroute = new CreateRouteContrl($location,$heure,$arrivee,$date,$place,$lesEtapes,$road,$etapes1,$etapes2,$final_hour,$step_hour1,$step_hour2,$gps1,$gps2,$gps3);
     
     // error handlers and sign up------------------------------------------
     $newroute->newRoute();
