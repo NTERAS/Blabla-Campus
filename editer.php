@@ -52,38 +52,42 @@ if(isset($_GET['id'])){
                     <!-- coordonnées -->
                     <p class="bungee my-4 mx-3">editer un trajet</p>
 
-        <form action="PHP/includes/edittraj.inc.php?" class="loginForm is-flex is-flex-direction-column container"
-            method="GET" enctype="multipart/form-data" autocomplete="off">
-            <!-- hidden champ id -->
-            <input type="hidden" value="<?= $idt;?>" name="id">
-            <!-- depart -->
-            <div class="control has-icons-left enAvant firstAutoC">
-                <label for="depart" class="greyText">
-                    <p id="info">D'où partez vous ?</p>
-                </label>
-                <span class="icon is-small is-left mt-3">
-                    <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M14.657 14.6567L10.414 18.8997C10.2284 19.0854 10.0081 19.2328 9.76556 19.3333C9.52303 19.4339 9.26305 19.4856 9.0005 19.4856C8.73796 19.4856 8.47798 19.4339 8.23544 19.3333C7.99291 19.2328 7.77256 19.0854 7.587 18.8997L3.343 14.6567C2.22422 13.5379 1.46234 12.1124 1.15369 10.5606C0.845043 9.00873 1.00349 7.40022 1.60901 5.93844C2.21452 4.47665 3.2399 3.22725 4.55548 2.34821C5.87107 1.46918 7.41777 1 9 1C10.5822 1 12.1289 1.46918 13.4445 2.34821C14.7601 3.22725 15.7855 4.47665 16.391 5.93844C16.9965 7.40022 17.155 9.00873 16.8463 10.5606C16.5377 12.1124 15.7758 13.5379 14.657 14.6567V14.6567Z"
-                            stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M12 8.99969C12 9.79534 11.6839 10.5584 11.1213 11.121C10.5587 11.6836 9.79565 11.9997 9 11.9997C8.20435 11.9997 7.44129 11.6836 6.87868 11.121C6.31607 10.5584 6 9.79534 6 8.99969C6 8.20405 6.31607 7.44098 6.87868 6.87837C7.44129 6.31576 8.20435 5.99969 9 5.99969C9.79565 5.99969 10.5587 6.31576 11.1213 6.87837C11.6839 7.44098 12 8.20405 12 8.99969V8.99969Z"
-                            stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg></span>
-                <div class="autocomplete-container w100" id="autocomplete-container">
-                    <input type="text" placeholder="etapes" id="location" name="location" class="input my-3 py-5"
-                        value="<?= $depart; ?>">
-                </div>
-                <!-- <input type="text" name="depart" id="depart" class="input is-medium" placeholder="Départ"> -->
-            </div>
-            <!-- heure -->
-            <div class="control has-icons-left">
-                <p for="heure" class="greyText mb-3">À quelle heure partez vous ?</p>
-                <span class="icon is-small is-left mt-3">
-                    <i class="fa-regular fa-clock"></i></span>
-                <input type="time" name="heure" id="heure" class="input is-medium" placeholder="Heure"
-                    value="<?= $hour; echo ":".$min ?>">
-            </div>
+                    <form action="PHP/includes/edittraj.inc.php?"
+                        class="loginForm is-flex is-flex-direction-column container" method="GET"
+                        enctype="multipart/form-data" autocomplete="off">
+                        <!-- hidden champ id -->
+                        <input type="hidden" value="<?= $idt;?>" name="id">
+                        <!-- depart -->
+                        <div class="control has-icons-left enAvant firstAutoC">
+                            <label for="depart" class="greyText">
+                                <p id="info">D'où partez vous ?</p>
+                            </label>
+                            <span class="icon is-small is-left mt-3">
+                                <svg width="18" height="21" viewBox="0 0 18 21" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14.657 14.6567L10.414 18.8997C10.2284 19.0854 10.0081 19.2328 9.76556 19.3333C9.52303 19.4339 9.26305 19.4856 9.0005 19.4856C8.73796 19.4856 8.47798 19.4339 8.23544 19.3333C7.99291 19.2328 7.77256 19.0854 7.587 18.8997L3.343 14.6567C2.22422 13.5379 1.46234 12.1124 1.15369 10.5606C0.845043 9.00873 1.00349 7.40022 1.60901 5.93844C2.21452 4.47665 3.2399 3.22725 4.55548 2.34821C5.87107 1.46918 7.41777 1 9 1C10.5822 1 12.1289 1.46918 13.4445 2.34821C14.7601 3.22725 15.7855 4.47665 16.391 5.93844C16.9965 7.40022 17.155 9.00873 16.8463 10.5606C16.5377 12.1124 15.7758 13.5379 14.657 14.6567V14.6567Z"
+                                        stroke="#333333" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M12 8.99969C12 9.79534 11.6839 10.5584 11.1213 11.121C10.5587 11.6836 9.79565 11.9997 9 11.9997C8.20435 11.9997 7.44129 11.6836 6.87868 11.121C6.31607 10.5584 6 9.79534 6 8.99969C6 8.20405 6.31607 7.44098 6.87868 6.87837C7.44129 6.31576 8.20435 5.99969 9 5.99969C9.79565 5.99969 10.5587 6.31576 11.1213 6.87837C11.6839 7.44098 12 8.20405 12 8.99969V8.99969Z"
+                                        stroke="#333333" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></span>
+                            <div class="autocomplete-container w100" id="autocomplete-container">
+                                <input type="text" placeholder="etapes" id="location" name="location"
+                                    class="input my-3 py-5" value="<?= $depart; ?>">
+                            </div>
+                            <!-- <input type="text" name="depart" id="depart" class="input is-medium" placeholder="Départ"> -->
+                        </div>
+                        <!-- heure -->
+                        <div class="control has-icons-left">
+                            <p for="heure" class="greyText mb-3">À quelle heure partez vous ?</p>
+                            <span class="icon is-small is-left mt-3">
+                                <i class="fa-regular fa-clock"></i></span>
+                            <input type="time" name="heure" id="heure" class="input is-medium" placeholder="Heure"
+                                value="<?= $hour; echo ":".$min ?>">
+                        </div>
 
                         <!-- arrivée -->
                         <div class="control has-icons-left my-3">
@@ -213,7 +217,7 @@ if(isset($_GET['id'])){
                         </div>
                     </form>
                 </div>
-                <input id="h-arrive" type="time" value="<?= $hours; ?>" name="h-arrive" class="h-arrive ">
+                <input id="h-arrive" type="time" value="<?= $hour; echo ":".$min ?>" name="h-arrive" class="h-arrive ">
                 <input id="h-mid1" type="time" value="" name="h-mid1" class="">
                 <input id="h-mid2" type="time" value="" name="h-mid2" class="">
                 <!-- arbois -->
