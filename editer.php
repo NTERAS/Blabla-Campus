@@ -12,6 +12,13 @@ if(isset($_GET['id'])){
     $calendar = $_SESSION["trajet_calendar"];
     $type = $_SESSION["trajet_routetype"];
     $guest = $_SESSION["trajet_guest"];
+
+    $hours = explode(':',$hours);
+    // print_r($hours);
+    $hour = $hours[0];
+    $min = $hours[1];
+    echo $hour;
+    echo $min;
     
 }else{
     header("location: index.php");
@@ -74,7 +81,7 @@ if(isset($_GET['id'])){
                 <span class="icon is-small is-left mt-3">
                     <i class="fa-regular fa-clock"></i></span>
                 <input type="time" name="heure" id="heure" class="input is-medium" placeholder="Heure"
-                    value="<?= $hours; ?>">
+                    value="<?= $hour; echo ":".$min ?>">
             </div>
 
             <!-- arrivée -->

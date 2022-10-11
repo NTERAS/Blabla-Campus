@@ -5,7 +5,7 @@ if(isset($_POST["submit"]) && $_POST["submit"]=="reserver"){
     
     $id_receiver = $_SESSION["idowner"];
     $try = $_SESSION["rc_search"];
-    $see = $_SESSION["route_id_owner".$try];
+    // $see = $_SESSION["route_id_owner".$try];
     $id_trajet = $_SESSION["trajet_id_k"];
     
     // grabbing values-------------------------------------------------------------------------------------
