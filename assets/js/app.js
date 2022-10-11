@@ -91,7 +91,6 @@ if (document.querySelector("#place") != null) {
 let p;
 if (document.querySelector("#password") != null) {
     p = document.querySelector("#password");
-    // verify the strength of the password
 }
 
 function strength() {
@@ -117,12 +116,13 @@ function strength() {
         p.style.outlineColor = "orange";
     } else if (strength == 3) {
         p.style.outlineColor = "yellow";
-    } else if (strength == 4) {
-        p.style.outlineColor = "green";
-    } else if (strength == 5) {
-        p.style.outlineColor = "yellow";
     }
 }
+// } else if (strength == 4) {
+//     p.style.outlineColor = "green";
+// } else if (strength == 5) {
+//     p.style.outlineColor = "yellow";
+// }
 if (p != null) {
     p.addEventListener("keyup", () => {
         strength();
@@ -134,8 +134,8 @@ if (p != null) {
 // profil defautlt 
 let profil
 if (document.querySelector(".pp") != null) {
-    let profil = document.querySelector(".pp");
-    if (profil.src.length <= 18) {
-        profil.src = "http://localhost/blablacampus/assets/img/icones/People.svg"
+    profil = document.querySelector(".pp");
+    if (profil.src.length <= 50) {
+        profil.src = "http://localhost/blablacampus/assets/img/logo/default.svg"
     }
 }

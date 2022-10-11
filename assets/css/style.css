@@ -735,6 +735,7 @@ a.trajetCard:nth-child(5) {
 
 .trajets {
     gap: 25px;
+    cursor: pointer;
 }
 
 

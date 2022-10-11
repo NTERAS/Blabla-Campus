@@ -100,7 +100,7 @@ if (document.querySelector("#place") != null) {
 var p;
 
 if (document.querySelector("#password") != null) {
-  p = document.querySelector("#password"); // verify the strength of the password
+  p = document.querySelector("#password");
 }
 
 function strength() {
@@ -132,12 +132,13 @@ function strength() {
     p.style.outlineColor = "orange";
   } else if (strength == 3) {
     p.style.outlineColor = "yellow";
-  } else if (strength == 4) {
-    p.style.outlineColor = "green";
-  } else if (strength == 5) {
-    p.style.outlineColor = "yellow";
   }
-}
+} // } else if (strength == 4) {
+//     p.style.outlineColor = "green";
+// } else if (strength == 5) {
+//     p.style.outlineColor = "yellow";
+// }
+
 
 if (p != null) {
   p.addEventListener("keyup", function () {
@@ -149,9 +150,9 @@ if (p != null) {
 var profil;
 
 if (document.querySelector(".pp") != null) {
-  var _profil = document.querySelector(".pp");
+  profil = document.querySelector(".pp");
 
-  if (_profil.src.length <= 18) {
-    _profil.src = "http://localhost/blablacampus/assets/img/icones/People.svg";
+  if (profil.src.length <= 50) {
+    profil.src = "http://localhost/blablacampus/assets/img/logo/default.svg";
   }
 }
