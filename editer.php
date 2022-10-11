@@ -182,24 +182,25 @@ if(isset($_GET['id'])){
                                         stroke-linejoin="round" />
                                 </svg></span>
 
-                            <div class="is-flex">
+                            <div class="is-flex is-flex-direction-column">
                                 <div id="autocomplete-container1" class="w100">
                                     <input type="text" placeholder="etape" name="locationAdd" id="locationAdd"
                                         value="<?= $depart1; ?>" class="input my-3 py-5 isEmpty">
                                 </div>
 
-                                <div id="autocomplete-container2" class="w100">
+                                <div id="autocomplete-container13" class="w100">
                                     <input type="text" placeholder="etape" name="locationAdd2" id="locationAdd2"
                                         value="<?= $depart2; ?>" class="input my-3 py-5 isEmpty">
                                 </div>
 
                                 <!-- <button type="button" class="addTrajet addNbLocation">
-                        <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M17.5 0C12.876 0.0557868 8.45719 1.91744 5.18731 5.18731C1.91744 8.45719 0.0557868 12.876 0 17.5C0.0557868 22.124 1.91744 26.5428 5.18731 29.8127C8.45719 33.0826 12.876 34.9442 17.5 35C22.124 34.9442 26.5428 33.0826 29.8127 29.8127C33.0826 26.5428 34.9442 22.124 35 17.5C34.9442 12.876 33.0826 8.45719 29.8127 5.18731C26.5428 1.91744 22.124 0.0557868 17.5 0ZM27.5 18.75H18.75V27.5H16.25V18.75H7.5V16.25H16.25V7.5H18.75V16.25H27.5V18.75Z"
-                                fill="#D41E45" />
-                        </svg>
-                    </button> -->
+                                    <svg width="35" height="35" viewBox="0 0 35 35" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M17.5 0C12.876 0.0557868 8.45719 1.91744 5.18731 5.18731C1.91744 8.45719 0.0557868 12.876 0 17.5C0.0557868 22.124 1.91744 26.5428 5.18731 29.8127C8.45719 33.0826 12.876 34.9442 17.5 35C22.124 34.9442 26.5428 33.0826 29.8127 29.8127C33.0826 26.5428 34.9442 22.124 35 17.5C34.9442 12.876 33.0826 8.45719 29.8127 5.18731C26.5428 1.91744 22.124 0.0557868 17.5 0ZM27.5 18.75H18.75V27.5H16.25V18.75H7.5V16.25H16.25V7.5H18.75V16.25H27.5V18.75Z"
+                                            fill="#D41E45" />
+                                    </svg>
+                                </button> -->
                             </div>
                         </div>
                         <div class="mx-auto">
@@ -209,9 +210,19 @@ if(isset($_GET['id'])){
                         </div>
                     </form>
                 </div>
-                <input id="h-arrive" type="time" value="" name="h-arrive" class="h-arrive dsn">
-                <input id="h-mid1" type="time" value="" name="h-mid1" class="dsn">
-                <input id="h-mid2" type="time" value="" name="h-mid2" class="dsn">
+                <input id="h-arrive" type="time" value="<?= $hours; ?>" name="h-arrive" class="h-arrive ">
+                <input id="h-mid1" type="time" value="" name="h-mid1" class="">
+                <input id="h-mid2" type="time" value="" name="h-mid2" class="">
+                <!-- arbois -->
+                <input id="gpsCo1" type="text" value="46.9032246,5.7727504" name="gpsCo1" class="gpsCo1">
+                <!-- poligny -->
+                <input id="gpsCo2" type="text" value="46.8348884,5.7086756" name="gpsCo2" class="gpsCo2">
+                <!-- mantry -->
+                <input id="gpsCo3" type="text" value="46.797,5.5597" name="gpsCo3" class="gpsCo3">
+                <!-- lons -->
+                <div class="CoorLons">46.671361,5.550796</div>
+                <span class="addTrajet dsn"></span>
+
             </main>
 
             <script src="assets/js/geoapify.js"></script>

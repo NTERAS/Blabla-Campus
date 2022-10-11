@@ -45,62 +45,44 @@ var Cancel = function Cancel() {
 };
 
 Cancel(); // voir la pp en prévisualisation
-
-function previewFile() {
-  var img = document.createElement("div");
-  img.innerHTML = "<img class=\"preview is-rounded\" src=\"\"></img>";
-  var imgChild = document.querySelector(".imgChild");
-  imgChild.appendChild(img);
-
-  if (imgChild.childElementCount > 1) {
-    imgChild.removeChild(imgChild.lastChild);
-  }
-
-  var preview = document.querySelector('.preview');
-  var file = document.querySelector('input[type=file]').files[0];
-  var reader = new FileReader();
-  var input = document.querySelector('input[type=file]');
-  var infoArea = document.querySelector('.file-upload-info');
-  var maxSize = 1500000;
-  reader.addEventListener("load", function () {
-    // verify if the file is an image or not
-    if (file.type.match('image.*')) {
-      preview.src = reader.result;
-    } else {
-      imgChild.removeChild(imgChild.firstChild);
-      infoArea.classList.add("greyText");
-      infoArea.textContent = "Le fichier n'est pas une image";
-      setTimeout(function () {
-        infoArea.textContent = "";
-      }, 1500);
-    }
-  }, false);
-
-  if (file) {
-    reader.readAsDataURL(file);
-  }
-
-  if (file.size > maxSize) {
-    infoArea.classList.add("greyText");
-    infoArea.textContent = "Le fichier est trop volumineux";
-    setTimeout(function () {
-      infoArea.textContent = "";
-    }, 1500);
-    input.value = "";
-    imgChild.removeChild(imgChild.firstChild);
-  }
-} // const place1 = document.querySelector("#place")
-// let click = true;
-// function place() {
-//     place1.addEventListener("click", function () {
-//         if (click && place1.value == "") {
-//             place1.value = 1;
-//             click = false;
+// function previewFile() {
+//     const img = document.createElement("div");
+//     img.innerHTML = `<img class="preview is-rounded previewImg" src=""></img>`
+//     const imgChild = document.querySelector(".imgChild")
+//     imgChild.appendChild(img)
+//     if (imgChild.childElementCount > 1) {
+//         imgChild.removeChild(imgChild.lastChild)
+//     }
+//     // if (previewImg.src == "") {
+//     //     imgChild.removeChild(imgChild.firstChild)
+//     // }
+//     const preview = document.querySelector('.preview');
+//     const file = document.querySelector('input[type=file]').files[0];
+//     const reader = new FileReader();
+//     const input = document.querySelector('input[type=file]');
+//     const infoArea = document.querySelector('.file-upload-info');
+//     const maxSize = 1000000;
+//     const maxWidth = "150px";
+//     const maxHeight = "150px";
+//     reader.addEventListener("load", function () {
+//         // verify if the file is an image or not
+//         if (file.type.match('image.jpg') || file.type.match('image.jpeg') || file.type.match('image.png') || file.type.match('image.gif')) {
+//             if (file.size < maxSize) {
+//                 preview.src = reader.result;
+//             } else {
+//                 // imgChild.removeChild(imgChild.firstChild)
+//                 infoArea.classList.add("greyText")
+//                 infoArea.textContent = "Ce format où la taille n'est pas correct";
+//                 setTimeout(() => {
+//                     infoArea.textContent = "";
+//                 }, 1500)
+//             }
 //         }
-//     })
+//     }, false);
+//     if (file) {
+//         reader.readAsDataURL(file);
+//     }
 // }
-// place();
-
 
 var place1;
 var click = true;
@@ -145,15 +127,15 @@ function strength() {
   }
 
   if (strength == 1) {
-    p.style.backgroundColor = "red";
+    p.style.outlineColor = "red";
   } else if (strength == 2) {
-    p.style.backgroundColor = "orange";
+    p.style.outlineColor = "orange";
   } else if (strength == 3) {
-    p.style.backgroundColor = "yellow";
+    p.style.outlineColor = "yellow";
   } else if (strength == 4) {
-    p.style.backgroundColor = "green";
+    p.style.outlineColor = "green";
   } else if (strength == 5) {
-    p.style.backgroundColor = "blue";
+    p.style.outlineColor = "yellow";
   }
 }
 
@@ -161,4 +143,15 @@ if (p != null) {
   p.addEventListener("keyup", function () {
     strength();
   });
+} // profil defautlt 
+
+
+var profil;
+
+if (document.querySelector(".pp") != null) {
+  var _profil = document.querySelector(".pp");
+
+  if (_profil.src.length <= 18) {
+    _profil.src = "http://localhost/blablacampus/assets/img/icones/People.svg";
+  }
 }

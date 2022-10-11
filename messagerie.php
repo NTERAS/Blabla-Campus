@@ -50,9 +50,9 @@ include_once 'header.php';
             if($msg_type=="Demande"){
                 echo '<a href="validation.php?i='.$i.'&tr='.$id_trajet_msg.'">';
             }
-                echo '<div class="mx-4">
-                <figure class="is-flex my-5 is-flex-direction-column w90 profil">
-                <div class="is-flex">
+            echo '<div class="mx-4">
+            <figure class="is-flex my-5 is-flex-direction-column w90 profil">
+            <div class="is-flex">
                 <img class="is-rounded ppTrajet pp" src="data:image;base64,' . $img_sender . '" alt="Image d`une personne">
                 <div class="text px-2">
                     <h2 class="epilogue"><strong class="redColor">'.$name_sender.'</strong></h2>
@@ -69,8 +69,8 @@ include_once 'header.php';
         
         ?>
 
-    </div>
-</main>
+                    </div>
+                </main>
 </body>
 
 </html>

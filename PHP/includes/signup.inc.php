@@ -21,13 +21,13 @@ if(isset($_POST["action"])){
 
     $fileExt = explode('.',$fileName);
     $fileActualExt = strtolower(end($fileExt));
-    $allowed = array('jpg','png','gif');
+    $allowed = array('jpg','png','gif','jpeg');
 
     if (in_array($fileActualExt,$allowed )) {
         if ($fileError === 0) {
             if ($fileSize < 10000000) {
                 $image = base64_encode(file_get_contents(addslashes($fileTmpName)));
-            }
+            } 
         }
     }
     

@@ -1,6 +1,6 @@
 <div class="leftDesc">
     <div id="fond" class="posab w100">
-        <img src="assets/img/fond/road.svg" alt="Image d'une route"  class="w100">
+        <img src="assets/img/fond/road.svg" alt="Image d'une route" class="w100">
     </div>
     <div>
         <img class="logodivleft" src="assets/img/Logo/logoName.svg" alt="logo de blabla campus">
@@ -10,8 +10,8 @@
             <p>Trouver <span class="redColor">facilement</span> un covoiturage pour se rendre en <span
                     class="redColor">formation</span></p>
         </div>
-        <div id="textpara" class="w77">
-            <p class="overpass">Tu es nouveau dans la formation et tu cherches quelqu'un faisant le même chemin que toi pour
+        <div id="textpara" class="w77 overpass">
+            <p>Tu es nouveau dans la formation et tu cherches quelqu'un faisant le même chemin que toi pour
                 venir en
                 formation.</p>
             <p class="overpass">Pas de soucis <span class="redColor">blabla Campus</span> est là pour toi.</p>

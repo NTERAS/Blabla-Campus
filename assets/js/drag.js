@@ -99,6 +99,7 @@ function ekUpload() {
 
         var xhr = new XMLHttpRequest(),
             // fileInput = document.getElementById('class-roster-file'),
+
             fileSizeLimit = 1; // In MB
         if (xhr.upload) {
             // Check if file is less than x MB
@@ -116,13 +117,16 @@ function ekUpload() {
                         // document.location.reload(true);
                     }
                 };
+
                 // Start upload
                 // xhr.open('POST', document.getElementById('file-upload').action, true);
-                xhr.open('POST', document.getElementById('file-drag').action, true);
-                // xhr.setRequestHeader('image', file.name);
-                // xhr.setRequestHeader('image', file.size);
-                xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-                xhr.send(file);
+                // console.log(file);
+                // // xhr.open('POST', document.getElementById('file-drag').action, true);
+                // // // xhr.setRequestHeader('image', file.name);
+                // // // xhr.setRequestHeader('image', file.size);
+                // xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+                // xhr.send(file);
+
             } else {
                 output('Votre fichier est trop gros(< ' + fileSizeLimit + ' MB).');
             }
@@ -131,6 +135,7 @@ function ekUpload() {
 
     // Check for the various File API support.
     if (window.File && window.FileList && window.FileReader) {
+        console.log("File API supported");
         Init();
     } else {
         document.getElementById('file-drag').style.display = 'none';

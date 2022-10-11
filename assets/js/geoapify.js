@@ -4,10 +4,12 @@
   - callback to notify about address selection
 */
 const cache = document.getElementById("cache");
-const addTrajet = document.querySelector(".addTrajet");
+// const addTrajet = document.querySelector(".addTrajet");
 const addEtape = document.querySelector(".addEtape");
 let inputElement2 = document.getElementById("location");
 let inputElement = document.getElementById("locationAdd");
+let inputElement3 = document.getElementById("locationAdd2");
+let autocompleContainer13 = document.getElementById("autocomplete-container13");
 let info = document.getElementById("info");
 const firstAutoC = document.querySelector(".firstAutoC");
 
@@ -83,7 +85,9 @@ function addressAutocomplete(containerElement, callback) {
             if (document.querySelector("#autocomplete-container1").childElementCount == 2) {
                 firstAutoC.classList.remove("enAvant");
                 cache.classList.add("cacheCache");
-                addTrajet.disabled = true;
+                if (addTrajet != null) {
+                    addTrajet.disabled = true;
+                }
                 addEtape.classList.add("enAvant");
 
             }
@@ -194,7 +198,9 @@ function addressAutocomplete(containerElement, callback) {
 
             if (document.querySelector("#autocomplete-container1").childElementCount == 1) {
                 cache.classList.remove("cacheCache");
-                addTrajet.disabled = false;
+                if (addTrajet != null) {
+                    addTrajet.disabled = false;
+                }
             }
             closeDropDownList();
         } else if (!containerElement.querySelector(".autocomplete-items")) {
@@ -209,21 +215,21 @@ function addressAutocomplete(containerElement, callback) {
 
 function addressAutocomplete3(containerElement, callback) {
     // create input element
-    var inputElement = document.createElement("input");
-    inputElement.setAttribute("type", "text");
-    let nbLocation = 2;
-    const addNbLocation = document.querySelector(".addNbLocation");
-    inputElement.name = `locationAdd2`;
-    inputElement.id = `locationAdd2`;
-    inputElement.placeholder = "Etape";
-    addNbLocation.addEventListener("click", (e) => {
-        inputElement.name = `locationAdd${nbLocation}`;
-        inputElement.id = `locationAdd${nbLocation}`;
-        inputElement.dataset.id = `nbLocation${nbLocation}`;
-        return;
-    });
-    inputElement.classList.add("input", "my-3", "py-5", "isEmpty", "enAvant");
-    containerElement.appendChild(inputElement);
+    // var inputElement = document.createElement("input");
+    // inputElement.setAttribute("type", "text");
+    // let nbLocation = 2;
+    // const addNbLocation = document.querySelector(".addNbLocation");
+    // inputElement.name = `locationAdd2`;
+    // inputElement.id = `locationAdd2`;
+    // inputElement.placeholder = "Etape";
+    // addNbLocation.addEventListener("click", (e) => {
+    //     inputElement.name = `locationAdd${nbLocation}`;
+    //     inputElement.id = `locationAdd${nbLocation}`;
+    //     inputElement.dataset.id = `nbLocation${nbLocation}`;
+    //     return;
+    // });
+    // inputElement.classList.add("input", "my-3", "py-5", "isEmpty", "enAvant");
+    // containerElement.appendChild(inputElement);
 
 
 
@@ -237,7 +243,7 @@ function addressAutocomplete3(containerElement, callback) {
     var focusedItemIndex;
 
     /* Execute a function when someone writes in the text field: */
-    inputElement.addEventListener("input", function (e) {
+    inputElement3.addEventListener("input", function (e) {
         var currentValue = this.value;
 
         /* Close any already open dropdown list */
@@ -277,7 +283,9 @@ function addressAutocomplete3(containerElement, callback) {
             containerElement.appendChild(autocompleteItemsElement);
             if (document.querySelector("#autocomplete-container13").childElementCount == 2) {
                 cache.classList.add("cacheCache");
-                addTrajet.disabled = true;
+                if (addTrajet != null) {
+                    addTrajet.disabled = true;
+                }
             }
 
             /* For each item in the results */
@@ -289,7 +297,7 @@ function addressAutocomplete3(containerElement, callback) {
 
                 /* Set the value for the autocomplete text field and notify: */
                 itemElement.addEventListener("click", function (e) {
-                    inputElement.value = currentItems[index].properties.formatted;
+                    inputElement3.value = currentItems[index].properties.formatted;
 
                     callback(currentItems[index]);
 
@@ -307,7 +315,7 @@ function addressAutocomplete3(containerElement, callback) {
     });
 
     /* Add support for keyboard navigation */
-    inputElement.addEventListener("keydown", function (e) {
+    inputElement3.addEventListener("keydown", function (e) {
         var autocompleteItemsElement = containerElement.querySelector(".autocomplete-items");
         if (autocompleteItemsElement) {
             var itemElements = autocompleteItemsElement.getElementsByTagName("div");
@@ -336,7 +344,7 @@ function addressAutocomplete3(containerElement, callback) {
                 /* Open dropdown list again */
                 var event = document.createEvent('Event');
                 event.initEvent('input', true, true);
-                inputElement.dispatchEvent(event);
+                inputElement3.dispatchEvent(event);
             }
         }
     });
@@ -352,7 +360,7 @@ function addressAutocomplete3(containerElement, callback) {
         items[index].classList.add("autocomplete-active");
 
         // Change input value and notify
-        inputElement.value = currentItems[index].properties.formatted;
+        inputElement3.value = currentItems[index].properties.formatted;
         callback(currentItems[index]);
     }
 
@@ -380,7 +388,7 @@ function addressAutocomplete3(containerElement, callback) {
     /* Close the autocomplete dropdown when the document is clicked. 
       Skip, when a user clicks on the input field */
     document.querySelector("#autocomplete-container13").addEventListener("click", function (e) {
-        if (e.target !== inputElement) {
+        if (e.target !== inputElement3) {
 
             if (document.querySelector("#autocomplete-container13").childElementCount == 1) {
                 cache.classList.remove("cacheCache");
@@ -391,7 +399,7 @@ function addressAutocomplete3(containerElement, callback) {
             // open dropdown list again
             var event = document.createEvent('Event');
             event.initEvent('input', true, true);
-            inputElement.dispatchEvent(event);
+            inputElement3.dispatchEvent(event);
         }
     });
 
@@ -602,6 +610,9 @@ function addressAutocomplete2(containerElement, callback) {
 let gps1String = "";
 let gps2String = "";
 let gps3String = "";
+let gpsCo1 = document.querySelector(".gpsCo1");
+let gpsCo2 = document.querySelector(".gpsCo2");
+let gpsCo3 = document.querySelector(".gpsCo3");
 let gps1Data = 0;
 let gps2Data = 0;
 let gps3Data = 0;
@@ -631,6 +642,7 @@ addressAutocomplete(document.getElementById("autocomplete-container1"), (data) =
             let hours = hour.value.split(":")
             let hInSec1 = (+hours[0]) * 60 * 60 + (+hours[1]) * 60;
             hourEtape.value = secondsToHms(gps2Data + hInSec1);
+            gpsCo2.value = gps2String;
         })
     }
 });
@@ -657,6 +669,7 @@ addressAutocomplete2(document.getElementById("autocomplete-container"), (data) =
         const url = `https://api.geoapify.com/v1/routing?waypoints=${coordonneeTrajet2}|46.671361,5.550796&format=json&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7`
         fetch(url).then(res => res.json()).then(result => {
             gps1Data = Math.round(result.results[0].time);
+            gpsCo1.value = gps1;
         })
     }
 });
@@ -664,15 +677,16 @@ addressAutocomplete2(document.getElementById("autocomplete-container"), (data) =
 
 nbEtape = 1;
 nbEtapeMax = 2;
+
+let addTrajet = document.querySelector(".addTrajet");
 addTrajet.addEventListener("click", (e) => {
     const isEmpty = document.querySelectorAll(".isEmpty");
     if (nbEtape < nbEtapeMax && isEmpty[0].value != "") {
         nbEtape++
-        const div = document.createElement("div")
-        div.innerHTML = `<div id="autocomplete-container13">`
-        addEtape.appendChild(div)
+        autocompleContainer13.classList.remove("dsn");
+
         addressAutocomplete3(document.getElementById(`autocomplete-container13`), (data) => {
-            let inputElement3 = document.getElementById("locationAdd2");
+            // let inputElement3 = document.getElementById("locationAdd2");
             if (data.properties.housenumber != undefined && data.properties.street != undefined) {
                 inputElement3.value = data.properties.housenumber + " " + data.properties.street + " " + data.properties.city;
             }
@@ -683,7 +697,7 @@ addTrajet.addEventListener("click", (e) => {
                 inputElement3.value = data.properties.city;
             }
             let gps1 = data.geometry.coordinates[1].toString() + "," + data.geometry.coordinates[0].toString();
-            gps1String = gps1;
+            gps3String = gps1;
             coordonneeTrajet3 = gps1;
             if (coordonneeTrajet3 != "") {
                 const url = `https://api.geoapify.com/v1/routing?waypoints=${coordonneeTrajet}|${coordonneeTrajet3}&format=json&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7`
@@ -692,6 +706,7 @@ addTrajet.addEventListener("click", (e) => {
                     let hours = hourEtape.value.split(":")
                     let hInSec1 = (+hours[0]) * 60 * 60 + (+hours[1]) * 60;
                     hourEtapeSupp.value = secondsToHms(gps3Data + hInSec1);
+                    gpsCo3.value = gps1;
                 })
             }
         })
@@ -703,6 +718,7 @@ addTrajet.addEventListener("click", (e) => {
         addTrajet.disabled = true;
     }
 })
+
 
 function secondsToHms(d) {
     d = Number(d);
@@ -726,5 +742,12 @@ hour.addEventListener('change', (e) => {
     return arrive.value = secondsToHms(gps1Data + hInSec1);
 })
 
-// let inputElement2 = document.getElementById("location") :: 1er champs de geoloc
-// let inputElement = document.getElementById("locationAdd"); :: 2eme champs de geoloc
+let coorLons;
+if (coorLons != null) {
+    coorLons = document.querySelector(".coorLons").value;
+}
+
+
+// gpsCo1.value = gps1String;
+// gpsCo2.value = gps2String;
+// gpsCo3.value = gps3String;

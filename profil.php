@@ -37,10 +37,8 @@ include_once "header.php";
                         <span id="triangle"></span>
                         <figure id="profil"
                             class="w100 is-flex is-justify-content-flex-start is-align-items-center pl-1">
-                            <?php
-                echo '<img class="is-rounded" src="data:image;base64,' . $c . '" alt="Image dune personne"/>';
-                // <img class="is-rounded" src="assets/img/logo/Pauline.png" alt="Image d'une personne">
-                ?>
+
+                            <img class="is-rounded pp" src="data:image;base64,<?= $c ?>" alt="" />
                             <div class="text is-flex is-justify-content-flex-start is-flex-direction-column">
                                 <h2 class="redColor bungee"><?php echo $a; ?></h2>
                                 <p><?php echo $d; ?></p>
@@ -81,6 +79,10 @@ include_once "header.php";
                         </div>
                     </div>
                 </div>
+            </main>
+        </div>
+    </section>
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>
