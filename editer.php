@@ -182,18 +182,18 @@ if(isset($_GET['id'])){
                                         stroke-linejoin="round" />
                                 </svg></span>
 
-                            <div class="is-flex">
+                            <div class="is-flex is-flex-direction-column">
                                 <div id="autocomplete-container1" class="w100">
                                     <input type="text" placeholder="etape" name="locationAdd" id="locationAdd"
                                         value="<?= $depart1; ?>" class="input my-3 py-5 isEmpty">
                                 </div>
 
-                                <div id="autocomplete-container2" class="w100">
+                                <div id="autocomplete-container13" class="w100">
                                     <input type="text" placeholder="etape" name="locationAdd2" id="locationAdd2"
                                         value="<?= $depart2; ?>" class="input my-3 py-5 isEmpty">
                                 </div>
 
-                                <button type="button" class="addTrajet addNbLocation">
+                                <!-- <button type="button" class="addTrajet addNbLocation">
                                     <svg width="35" height="35" viewBox="0 0 35 35" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -210,9 +210,19 @@ if(isset($_GET['id'])){
                         </div>
                     </form>
                 </div>
-                <input id="h-arrive" type="time" value="" name="h-arrive" class="h-arrive ">
+                <input id="h-arrive" type="time" value="<?= $hours; ?>" name="h-arrive" class="h-arrive ">
                 <input id="h-mid1" type="time" value="" name="h-mid1" class="">
                 <input id="h-mid2" type="time" value="" name="h-mid2" class="">
+                <!-- arbois -->
+                <input id="gpsCo1" type="text" value="46.9032246,5.7727504" name="gpsCo1" class="gpsCo1">
+                <!-- poligny -->
+                <input id="gpsCo2" type="text" value="46.8348884,5.7086756" name="gpsCo2" class="gpsCo2">
+                <!-- mantry -->
+                <input id="gpsCo3" type="text" value="46.797,5.5597" name="gpsCo3" class="gpsCo3">
+                <!-- lons -->
+                <div class="CoorLons">46.671361,5.550796</div>
+                <span class="addTrajet dsn"></span>
+
             </main>
 
             <script src="assets/js/geoapify.js"></script>

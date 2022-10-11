@@ -11,6 +11,7 @@ var addEtape = document.querySelector(".addEtape");
 var inputElement2 = document.getElementById("location");
 var inputElement = document.getElementById("locationAdd");
 var inputElement3 = document.getElementById("locationAdd2");
+var autocompleContainer13 = document.getElementById("autocomplete-container13");
 var info = document.getElementById("info");
 var firstAutoC = document.querySelector(".firstAutoC");
 inputElement2.addEventListener("click", function () {
@@ -202,7 +203,10 @@ function addressAutocomplete(containerElement, callback) {
     if (e.target !== inputElement) {
       if (document.querySelector("#autocomplete-container1").childElementCount == 1) {
         cache.classList.remove("cacheCache");
-        addTrajet.disabled = false;
+
+        if (addTrajet != null) {
+          addTrajet.disabled = false;
+        }
       }
 
       closeDropDownList();
@@ -284,7 +288,10 @@ function addressAutocomplete3(containerElement, callback) {
 
       if (document.querySelector("#autocomplete-container13").childElementCount == 2) {
         cache.classList.add("cacheCache");
-        addTrajet.disabled = true;
+
+        if (addTrajet != null) {
+          addTrajet.disabled = true;
+        }
       }
       /* For each item in the results */
 
@@ -611,6 +618,9 @@ function addressAutocomplete2(containerElement, callback) {
 var gps1String = "";
 var gps2String = "";
 var gps3String = "";
+var gpsCo1 = document.querySelector(".gpsCo1");
+var gpsCo2 = document.querySelector(".gpsCo2");
+var gpsCo3 = document.querySelector(".gpsCo3");
 var gps1Data = 0;
 var gps2Data = 0;
 var gps3Data = 0;
@@ -645,6 +655,7 @@ addressAutocomplete(document.getElementById("autocomplete-container1"), function
       var hours = hour.value.split(":");
       var hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
       hourEtape.value = secondsToHms(gps2Data + hInSec1);
+      gpsCo2.value = gps2String;
     });
   }
 });
@@ -673,69 +684,61 @@ addressAutocomplete2(document.getElementById("autocomplete-container"), function
       return res.json();
     }).then(function (result) {
       gps1Data = Math.round(result.results[0].time);
+      gpsCo1.value = gps1;
     });
   }
 });
 nbEtape = 1;
 nbEtapeMax = 2;
-var addTrajet;
+var addTrajet = document.querySelector(".addTrajet");
+addTrajet.addEventListener("click", function (e) {
+  var isEmpty = document.querySelectorAll(".isEmpty");
 
-if (addTrajet != null) {
-  addTrajet = document.querySelector(".addTrajet");
-  addTrajet.addEventListener("click", function (e) {
-    var isEmpty = document.querySelectorAll(".isEmpty");
-
-    if (nbEtape < nbEtapeMax && isEmpty[0].value != "") {
-      nbEtape++;
-      var div = document.createElement("div");
-      div.innerHTML = "<div id=\"autocomplete-container13\">";
-      addEtape.appendChild(div);
-      addressAutocomplete3(document.getElementById("autocomplete-container13"), function (data) {
-        var inputElement3 = document.getElementById("locationAdd2");
-
-        if (data.properties.housenumber != undefined && data.properties.street != undefined) {
-          inputElement3.value = data.properties.housenumber + " " + data.properties.street + " " + data.properties.city;
-        }
-
-        if (data.properties.housenumber == undefined) {
-          inputElement3.value = data.properties.street + " " + data.properties.city;
-        }
-
-        if (data.properties.street == undefined && data.properties.housenumber == undefined) {
-          inputElement3.value = data.properties.city;
-        }
-
-        var gps1 = data.geometry.coordinates[1].toString() + "," + data.geometry.coordinates[0].toString();
-        gps1String = gps1;
-        coordonneeTrajet3 = gps1;
-
-        if (coordonneeTrajet3 != "") {
-          var url = "https://api.geoapify.com/v1/routing?waypoints=".concat(coordonneeTrajet, "|").concat(coordonneeTrajet3, "&format=json&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7");
-          fetch(url).then(function (res) {
-            return res.json();
-          }).then(function (result) {
-            gps3Data = Math.round(result.results[0].time);
-            var hours = hourEtape.value.split(":");
-            var hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
-            hourEtapeSupp.value = secondsToHms(gps3Data + hInSec1);
-          });
-        }
-      });
-    }
-
-    ;
-
-    if (nbEtape === nbEtapeMax) {
-      var p = document.createElement("p");
-      p.innerHTML = "<p class='greyText'>Vous avez atteint le nombre maximum d'étapes</p>";
-      addEtape.appendChild(p);
-
-      if (addTrajet != null) {
-        addTrajet.disabled = true;
+  if (nbEtape < nbEtapeMax && isEmpty[0].value != "") {
+    nbEtape++;
+    autocompleContainer13.classList.remove("dsn");
+    addressAutocomplete3(document.getElementById("autocomplete-container13"), function (data) {
+      // let inputElement3 = document.getElementById("locationAdd2");
+      if (data.properties.housenumber != undefined && data.properties.street != undefined) {
+        inputElement3.value = data.properties.housenumber + " " + data.properties.street + " " + data.properties.city;
       }
-    }
-  });
-}
+
+      if (data.properties.housenumber == undefined) {
+        inputElement3.value = data.properties.street + " " + data.properties.city;
+      }
+
+      if (data.properties.street == undefined && data.properties.housenumber == undefined) {
+        inputElement3.value = data.properties.city;
+      }
+
+      var gps1 = data.geometry.coordinates[1].toString() + "," + data.geometry.coordinates[0].toString();
+      gps3String = gps1;
+      coordonneeTrajet3 = gps1;
+
+      if (coordonneeTrajet3 != "") {
+        var url = "https://api.geoapify.com/v1/routing?waypoints=".concat(coordonneeTrajet, "|").concat(coordonneeTrajet3, "&format=json&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7");
+        fetch(url).then(function (res) {
+          return res.json();
+        }).then(function (result) {
+          gps3Data = Math.round(result.results[0].time);
+          var hours = hourEtape.value.split(":");
+          var hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
+          hourEtapeSupp.value = secondsToHms(gps3Data + hInSec1);
+          gpsCo3.value = gps1;
+        });
+      }
+    });
+  }
+
+  ;
+
+  if (nbEtape === nbEtapeMax) {
+    var p = document.createElement("p");
+    p.innerHTML = "<p class='greyText'>Vous avez atteint le nombre maximum d'étapes</p>";
+    addEtape.appendChild(p);
+    addTrajet.disabled = true;
+  }
+});
 
 function secondsToHms(d) {
   d = Number(d);
@@ -758,5 +761,11 @@ hour.addEventListener('change', function (e) {
   var hours = hour.value.split(":");
   var hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
   return arrive.value = secondsToHms(gps1Data + hInSec1);
-}); // let inputElement2 = document.getElementById("location") :: 1er champs de geoloc
-// let inputElement = document.getElementById("locationAdd"); :: 2eme champs de geoloc
+});
+var coorLons;
+
+if (coorLons != null) {
+  coorLons = document.querySelector(".coorLons").value;
+} // gpsCo1.value = gps1String;
+// gpsCo2.value = gps2String;
+// gpsCo3.value = gps3String;

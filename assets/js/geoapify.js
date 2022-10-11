@@ -9,6 +9,7 @@ const addEtape = document.querySelector(".addEtape");
 let inputElement2 = document.getElementById("location");
 let inputElement = document.getElementById("locationAdd");
 let inputElement3 = document.getElementById("locationAdd2");
+let autocompleContainer13 = document.getElementById("autocomplete-container13");
 let info = document.getElementById("info");
 const firstAutoC = document.querySelector(".firstAutoC");
 
@@ -197,7 +198,9 @@ function addressAutocomplete(containerElement, callback) {
 
             if (document.querySelector("#autocomplete-container1").childElementCount == 1) {
                 cache.classList.remove("cacheCache");
-                addTrajet.disabled = false;
+                if (addTrajet != null) {
+                    addTrajet.disabled = false;
+                }
             }
             closeDropDownList();
         } else if (!containerElement.querySelector(".autocomplete-items")) {
@@ -280,7 +283,9 @@ function addressAutocomplete3(containerElement, callback) {
             containerElement.appendChild(autocompleteItemsElement);
             if (document.querySelector("#autocomplete-container13").childElementCount == 2) {
                 cache.classList.add("cacheCache");
-                addTrajet.disabled = true;
+                if (addTrajet != null) {
+                    addTrajet.disabled = true;
+                }
             }
 
             /* For each item in the results */
@@ -605,6 +610,9 @@ function addressAutocomplete2(containerElement, callback) {
 let gps1String = "";
 let gps2String = "";
 let gps3String = "";
+let gpsCo1 = document.querySelector(".gpsCo1");
+let gpsCo2 = document.querySelector(".gpsCo2");
+let gpsCo3 = document.querySelector(".gpsCo3");
 let gps1Data = 0;
 let gps2Data = 0;
 let gps3Data = 0;
@@ -634,6 +642,7 @@ addressAutocomplete(document.getElementById("autocomplete-container1"), (data) =
             let hours = hour.value.split(":")
             let hInSec1 = (+hours[0]) * 60 * 60 + (+hours[1]) * 60;
             hourEtape.value = secondsToHms(gps2Data + hInSec1);
+            gpsCo2.value = gps2String;
         })
     }
 });
@@ -660,6 +669,7 @@ addressAutocomplete2(document.getElementById("autocomplete-container"), (data) =
         const url = `https://api.geoapify.com/v1/routing?waypoints=${coordonneeTrajet2}|46.671361,5.550796&format=json&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7`
         fetch(url).then(res => res.json()).then(result => {
             gps1Data = Math.round(result.results[0].time);
+            gpsCo1.value = gps1;
         })
     }
 });
@@ -667,51 +677,48 @@ addressAutocomplete2(document.getElementById("autocomplete-container"), (data) =
 
 nbEtape = 1;
 nbEtapeMax = 2;
-let addTrajet;
-if (addTrajet != null) {
-    addTrajet = document.querySelector(".addTrajet");
-    addTrajet.addEventListener("click", (e) => {
-        const isEmpty = document.querySelectorAll(".isEmpty");
-        if (nbEtape < nbEtapeMax && isEmpty[0].value != "") {
-            nbEtape++
-            const div = document.createElement("div")
-            div.innerHTML = `<div id="autocomplete-container13">`
-            addEtape.appendChild(div)
-            addressAutocomplete3(document.getElementById(`autocomplete-container13`), (data) => {
-                let inputElement3 = document.getElementById("locationAdd2");
-                if (data.properties.housenumber != undefined && data.properties.street != undefined) {
-                    inputElement3.value = data.properties.housenumber + " " + data.properties.street + " " + data.properties.city;
-                }
-                if (data.properties.housenumber == undefined) {
-                    inputElement3.value = data.properties.street + " " + data.properties.city;
-                }
-                if (data.properties.street == undefined && data.properties.housenumber == undefined) {
-                    inputElement3.value = data.properties.city;
-                }
-                let gps1 = data.geometry.coordinates[1].toString() + "," + data.geometry.coordinates[0].toString();
-                gps1String = gps1;
-                coordonneeTrajet3 = gps1;
-                if (coordonneeTrajet3 != "") {
-                    const url = `https://api.geoapify.com/v1/routing?waypoints=${coordonneeTrajet}|${coordonneeTrajet3}&format=json&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7`
-                    fetch(url).then(res => res.json()).then(result => {
-                        gps3Data = Math.round(result.results[0].time);
-                        let hours = hourEtape.value.split(":")
-                        let hInSec1 = (+hours[0]) * 60 * 60 + (+hours[1]) * 60;
-                        hourEtapeSupp.value = secondsToHms(gps3Data + hInSec1);
-                    })
-                }
-            })
-        };
-        if (nbEtape === nbEtapeMax) {
-            const p = document.createElement("p")
-            p.innerHTML = "<p class='greyText'>Vous avez atteint le nombre maximum d'étapes</p>"
-            addEtape.appendChild(p)
-            if (addTrajet != null) {
-                addTrajet.disabled = true;
+
+let addTrajet = document.querySelector(".addTrajet");
+addTrajet.addEventListener("click", (e) => {
+    const isEmpty = document.querySelectorAll(".isEmpty");
+    if (nbEtape < nbEtapeMax && isEmpty[0].value != "") {
+        nbEtape++
+        autocompleContainer13.classList.remove("dsn");
+
+        addressAutocomplete3(document.getElementById(`autocomplete-container13`), (data) => {
+            // let inputElement3 = document.getElementById("locationAdd2");
+            if (data.properties.housenumber != undefined && data.properties.street != undefined) {
+                inputElement3.value = data.properties.housenumber + " " + data.properties.street + " " + data.properties.city;
             }
-        }
-    })
-}
+            if (data.properties.housenumber == undefined) {
+                inputElement3.value = data.properties.street + " " + data.properties.city;
+            }
+            if (data.properties.street == undefined && data.properties.housenumber == undefined) {
+                inputElement3.value = data.properties.city;
+            }
+            let gps1 = data.geometry.coordinates[1].toString() + "," + data.geometry.coordinates[0].toString();
+            gps3String = gps1;
+            coordonneeTrajet3 = gps1;
+            if (coordonneeTrajet3 != "") {
+                const url = `https://api.geoapify.com/v1/routing?waypoints=${coordonneeTrajet}|${coordonneeTrajet3}&format=json&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7`
+                fetch(url).then(res => res.json()).then(result => {
+                    gps3Data = Math.round(result.results[0].time);
+                    let hours = hourEtape.value.split(":")
+                    let hInSec1 = (+hours[0]) * 60 * 60 + (+hours[1]) * 60;
+                    hourEtapeSupp.value = secondsToHms(gps3Data + hInSec1);
+                    gpsCo3.value = gps1;
+                })
+            }
+        })
+    };
+    if (nbEtape === nbEtapeMax) {
+        const p = document.createElement("p")
+        p.innerHTML = "<p class='greyText'>Vous avez atteint le nombre maximum d'étapes</p>"
+        addEtape.appendChild(p)
+        addTrajet.disabled = true;
+    }
+})
+
 
 function secondsToHms(d) {
     d = Number(d);
@@ -735,5 +742,12 @@ hour.addEventListener('change', (e) => {
     return arrive.value = secondsToHms(gps1Data + hInSec1);
 })
 
-// let inputElement2 = document.getElementById("location") :: 1er champs de geoloc
-// let inputElement = document.getElementById("locationAdd"); :: 2eme champs de geoloc
+let coorLons;
+if (coorLons != null) {
+    coorLons = document.querySelector(".coorLons").value;
+}
+
+
+// gpsCo1.value = gps1String;
+// gpsCo2.value = gps2String;
+// gpsCo3.value = gps3String;
