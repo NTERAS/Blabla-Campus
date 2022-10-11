@@ -1,6 +1,6 @@
 <?php
 session_start();
-$title = "Editer - trajets";
+$title = "Editer Trajets - Blabla Campus";
 include 'header.php';
 if(isset($_GET['id'])){
     $idt = $_GET['id'];
@@ -17,8 +17,8 @@ if(isset($_GET['id'])){
     // print_r($hours);
     $hour = $hours[0];
     $min = $hours[1];
-    echo $hour;
-    echo $min;
+    // echo $hour;
+    // echo $min;
     
 }else{
     header("location: index.php");

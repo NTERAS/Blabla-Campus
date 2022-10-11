@@ -5,7 +5,7 @@ if(isset($_SESSION["username"])){
     $a = $_SESSION["username"];
     header("location: rechercher.php?connected");
 }else{}
-$title = "connexion";
+$title = "Connexion - Blabla Campus";
 include_once "headerSimple.php";
 ?>
 

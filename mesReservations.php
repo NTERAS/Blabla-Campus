@@ -1,5 +1,5 @@
 <?php
-$title = 'Reservation - Blabla Campus';
+$title = 'Réservation - Blabla Campus';
 include_once 'header.php';
 
 session_start();

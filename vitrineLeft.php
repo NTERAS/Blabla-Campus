@@ -14,18 +14,17 @@
             <p>Tu es nouveau dans la formation et tu cherches quelqu'un faisant le même chemin que toi pour
                 venir en
                 formation.</p>
-            <p class="overpass">Pas de soucis <span class="redColor">blabla Campus</span> est là pour toi.</p>
+            <p class="overpass">Pas de soucis <span class="redColor">Blabla Campus</span> est là pour toi.</p>
             <p class="overpass">Crée toi un compte ou connecte toi pour soit proposer un covoiturage, soit pour voir toutes
                 les
                 offres disponibles des trajets.</p>
-            <p class="overpass"><span class="redColor">blabla Campus</span> est un service gratuit, il n'est en aucun cas
+            <p class="overpass"><span class="redColor">Blabla Campus</span> est un service gratuit, il n'est en aucun cas
                 question de mettre en place
                 une monétisation des trajets.</p>
             <p class="overpass">Bon voyage à toutes et à tous !</p>
         </div>
     </div>
     <div id="textmention" class="posab">
-        <a class="overpass redColor" href="#">Mentions Légales</a> - <a class="overpass redColor" href="#">Politique de
-            confidentialité</a>
+        <a class="overpass redColor" href="#">Mentions Légales</a>
     </div>
 </div>

@@ -7,7 +7,7 @@ if(isset($_SESSION["username"])){
 }
 else{ header('Location: index.php?error=NotLoggedInYet'); }
 
-$title = "profil Blalba Campus";
+$title = "Profil - Blabla Campus";
 include_once "header.php";
 ?>
 

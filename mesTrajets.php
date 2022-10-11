@@ -1,5 +1,5 @@
 <?php
-$title = "messagerie - Blabla Campus";
+$title = "Trajets - Blabla Campus";
 include_once 'header.php';
 session_start();
 if(isset($_SESSION["username"]) && isset($_SESSION["rc"])){

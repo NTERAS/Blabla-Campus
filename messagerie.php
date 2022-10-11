@@ -5,7 +5,7 @@ if(isset($_SESSION["mail-rc"])){
     $_SESSION["id_trajet_inc_msg0"];
 }else{ header("location: index.php"); }
 
-$title = "messagerie - Blabla Campus";
+$title = "Messagerie - Blabla Campus";
 include_once 'header.php';
 ?>
 

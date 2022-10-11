@@ -25,7 +25,7 @@ if(isset($_POST["action"])){
 
     if (in_array($fileActualExt,$allowed )) {
         if ($fileError === 0) {
-            if ($fileSize < 10000000) {
+            if ($fileSize < 1000000) {
                 $image = base64_encode(file_get_contents(addslashes($fileTmpName)));
             } 
         }

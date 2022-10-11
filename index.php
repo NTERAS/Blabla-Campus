@@ -22,7 +22,7 @@ if(isset($_SESSION["username"])){
                 </div>
                 <div class="pb-6">
                     <div id="texttitle" class="merriweather w80">
-                        <p class="overpass">Trouver <span class="redColor">facilement</span> un covoiturage pour se rendre en <span
+                        <p>Trouver <span class="redColor">facilement</span> un covoiturage pour se rendre en <span
                                 class="redColor">formation</span></p>
                     </div>
                     <div id="textpara" class="w77 overpass">
@@ -30,13 +30,13 @@ if(isset($_SESSION["username"])){
                             chemin que toi pour
                             venir en
                             formation.</p>
-                        <p class="overpass" class="overpass">Pas de soucis <span class="redColor">blabla Campus</span> est là pour toi.
+                        <p class="overpass" class="overpass">Pas de soucis <span class="redColor">Blabla Campus</span> est là pour toi.
                         </p>
                         <p class="overpass" class="overpass">Crée toi un compte ou connecte toi pour soit proposer un covoiturage, soit
                             pour voir toutes
                             les
                             offres disponibles des trajets.</p>
-                        <p class="overpass"><span class="redColor">blabla Campus</span> est un service gratuit, il n'est
+                        <p class="overpass"><span class="redColor">Blabla Campus</span> est un service gratuit, il n'est
                             en aucun cas
                             question de mettre en place
                             une monétisation des trajets.</p>
@@ -44,8 +44,7 @@ if(isset($_SESSION["username"])){
                     </div>
                 </div>
                 <div id="textmention" class="posab">
-                    <a class="overpass redColor" href="#">Mentions Légales</a> - <a class="overpass redColor"
-                        href="#">Politique de confidentialité</a>
+                    <a class="overpass redColor" href="#">Mentions Légales</a>
                 </div>
             </div>
         </div>

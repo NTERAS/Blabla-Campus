@@ -1,6 +1,6 @@
 <?php
 session_start();
-$title = 'Confirmation';
+$title = 'Confirmation - Blabla Campus';
 include 'headerSimple.php';
 
 if(isset($_GET['action'])){
