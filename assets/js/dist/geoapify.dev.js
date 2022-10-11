@@ -656,6 +656,7 @@ addressAutocomplete(document.getElementById("autocomplete-container1"), function
       var hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
       hourEtape.value = secondsToHms(gps2Data + hInSec1);
       gpsCo2.value = gps2String;
+      calculTemps();
     });
   }
 });
@@ -684,7 +685,11 @@ addressAutocomplete2(document.getElementById("autocomplete-container"), function
       return res.json();
     }).then(function (result) {
       gps1Data = Math.round(result.results[0].time);
+      hours = hour.value.split(":");
+      hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
+      arrive.value = secondsToHms(gps1Data + hInSec1);
       gpsCo1.value = gps1;
+      secondHour();
     });
   }
 });
@@ -730,10 +735,11 @@ addressAutocomplete3(document.getElementById("autocomplete-container13"), functi
       return res.json();
     }).then(function (result) {
       gps3Data = Math.round(result.results[0].time);
-      var hours = hourEtape.value.split(":");
-      var hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
+      hours = hourEtape.value.split(":");
+      hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
       hourEtapeSupp.value = secondsToHms(gps3Data + hInSec1);
       gpsCo3.value = gps1;
+      thirdHour();
     });
   }
 });
@@ -754,55 +760,75 @@ var hour = document.getElementById('heure');
 var arrive = document.getElementById('h-arrive');
 var hourEtape = document.getElementById('h-mid1');
 var hourEtapeSupp = document.getElementById('h-mid2');
-var hourInSeconde = 0;
+var hours = hour.value.split(":");
+var hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
+var hours2 = hourEtape.value.split(":");
+var hInSec2 = +hours2[0] * 60 * 60 + +hours2[1] * 60;
+var hours3 = hourEtapeSupp.value.split(":");
+var hInSec3 = +hours3[0] * 60 * 60 + +hours3[1] * 60;
+var hInSecTotal = hInSec1 + hInSec2 + hInSec3; // hour.addEventListener('change', (e) => {
+//     arrive.value = secondsToHms(gps1Data + hInSec1);
+//     calculTemps();
+// })
+
+function firstHour() {
+  arrive.value = secondsToHms(gps1Data + hInSec1);
+  calculTemps();
+}
+
+function secondHour() {
+  hourEtape.value = secondsToHms(gps2Data + hInSec1);
+  calculTemps();
+}
+
+function thirdHour() {
+  hourEtapeSupp.value = secondsToHms(gps3Data + hInSec2);
+  calculTemps();
+}
+
 hour.addEventListener('change', function (e) {
   var hours = hour.value.split(":");
   var hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
   return arrive.value = secondsToHms(gps1Data + hInSec1);
-}); // gpsCo1.value = gps1String;
-// gpsCo2.value = gps2String;
-// gpsCo3.value = gps3String;
-// https://api.geoapify.com/v1/routing?waypoints=46.9032246,5.7727504|46.8348884,5.7086756|46.797,5.5597|46.6727037,5.5589973&mode=drive&apiKey=YOUR_API_KEY
-
+});
 coordonneeTrajet2 = gpsCo2.value;
 coordonneeTrajet3 = gpsCo3.value;
 coordonneeTrajet = gpsCo1.value;
-coorLons = "46.671361,5.550796"; // const urlEtape = `https://api.geoapify.com/v1/routing?waypoints=${coordonneeTrajet}|${coordonneeTrajet2}|${coordonneeTrajet3}|${coorLons}&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7`
-// fetch(urlEtape).then(res => res.json()).then(result => {
-//     console.log(result.features[0].properties.legs)
-//     console.log(Math.round(result.features[0].properties.legs[0].time));
-//     console.log(Math.round(result.features[0].properties.legs[1].time));
-//     console.log(Math.round(result.features[0].properties.legs[2].time));
-// })
+coorLons = "46.671361,5.550796";
 
-if (coordonneeTrajet2 == "" && coordonneeTrajet3 == "") {
-  var url = "https://api.geoapify.com/v1/routing?waypoints=".concat(coordonneeTrajet, "|").concat(coorLons, "&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7");
-  fetch(url).then(function (res) {
-    return res.json();
-  }).then(function (result) {
-    console.log(result.features[0].properties.legs[0].time);
-  });
-}
+function calculTemps() {
+  if (coordonneeTrajet2 == "" && coordonneeTrajet3 == "") {
+    var url = "https://api.geoapify.com/v1/routing?waypoints=".concat(coordonneeTrajet, "|").concat(coorLons, "&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7");
+    fetch(url).then(function (res) {
+      return res.json();
+    }).then(function (result) {
+      console.log(result.features[0].properties.legs[0].time);
+      return;
+    });
+  }
 
-if (coordonneeTrajet3 == "") {
-  var _url = "https://api.geoapify.com/v1/routing?waypoints=".concat(coordonneeTrajet, "|").concat(coordonneeTrajet2, "|").concat(coorLons, "&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7");
+  if (coordonneeTrajet3 == "") {
+    var _url = "https://api.geoapify.com/v1/routing?waypoints=".concat(coordonneeTrajet, "|").concat(coordonneeTrajet2, "|").concat(coorLons, "&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7");
 
-  fetch(_url).then(function (res) {
-    return res.json();
-  }).then(function (result) {
-    console.log(result.features[0].properties.legs[0].time);
-    console.log(result.features[0].properties.legs[1].time);
-  });
-}
+    fetch(_url).then(function (res) {
+      return res.json();
+    }).then(function (result) {
+      console.log(result.features[0].properties.legs[0].time);
+      console.log(result.features[0].properties.legs[1].time);
+      return;
+    });
+  }
 
-if (coordonneeTrajet2 != "" && coordonneeTrajet3 != "") {
-  var urlEtape = "https://api.geoapify.com/v1/routing?waypoints=".concat(coordonneeTrajet, "|").concat(coordonneeTrajet2, "|").concat(coordonneeTrajet3, "|").concat(coorLons, "&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7");
-  fetch(urlEtape).then(function (res) {
-    return res.json();
-  }).then(function (result) {
-    console.log(result.features[0].properties.legs);
-    console.log(Math.round(result.features[0].properties.legs[0].time));
-    console.log(Math.round(result.features[0].properties.legs[1].time));
-    console.log(Math.round(result.features[0].properties.legs[2].time));
-  });
+  if (coordonneeTrajet2 != "" && coordonneeTrajet3 != "") {
+    var urlEtape = "https://api.geoapify.com/v1/routing?waypoints=".concat(coordonneeTrajet, "|").concat(coordonneeTrajet2, "|").concat(coordonneeTrajet3, "|").concat(coorLons, "&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7");
+    fetch(urlEtape).then(function (res) {
+      return res.json();
+    }).then(function (result) {
+      console.log(result.features[0].properties.legs);
+      console.log(Math.round(result.features[0].properties.legs[0].time) + hInSec1);
+      console.log(Math.round(result.features[0].properties.legs[1].time));
+      console.log(Math.round(result.features[0].properties.legs[2].time));
+      return;
+    });
+  }
 }

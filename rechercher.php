@@ -62,7 +62,7 @@ include_once "headerSimple.php";
 
                         </div>
                         <!-- arrivée -->
-                        <div class="control has-icons-left mb-3">
+                        <div class="control has-icons-left mb-5">
                             <div class="select w100">
                                 <label for="arrivee" class="greyText py-2">Pour allez où ?</label>
                                 <select name="arrivee" id="arrivee">

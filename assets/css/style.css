@@ -471,7 +471,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .people,
 .calendar {
-    height: 38% !important;
+    height: 39% !important;
 }
 
 /* input addEtape */
@@ -980,6 +980,15 @@ a.trajetCard:nth-child(5) {
     top: 40%;
     height: 70px;
 }
+
+.mouais {
+    transform: translateY(57%);
+}
+
+.selectH {
+    height: 110px;
+}
+
 
 /* **** pas la bonne idée bulma */
 .select:not(.is-multiple):not(.is-loading)::after {

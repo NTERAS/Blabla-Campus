@@ -13,6 +13,12 @@ class Edittarj extends Dbh{
         $sql->bindParam(':routehours',$routehours);
         $sql->bindParam(':routetype',$routetype);
         $sql->bindParam(':guest',$guest);
+        // $sql->bindParam(':gps1',$gps1);
+        // $sql->bindParam(':gps2',$gps2);
+        // $sql->bindParam(':gps3',$gps3);
+        // $sql->bindParam(':hours1',$hours1);
+        // $sql->bindParam(':hours2',$hours2);
+        // $sql->bindParam(':hours3',$hours3);
 
         $sqlend = $sql->execute();
 
