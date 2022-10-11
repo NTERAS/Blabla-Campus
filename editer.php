@@ -12,13 +12,18 @@ if(isset($_GET['id'])){
     $calendar = $_SESSION["trajet_calendar"];
     $type = $_SESSION["trajet_routetype"];
     $guest = $_SESSION["trajet_guest"];
+    $gps1 = $_SESSION["trajet_gps1"];
+    $gps2 = $_SESSION["trajet_gps2"];
+    $gps3 = $_SESSION["trajet_gps3"];
+    $hours1 = $_SESSION["trajet_step_hour_1"];
+    $hours2 = $_SESSION["trajet_step_hour_2"];
+    $hours3 = $_SESSION["trajet_final_hour"];
 
-    $hours = explode(':',$hours);
-    // print_r($hours);
-    $hour = $hours[0];
-    $min = $hours[1];
-    echo $hour;
-    echo $min;
+    $hours = explode(':',$hours); $hour = $hours[0]; $min = $hours[1];
+    $hours1 = explode(':',$hours1); $hour1 = $hours1[0]; $min1 = $hours1[1];
+    $hours2 = explode(':',$hours2); $hour2 = $hours2[0]; $min2 = $hours2[1];
+    $hours3 = explode(':',$hours3); $hour3 = $hours3[0]; $min3 = $hours3[1];
+    
     
 }else{
     header("location: index.php");
@@ -213,9 +218,9 @@ if(isset($_GET['id'])){
                         </div>
                     </form>
                 </div>
-                <input id="h-arrive" type="time" value="<?= $hours; ?>" name="h-arrive" class="h-arrive ">
-                <input id="h-mid1" type="time" value="" name="h-mid1" class="">
-                <input id="h-mid2" type="time" value="" name="h-mid2" class="">
+                <input id="h-arrive" type="time" value="<?= $hour.':'.$min; ?>" name="h-arrive" class="h-arrive ">
+                <input id="h-mid1" type="time" value="<?= $hour1.':'.$min1; ?>" name="h-mid1" class="">
+                <input id="h-mid2" type="time" value="<?= $hour2.':'.$min2; ?>" name="h-mid2" class="">
                 <!-- arbois -->
                 <input id="gpsCo1" type="text" value="46.9032246,5.7727504" name="gpsCo1" class="gpsCo1">
                 <!-- poligny -->
