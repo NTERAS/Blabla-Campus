@@ -13,8 +13,11 @@ class CreateRouteContrl extends CreateRoute{
     private $final_hour;
     private $step_hour1;
     private $step_hour2;
+    private $gps1;
+    private $gps2;
+    private $gps3;
 
-    public function __construct($location,$heure,$arrivee,$date,$place,$etapes,$road,$etapes1,$etapes2,$final_hour,$step_hour1,$step_hour2){
+    public function __construct($location,$heure,$arrivee,$date,$place,$etapes,$road,$etapes1,$etapes2,$final_hour,$step_hour1,$step_hour2,$gps1,$gps2,$gps3){
         $this->location = $location;
         $this->heure = $heure;
         $this->arrivee = $arrivee;
@@ -27,6 +30,9 @@ class CreateRouteContrl extends CreateRoute{
         $this->final_hour = $final_hour;
         $this->step_hour1 = $step_hour1;
         $this->step_hour2 = $step_hour2;
+        $this->gps1 = $gps1;
+        $this->gps2 = $gps2;
+        $this->gps3 = $gps3;
     }
     public function newRoute(){
         if($this->emptyInputs()== false){
@@ -35,7 +41,7 @@ class CreateRouteContrl extends CreateRoute{
             exit();
         }
 
-        $this->setRoute($this->location,$this->heure,$this->arrivee,$this->date,$this->place,$this->etapes,$this->road,$this->etapes1,$this->etapes2,$this->final_hour,$this->step_hour1,$this->step_hour2);
+        $this->setRoute($this->location,$this->heure,$this->arrivee,$this->date,$this->place,$this->etapes,$this->road,$this->etapes1,$this->etapes2,$this->final_hour,$this->step_hour1,$this->step_hour2,$this->gps1,$this->gps2,$this->gps3);
     }
     
 // ERROR HANDLERS---------------------------------------------------------------------------------------------
