@@ -34,5 +34,5 @@ if(isset($_POST["submit"])){
     $mailup->mailUpdate();
 
     //back to page
-    header("location: ../../confirmation.php?action=msgSent");
+    // header("location: ../../confirmation.php?action=msgSent");
 }

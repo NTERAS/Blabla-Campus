@@ -3,18 +3,62 @@
 class Mail extends Dbh {
 
     protected function setMail($id_receiver, $id_sender,$msg,$name_sender,$name_receiver,$dep,$arr,$msg_type,$id_trajet){
+        $email;
 
         $stmt = $this->connect()->prepare('INSERT INTO messagerie (id_receiver, id_sender, full_message, msg_type, name_sender,name_receiver,trip_depart,trip_arrival,id_trajet_msg) VALUES (?,?,?,?,?,?,?,?,?)');
         $result = $stmt->execute(array($id_receiver,$id_sender,$msg, $msg_type, $name_sender,$name_receiver,$dep,$arr,$id_trajet));
         $stmt->debugDumpParams();
+        echo "<br>";
+        echo "<br>";
  
         if($result==false){
             $stmt = null; //delete the statement
    
-            header("location: ../../confirmation.php?action=stmtFailed");
+            // header("location: ../../confirmation.php?action=stmtFailed");
             exit();
         }
         $stmt = null;
+
+        $stmt = $this->connect()->prepare('SELECT email FROM utilisator WHERE id_user = ? ');
+        $result = $stmt->execute(array($id_receiver));
+        $stmt->debugDumpParams();
+        echo "<br>";
+
+        if($result==false){
+            $stmt = null; //delete the statement
+            header("location: ../../confirmation.php?action=stmtFailedMailChecked");
+            exit();
+        }
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        $email = $user["email"];
+        // ---------------MAIL---------------------------------------------------------------------------------------
+        $to  = $email; // notez la virgule
+        $subject = 'BlaBlaCampus demande de reservation';
+        
+        // message
+        $message = '<html><head><title>BlaBlaCampus</title></head><body>
+        <div><p>Bonjour <span>'.$name_receiver.'</span></p>
+                        <p>Je souhaiterai réserver une place dans ta voiture pour le trajet <span>'.$dep.'-'.$arr.'</span></p>
+                        <p>En te remerciant.</p>
+                    </div>
+        </body></html>';
+        
+        // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=utf-8';
+        
+        // En-têtes additionnels
+        $headers[] = 'To:  <'.$email.'>';
+        $headers[] = 'From: '.$name_sender.'';
+        //  $headers[] = 'Cc: anniversaire_archive@example.com';
+        //  $headers[] = 'Bcc: anniversaire_verif@example.com';
+        
+        // Envoi
+        mail($to, $subject, $message, implode("\r\n", $headers));
+        // ---------------END MAIL---------------------------------------------------------------------------------------
+
+
+
     }
 
     protected function deleteMsg($id){
@@ -111,15 +155,20 @@ class Mail extends Dbh {
 
     protected function updateMessage($tr){
         $id_receiver;
-            $id_sender;
-            $msg_type;
-            $name_sender;
-            $name_receiver;
-            $guest_number;
+        $id_sender;
+        $msg_type;
+        $name_sender;
+        $name_receiver;
+        $guest_number;
+        $emailx;
+        $depx;
+        $arrx;
 
         $stmt = $this->connect()->prepare('SELECT * FROM messagerie WHERE id_trajet_msg = ?;');
         $resultCheck=$stmt->execute(array($tr));
+        echo "<br>";
         $stmt->debugDumpParams();
+        echo "<br>";
         if($resultCheck==false){
             $stmt = null; //delete the statement
             header("location: ../../confirmation.php?action=stmtFailedMailChecked");
@@ -150,7 +199,9 @@ class Mail extends Dbh {
 
         $stmt = $this->connect()->prepare('UPDATE messagerie SET id_receiver = ?, id_sender=?, msg_type=?, name_sender=?, name_receiver=? WHERE id_trajet_msg = ?');
         $resultCheck=$stmt->execute(array($id_receiver2,$id_sender2,$msg_type2,$name_sender2,$name_receiver2,$tr));
+        echo "<br>";
         $stmt->debugDumpParams();
+        echo "<br>";
 
         if($resultCheck==false){
             $stmt = null; //delete the statement
@@ -160,11 +211,11 @@ class Mail extends Dbh {
             $stmt = null;
         }
 
-        $stmt = $this->connect()->prepare('SELECT * FROM trajet WHERE id_trajet = ?;');
+        $stmt = $this->connect()->prepare('SELECT * FROM trajet WHERE id_trajet = ?');
         $resultCheck=$stmt->execute(array($tr));
+        echo "<br>";
         $stmt->debugDumpParams();
- 
-        $stmt->debugDumpParams();
+        echo "<br>";
         if($resultCheck==false){
             $stmt = null; //delete the statement
 
@@ -182,6 +233,8 @@ class Mail extends Dbh {
             
             $guest_number = $user[0]["guest"];
             $guest_number = $guest_number - 1;
+            $depx = $user[0]["depart"];
+            $arrx = $user[0]["arriver"];
           
             $stmt = null;
             
@@ -189,7 +242,9 @@ class Mail extends Dbh {
 
         $stmt = $this->connect()->prepare('UPDATE trajet SET guest=? WHERE id_trajet = ?');
         $resultCheck=$stmt->execute(array($guest_number, $tr));
+        echo "<br>";
         $stmt->debugDumpParams();
+        echo "<br>";
         if($resultCheck==false){
             $stmt = null; //delete the statement
             header("location: ../../confirmation.php?action=stmtFailedMailChecked");
@@ -198,6 +253,50 @@ class Mail extends Dbh {
             $stmt = null;
         }
         
+        $stmt = $this->connect()->prepare('SELECT * FROM utilisator WHERE id_user = ? ');
+        $result = $stmt->execute(array($id_receiver2));
+        echo "<br>";
+        $stmt->debugDumpParams();
+        echo "<br>";
+
+        if($result==false){
+            $stmt = null; //delete the statement
+            header("location: ../../confirmation.php?action=stmtFailedMailChecked");
+            exit();
+        }else{
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            var_dump($user);
+            $emailx = $user["email"];
+            
+            // ---------------MAIL---------------------------------------------------------------------------------------
+            $to  = $emailx; // notez la virgule
+            $subject = 'BlaBlaCampus Validation de reservation';
+            
+            // message
+            $message = '<html><head><title>BlaBlaCampus</title></head><body>
+            <div><p>Bonjour <span>'.$name_receiver2.'</span></p>
+                            <p>Je t\'informe qu\'une place t\'attend dans ma voiture pour le <span>'.$depx.'-'.$arrx.'</span></p>
+                            <p>À tout bientôt.</p>
+                        </div>
+            </body></html>';
+            
+            // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
+            $headers[] = 'MIME-Version: 1.0';
+            $headers[] = 'Content-type: text/html; charset=utf-8';
+            
+            // En-têtes additionnels
+            $headers[] = 'To:  <'.$emailx.'>';
+            $headers[] = 'From: '.$name_sender2.'';
+            //  $headers[] = 'Cc: anniversaire_archive@example.com';
+            //  $headers[] = 'Bcc: anniversaire_verif@example.com';
+            
+            // Envoi
+            mail($to, $subject, $message, implode("\r\n", $headers));
+            // ---------------END MAIL---------------------------------------------------------------------------------------
+            
+
+        }
+       
     }
 
 }
