@@ -684,40 +684,42 @@ addTrajet.addEventListener("click", (e) => {
     if (nbEtape < nbEtapeMax && isEmpty[0].value != "") {
         nbEtape++
         autocompleContainer13.classList.remove("dsn");
-
-        addressAutocomplete3(document.getElementById(`autocomplete-container13`), (data) => {
-            // let inputElement3 = document.getElementById("locationAdd2");
-            if (data.properties.housenumber != undefined && data.properties.street != undefined) {
-                inputElement3.value = data.properties.housenumber + " " + data.properties.street + " " + data.properties.city;
-            }
-            if (data.properties.housenumber == undefined) {
-                inputElement3.value = data.properties.street + " " + data.properties.city;
-            }
-            if (data.properties.street == undefined && data.properties.housenumber == undefined) {
-                inputElement3.value = data.properties.city;
-            }
-            let gps1 = data.geometry.coordinates[1].toString() + "," + data.geometry.coordinates[0].toString();
-            gps3String = gps1;
-            coordonneeTrajet3 = gps1;
-            if (coordonneeTrajet3 != "") {
-                const url = `https://api.geoapify.com/v1/routing?waypoints=${coordonneeTrajet}|${coordonneeTrajet3}&format=json&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7`
-                fetch(url).then(res => res.json()).then(result => {
-                    gps3Data = Math.round(result.results[0].time);
-                    let hours = hourEtape.value.split(":")
-                    let hInSec1 = (+hours[0]) * 60 * 60 + (+hours[1]) * 60;
-                    hourEtapeSupp.value = secondsToHms(gps3Data + hInSec1);
-                    gpsCo3.value = gps1;
-                })
-            }
-        })
-    };
-    if (nbEtape === nbEtapeMax) {
-        const p = document.createElement("p")
-        p.innerHTML = "<p class='greyText'>Vous avez atteint le nombre maximum d'étapes</p>"
-        addEtape.appendChild(p)
-        addTrajet.disabled = true;
+        if (nbEtape === nbEtapeMax) {
+            const p = document.createElement("p")
+            p.innerHTML = "<p class='greyText'>Vous avez atteint le nombre maximum d'étapes</p>"
+            addEtape.appendChild(p)
+            addTrajet.disabled = true;
+        }
     }
 })
+
+
+
+addressAutocomplete3(document.getElementById(`autocomplete-container13`), (data) => {
+    // let inputElement3 = document.getElementById("locationAdd2");
+    if (data.properties.housenumber != undefined && data.properties.street != undefined) {
+        inputElement3.value = data.properties.housenumber + " " + data.properties.street + " " + data.properties.city;
+    }
+    if (data.properties.housenumber == undefined) {
+        inputElement3.value = data.properties.street + " " + data.properties.city;
+    }
+    if (data.properties.street == undefined && data.properties.housenumber == undefined) {
+        inputElement3.value = data.properties.city;
+    }
+    let gps1 = data.geometry.coordinates[1].toString() + "," + data.geometry.coordinates[0].toString();
+    gps3String = gps1;
+    coordonneeTrajet3 = gps1;
+    if (coordonneeTrajet3 != "") {
+        const url = `https://api.geoapify.com/v1/routing?waypoints=${coordonneeTrajet}|${coordonneeTrajet3}&format=json&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7`
+        fetch(url).then(res => res.json()).then(result => {
+            gps3Data = Math.round(result.results[0].time);
+            let hours = hourEtape.value.split(":")
+            let hInSec1 = (+hours[0]) * 60 * 60 + (+hours[1]) * 60;
+            hourEtapeSupp.value = secondsToHms(gps3Data + hInSec1);
+            gpsCo3.value = gps1;
+        })
+    }
+});
 
 
 function secondsToHms(d) {
@@ -742,12 +744,50 @@ hour.addEventListener('change', (e) => {
     return arrive.value = secondsToHms(gps1Data + hInSec1);
 })
 
-let coorLons;
-if (coorLons != null) {
-    coorLons = document.querySelector(".coorLons").value;
-}
-
 
 // gpsCo1.value = gps1String;
 // gpsCo2.value = gps2String;
 // gpsCo3.value = gps3String;
+// https://api.geoapify.com/v1/routing?waypoints=46.9032246,5.7727504|46.8348884,5.7086756|46.797,5.5597|46.6727037,5.5589973&mode=drive&apiKey=YOUR_API_KEY
+
+
+coordonneeTrajet2 = gpsCo2.value;
+coordonneeTrajet3 = gpsCo3.value;
+coordonneeTrajet = gpsCo1.value;
+coorLons = "46.671361,5.550796";
+
+
+// const urlEtape = `https://api.geoapify.com/v1/routing?waypoints=${coordonneeTrajet}|${coordonneeTrajet2}|${coordonneeTrajet3}|${coorLons}&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7`
+// fetch(urlEtape).then(res => res.json()).then(result => {
+//     console.log(result.features[0].properties.legs)
+//     console.log(Math.round(result.features[0].properties.legs[0].time));
+//     console.log(Math.round(result.features[0].properties.legs[1].time));
+//     console.log(Math.round(result.features[0].properties.legs[2].time));
+// })
+
+
+
+if (coordonneeTrajet2 == "" && coordonneeTrajet3 == "") {
+    const url = `https://api.geoapify.com/v1/routing?waypoints=${coordonneeTrajet}|${coorLons}&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7`
+    fetch(url).then(res => res.json()).then(result => {
+        console.log(result.features[0].properties.legs[0].time)
+    })
+}
+
+if (coordonneeTrajet3 == "") {
+    const url = `https://api.geoapify.com/v1/routing?waypoints=${coordonneeTrajet}|${coordonneeTrajet2}|${coorLons}&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7`
+    fetch(url).then(res => res.json()).then(result => {
+        console.log(result.features[0].properties.legs[0].time)
+        console.log(result.features[0].properties.legs[1].time)
+    })
+}
+
+if (coordonneeTrajet2 != "" && coordonneeTrajet3 != "") {
+    const urlEtape = `https://api.geoapify.com/v1/routing?waypoints=${coordonneeTrajet}|${coordonneeTrajet2}|${coordonneeTrajet3}|${coorLons}&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7`
+    fetch(urlEtape).then(res => res.json()).then(result => {
+        console.log(result.features[0].properties.legs)
+        console.log(Math.round(result.features[0].properties.legs[0].time));
+        console.log(Math.round(result.features[0].properties.legs[1].time));
+        console.log(Math.round(result.features[0].properties.legs[2].time));
+    })
+}

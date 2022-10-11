@@ -202,7 +202,7 @@ if(isset($_GET['id'])){
 
                                 <div id="autocomplete-container13" class="w100">
                                     <input type="text" placeholder="etape" name="locationAdd2" id="locationAdd2"
-                                        value="<?= $depart2; ?>" class="input my-3 py-5 isEmpty">
+                                        value="<?= $depart1; ?>" class="input my-3 py-5 isEmpty">
                                 </div>
 
                                 <!-- <button type="button" class="addTrajet addNbLocation">
@@ -231,8 +231,6 @@ if(isset($_GET['id'])){
                 <input id="gpsCo2" type="text" value="<?= $gps2; ?>" name="gpsCo2" class="gpsCo2">
                 <!-- mantry -->
                 <input id="gpsCo3" type="text" value="<?= $gps3; ?>" name="gpsCo3" class="gpsCo3">
-                <!-- lons -->
-                <div class="CoorLons">46.671361,5.550796</div>
                 <span class="addTrajet dsn"></span>
 
             </main>
