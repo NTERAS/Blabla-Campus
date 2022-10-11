@@ -4,10 +4,11 @@
   - callback to notify about address selection
 */
 const cache = document.getElementById("cache");
-const addTrajet = document.querySelector(".addTrajet");
+// const addTrajet = document.querySelector(".addTrajet");
 const addEtape = document.querySelector(".addEtape");
 let inputElement2 = document.getElementById("location");
 let inputElement = document.getElementById("locationAdd");
+let inputElement3 = document.getElementById("locationAdd2");
 let info = document.getElementById("info");
 const firstAutoC = document.querySelector(".firstAutoC");
 
@@ -83,7 +84,9 @@ function addressAutocomplete(containerElement, callback) {
             if (document.querySelector("#autocomplete-container1").childElementCount == 2) {
                 firstAutoC.classList.remove("enAvant");
                 cache.classList.add("cacheCache");
-                addTrajet.disabled = true;
+                if (addTrajet != null) {
+                    addTrajet.disabled = true;
+                }
                 addEtape.classList.add("enAvant");
 
             }
@@ -209,21 +212,21 @@ function addressAutocomplete(containerElement, callback) {
 
 function addressAutocomplete3(containerElement, callback) {
     // create input element
-    var inputElement = document.createElement("input");
-    inputElement.setAttribute("type", "text");
-    let nbLocation = 2;
-    const addNbLocation = document.querySelector(".addNbLocation");
-    inputElement.name = `locationAdd2`;
-    inputElement.id = `locationAdd2`;
-    inputElement.placeholder = "Etape";
-    addNbLocation.addEventListener("click", (e) => {
-        inputElement.name = `locationAdd${nbLocation}`;
-        inputElement.id = `locationAdd${nbLocation}`;
-        inputElement.dataset.id = `nbLocation${nbLocation}`;
-        return;
-    });
-    inputElement.classList.add("input", "my-3", "py-5", "isEmpty", "enAvant");
-    containerElement.appendChild(inputElement);
+    // var inputElement = document.createElement("input");
+    // inputElement.setAttribute("type", "text");
+    // let nbLocation = 2;
+    // const addNbLocation = document.querySelector(".addNbLocation");
+    // inputElement.name = `locationAdd2`;
+    // inputElement.id = `locationAdd2`;
+    // inputElement.placeholder = "Etape";
+    // addNbLocation.addEventListener("click", (e) => {
+    //     inputElement.name = `locationAdd${nbLocation}`;
+    //     inputElement.id = `locationAdd${nbLocation}`;
+    //     inputElement.dataset.id = `nbLocation${nbLocation}`;
+    //     return;
+    // });
+    // inputElement.classList.add("input", "my-3", "py-5", "isEmpty", "enAvant");
+    // containerElement.appendChild(inputElement);
 
 
 
@@ -237,7 +240,7 @@ function addressAutocomplete3(containerElement, callback) {
     var focusedItemIndex;
 
     /* Execute a function when someone writes in the text field: */
-    inputElement.addEventListener("input", function (e) {
+    inputElement3.addEventListener("input", function (e) {
         var currentValue = this.value;
 
         /* Close any already open dropdown list */
@@ -289,7 +292,7 @@ function addressAutocomplete3(containerElement, callback) {
 
                 /* Set the value for the autocomplete text field and notify: */
                 itemElement.addEventListener("click", function (e) {
-                    inputElement.value = currentItems[index].properties.formatted;
+                    inputElement3.value = currentItems[index].properties.formatted;
 
                     callback(currentItems[index]);
 
@@ -307,7 +310,7 @@ function addressAutocomplete3(containerElement, callback) {
     });
 
     /* Add support for keyboard navigation */
-    inputElement.addEventListener("keydown", function (e) {
+    inputElement3.addEventListener("keydown", function (e) {
         var autocompleteItemsElement = containerElement.querySelector(".autocomplete-items");
         if (autocompleteItemsElement) {
             var itemElements = autocompleteItemsElement.getElementsByTagName("div");
@@ -336,7 +339,7 @@ function addressAutocomplete3(containerElement, callback) {
                 /* Open dropdown list again */
                 var event = document.createEvent('Event');
                 event.initEvent('input', true, true);
-                inputElement.dispatchEvent(event);
+                inputElement3.dispatchEvent(event);
             }
         }
     });
@@ -352,7 +355,7 @@ function addressAutocomplete3(containerElement, callback) {
         items[index].classList.add("autocomplete-active");
 
         // Change input value and notify
-        inputElement.value = currentItems[index].properties.formatted;
+        inputElement3.value = currentItems[index].properties.formatted;
         callback(currentItems[index]);
     }
 
@@ -380,7 +383,7 @@ function addressAutocomplete3(containerElement, callback) {
     /* Close the autocomplete dropdown when the document is clicked. 
       Skip, when a user clicks on the input field */
     document.querySelector("#autocomplete-container13").addEventListener("click", function (e) {
-        if (e.target !== inputElement) {
+        if (e.target !== inputElement3) {
 
             if (document.querySelector("#autocomplete-container13").childElementCount == 1) {
                 cache.classList.remove("cacheCache");
@@ -391,7 +394,7 @@ function addressAutocomplete3(containerElement, callback) {
             // open dropdown list again
             var event = document.createEvent('Event');
             event.initEvent('input', true, true);
-            inputElement.dispatchEvent(event);
+            inputElement3.dispatchEvent(event);
         }
     });
 
@@ -664,45 +667,51 @@ addressAutocomplete2(document.getElementById("autocomplete-container"), (data) =
 
 nbEtape = 1;
 nbEtapeMax = 2;
-addTrajet.addEventListener("click", (e) => {
-    const isEmpty = document.querySelectorAll(".isEmpty");
-    if (nbEtape < nbEtapeMax && isEmpty[0].value != "") {
-        nbEtape++
-        const div = document.createElement("div")
-        div.innerHTML = `<div id="autocomplete-container13">`
-        addEtape.appendChild(div)
-        addressAutocomplete3(document.getElementById(`autocomplete-container13`), (data) => {
-            let inputElement3 = document.getElementById("locationAdd2");
-            if (data.properties.housenumber != undefined && data.properties.street != undefined) {
-                inputElement3.value = data.properties.housenumber + " " + data.properties.street + " " + data.properties.city;
+let addTrajet;
+if (addTrajet != null) {
+    addTrajet = document.querySelector(".addTrajet");
+    addTrajet.addEventListener("click", (e) => {
+        const isEmpty = document.querySelectorAll(".isEmpty");
+        if (nbEtape < nbEtapeMax && isEmpty[0].value != "") {
+            nbEtape++
+            const div = document.createElement("div")
+            div.innerHTML = `<div id="autocomplete-container13">`
+            addEtape.appendChild(div)
+            addressAutocomplete3(document.getElementById(`autocomplete-container13`), (data) => {
+                let inputElement3 = document.getElementById("locationAdd2");
+                if (data.properties.housenumber != undefined && data.properties.street != undefined) {
+                    inputElement3.value = data.properties.housenumber + " " + data.properties.street + " " + data.properties.city;
+                }
+                if (data.properties.housenumber == undefined) {
+                    inputElement3.value = data.properties.street + " " + data.properties.city;
+                }
+                if (data.properties.street == undefined && data.properties.housenumber == undefined) {
+                    inputElement3.value = data.properties.city;
+                }
+                let gps1 = data.geometry.coordinates[1].toString() + "," + data.geometry.coordinates[0].toString();
+                gps1String = gps1;
+                coordonneeTrajet3 = gps1;
+                if (coordonneeTrajet3 != "") {
+                    const url = `https://api.geoapify.com/v1/routing?waypoints=${coordonneeTrajet}|${coordonneeTrajet3}&format=json&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7`
+                    fetch(url).then(res => res.json()).then(result => {
+                        gps3Data = Math.round(result.results[0].time);
+                        let hours = hourEtape.value.split(":")
+                        let hInSec1 = (+hours[0]) * 60 * 60 + (+hours[1]) * 60;
+                        hourEtapeSupp.value = secondsToHms(gps3Data + hInSec1);
+                    })
+                }
+            })
+        };
+        if (nbEtape === nbEtapeMax) {
+            const p = document.createElement("p")
+            p.innerHTML = "<p class='greyText'>Vous avez atteint le nombre maximum d'étapes</p>"
+            addEtape.appendChild(p)
+            if (addTrajet != null) {
+                addTrajet.disabled = true;
             }
-            if (data.properties.housenumber == undefined) {
-                inputElement3.value = data.properties.street + " " + data.properties.city;
-            }
-            if (data.properties.street == undefined && data.properties.housenumber == undefined) {
-                inputElement3.value = data.properties.city;
-            }
-            let gps1 = data.geometry.coordinates[1].toString() + "," + data.geometry.coordinates[0].toString();
-            gps1String = gps1;
-            coordonneeTrajet3 = gps1;
-            if (coordonneeTrajet3 != "") {
-                const url = `https://api.geoapify.com/v1/routing?waypoints=${coordonneeTrajet}|${coordonneeTrajet3}&format=json&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7`
-                fetch(url).then(res => res.json()).then(result => {
-                    gps3Data = Math.round(result.results[0].time);
-                    let hours = hourEtape.value.split(":")
-                    let hInSec1 = (+hours[0]) * 60 * 60 + (+hours[1]) * 60;
-                    hourEtapeSupp.value = secondsToHms(gps3Data + hInSec1);
-                })
-            }
-        })
-    };
-    if (nbEtape === nbEtapeMax) {
-        const p = document.createElement("p")
-        p.innerHTML = "<p class='greyText'>Vous avez atteint le nombre maximum d'étapes</p>"
-        addEtape.appendChild(p)
-        addTrajet.disabled = true;
-    }
-})
+        }
+    })
+}
 
 function secondsToHms(d) {
     d = Number(d);
