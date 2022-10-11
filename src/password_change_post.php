@@ -21,7 +21,7 @@ if (isset($_POST['password'])&&isset($_POST['password_repeat']) && isset($_POST[
                 $delete = $bdd->prepare('DELETE FROM password_recover WHERE token_user = ?');
                 $delete->execute(array($token));
                 // echo "Mot de passe changé";
-                header("location: http://localhost/defi-php/Blabla-Campus/confirmation.php?action=passwordChanged");
+                header("location: http://localhost/Projets/Blabla-Campus/confirmation.php?action=passwordChanged");
                 
             }else{
                 echo "Les mots de passe ne correspondent pas";

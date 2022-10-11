@@ -15,7 +15,7 @@ if(isset($_POST['email']) && !empty($_POST['email'])){
         $insert = $bdd->prepare('INSERT INTO password_recover(token_user, token) VALUES(?, ?)');
         $insert->execute(array($token_user, $token));
 
-        $link = 'http://localhost/defi-php/Blabla-Campus/src/recover.php?u='.base64_encode($token_user).'&token='.base64_encode($token);
+        $link = 'http://localhost/Projets/Blabla-Campus/src/recover.php?u='.base64_encode($token_user).'&token='.base64_encode($token);
         // ---------------MAIL---------------------------------------------------------------------------------------
         $to  = $email; // notez la virgule
         $subject = 'BlaBlaCampus reset password';
