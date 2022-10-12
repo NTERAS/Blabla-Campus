@@ -2,8 +2,15 @@
 $title = "Mention Légale - Blabla Campus";
 include_once "headerSimple.php";
 ?>
-<section id="legalemen" class="w100 minh100 is-flex is-justify-content-center is-align-items-center is-flex-direction-column p-5">
-    <div class="legalebox w50 minh100">
+<header id="headerprofil"
+    class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
+    <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
+            alt="Le logo Blabla Campus"></a>
+    <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
+            alt="Icon d'une personne"></a>
+</header>
+<section id="legalemen" class="w100 minh100 is-flex is-justify-content-start is-align-items-center is-flex-direction-column p-5">
+    <div class="legalebox w100">
         <h2 class="bungee">Editeur du Site :</h2>
         <p class="overpass" >Le site web
             <a href='http://natandavid.fr/projets/blablacampus' target='_blank'>natandavid.fr/projets/Blablacumpus</a>
