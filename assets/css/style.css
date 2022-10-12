@@ -584,15 +584,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     background: var(--rouge);
     border-radius: 10px;
 }
-#blocphoneleft div p:nth-child(1) {
-    color: #000000;
-    font-weight: 900;
-}
-
-#blocphoneleft div p:nth-child(2) {
-    color: var(--rouge);
-    font-weight: 900;
-}
 
 #blocphone {
     display: flex;

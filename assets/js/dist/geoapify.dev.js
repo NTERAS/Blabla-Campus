@@ -739,7 +739,6 @@ addressAutocomplete3(document.getElementById("autocomplete-container13"), functi
       hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
       hourEtapeSupp.value = secondsToHms(gps3Data + hInSec1);
       gpsCo3.value = gps1;
-      thirdHour();
     });
   }
 });
@@ -791,10 +790,13 @@ hour.addEventListener('change', function (e) {
   var hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
   return arrive.value = secondsToHms(gps1Data + hInSec1);
 });
-coordonneeTrajet2 = gpsCo2.value;
-coordonneeTrajet3 = gpsCo3.value;
-coordonneeTrajet = gpsCo1.value;
-coorLons = "46.671361,5.550796";
+var gps1Php = document.querySelector(".gps1Php");
+var gps2Php = document.querySelector(".gps2Php");
+var gps3Php = document.querySelector(".gps3Php");
+coordonneeTrajet2 = gps2Php.textContent;
+coordonneeTrajet3 = gps3Php.textContent;
+coordonneeTrajet = gps1Php.textContent;
+var coorLons = "46.671361,5.550796";
 
 function calculTemps() {
   if (coordonneeTrajet2 == "" && coordonneeTrajet3 == "") {

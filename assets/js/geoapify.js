@@ -778,14 +778,19 @@ hour.addEventListener('change', (e) => {
     return arrive.value = secondsToHms(gps1Data + hInSec1);
 })
 
-coordonneeTrajet2 = gpsCo2.value;
-coordonneeTrajet3 = gpsCo3.value;
-coordonneeTrajet = gpsCo1.value;
-coorLons = "46.671361,5.550796";
+
+let gps1Php = document.querySelector(".gps1Php")
+let gps2Php = document.querySelector(".gps2Php")
+let gps3Php = document.querySelector(".gps3Php")
+
+
+coordonneeTrajet2 = gps2Php.textContent;
+coordonneeTrajet3 = gps3Php.textContent;
+coordonneeTrajet = gps1Php.textContent;
+let coorLons = "46.671361,5.550796";
 
 
 function calculTemps() {
-
 
     if (coordonneeTrajet2 == "" && coordonneeTrajet3 == "") {
         const url = `https://api.geoapify.com/v1/routing?waypoints=${coordonneeTrajet}|${coorLons}&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7`

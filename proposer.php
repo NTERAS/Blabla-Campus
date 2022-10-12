@@ -191,12 +191,12 @@ if(isset($_SESSION["username"])){
                             </div>
                         </div>
                         <div class="mx-auto">
-                            <input id="h-arrive" type="time" value="" name="h-arrive" class="h-arrive">
-                            <input id="h-mid1" type="time" value="" name="h-mid1" class="">
-                            <input id="h-mid2" type="time" value="" name="h-mid2" class="">
-                            <input id="gpsCo1" type="text" value="" name="gpsCo1" class=" gpsCo1">
-                            <input id="gpsCo2" type="text" value="" name="gpsCo2" class=" gpsCo2">
-                            <input id="gpsCo3" type="text" value="" name="gpsCo3" class=" gpsCo3">
+                            <input id="h-arrive" type="time" value="" name="h-arrive" class="h-arrive dsn ">
+                            <input id="h-mid1" type="time" value="" name="h-mid1" class="dsn ">
+                            <input id="h-mid2" type="time" value="" name="h-mid2" class="dsn ">
+                            <input id="gpsCo1" type="text" value="" name="gpsCo1" class="dsn  gpsCo1">
+                            <input id="gpsCo2" type="text" value="" name="gpsCo2" class="dsn  gpsCo2">
+                            <input id="gpsCo3" type="text" value="" name="gpsCo3" class=" dsn gpsCo3">
                             <button type="submit" class="button redBtn mt-5" name="action" value="newTrajet">
                                 <p>Proposer un trajet</p>
                             </button>

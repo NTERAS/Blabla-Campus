@@ -53,7 +53,10 @@ function updateThumbnail(dropZoneElement, file) {
 
 
   var info = document.querySelector(".info");
-  info.innerHTML = file.name;
+  info.innerHTML = "<p>".concat(file.name, "</p>");
+  var encore = document.createElement("p");
+  encore.innerHTML = "Changer ? ";
+  info.appendChild(encore);
   var fileSizeLimit = 1024 * 1024 * 1; // 1MB
   // Show thumbnail for image files
 
