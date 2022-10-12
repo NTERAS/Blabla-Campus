@@ -23,12 +23,12 @@ class SignupContrl extends Signup{
     public function signupUser(){
         if($this->emptyInputs()== false){
             echo "error! empty input!";
-            header("location: ../../inscription.php?error=emptyinput");
+            header("location: ../../confirmation.php?action=emptyInputs");
             exit();
         }
         if($this->invalidEmail()== false){
             echo "error! invalid email!";
-            header("location: ../../inscription.php?error=invalidmail");
+            header("location: ../../confirmation.php?action=invalidmail");
             exit();
         }
         if($this->nameAlreadyTaken()== false){
@@ -50,21 +50,6 @@ class SignupContrl extends Signup{
         return $result;
     }
 
-    // private function defaultImage(){
-    //     $result;
-    //     if(empty($this->image)){
-    //         $result = false;
-    //     }
-    //     else{ 
-
-    //         $result = true;
-    //     }
-    //     return $result;
-    // }
-
-    // private function invalidName(){}
-    // private function passwordMatch(){}
-
     private function invalidEmail(){
         $result;
         if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
@@ -76,7 +61,7 @@ class SignupContrl extends Signup{
     }
 
     private function nameAlreadyTaken(){
-        $result;
+        // $result;
         if(!$this->checkUser($this->pseudo, $this->email)){
             $result = false;
         }else{

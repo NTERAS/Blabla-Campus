@@ -1,6 +1,6 @@
 <?php
-$title = 'Reservation - Blabla Campus';
-include_once 'headerSimple.php';
+$title = 'Réservation - Blabla Campus';
+include_once 'header.php';
 
 session_start();
 
@@ -9,8 +9,6 @@ if(isset($_SESSION["reserve_rc"])){
 }else{
     header("location: index.php");
 }
-
-
 
 ?>
 
@@ -23,23 +21,22 @@ if(isset($_SESSION["reserve_rc"])){
 
         <div id="divright"
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
-
-            <header id="headerprofil"
-                class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
-                <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
-                        alt="Le logo Blabla Campus"></a>
-                <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
-                        alt="Icon d'une personne"></a>
-            </header>
+            <img class="posabL" src="assets/img/autres/pos1.svg" alt="">
+            <img class="posabR" src="assets/img/autres/pos2.svg" alt="">
             <!-- <main class="dekstop box"> -->
-            <main class="mainh100 dekstop box">
-                ?>
-                <main>
-                    <div
-                        class="container my-5 is-flex is-justify-content-center is-flex-direction-column is-align-items-center ">
-                        <p class="bungee my-4 mx-5 w90">Mes réservations</p>
-                        <!-- grey area date/trajet/arrow -->
-                        <?php
+            <main class="mainh100 dekstop">
+                <header id="headerprofil"
+                    class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
+                    <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
+                            alt="Le logo Blabla Campus"></a>
+                    <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
+                            alt="Icon d'une personne"></a>
+                </header>
+                <div
+                    class="container my-5 is-flex is-justify-content-center is-flex-direction-column is-align-items-center ">
+                    <p class="bungee my-4 mx-5 w90">Mes réservations</p>
+                    <!-- grey area date/trajet/arrow -->
+                    <?php
     $res_rc =$_SESSION["reserve_rc"];
     for ($i=0; $i <$res_rc ; $i++) { 
         $res_cal = $_SESSION["reserve_calendar".$i];
@@ -68,12 +65,7 @@ if(isset($_SESSION["reserve_rc"])){
                         case '12': $month = 'Dec'; break;
                         default: $month =''; break;
                       }
-    
-        
-        echo $res_id;
 
-        
-        
         echo '<div class="greyBack is-flex is-justify-content-space-between is-align-items-center w90 mx-auto greyArea p-5 my-3 reservation">
             <div class="date_D_M">
                 <p class="bungee redColor">'.$day.'</p>
@@ -91,22 +83,18 @@ if(isset($_SESSION["reserve_rc"])){
             }
             echo ' </div>
             </div>
-    
-    
-    
-            <!-- option annulation  -->
+
             <div class="is-flex is-justify-content-center w90 optionAnnulation dsn">
                 <div class="btnAnnulationContainer is-flex is-justify-content-center is-align-items-center">
                     <a class="btnAnnulation bungee" href="annulationReservation.php?id='.$res_id.'">annuler</a>
                 </div>
-            </div>';  
-
+                </div>';  
     }
 ?>
 
-                    </div>
-                </main>
-                <script src="assets/js/app.js"></script>
+                </div>
+            </main>
+            <script src="assets/js/app.js"></script>
 </body>
 
 </html>

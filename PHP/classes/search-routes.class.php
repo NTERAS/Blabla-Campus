@@ -9,11 +9,10 @@ class Routes extends Dbh {
 
         $resultat = $stmt->execute($value);
         $stmt->debugDumpParams();
-        // var_dump($result);
+
         if($resultat==false){
             $stmt = null; //delete the statement
-            echo "stmt failed";
-            header("location: ../../rechercher.php?error=stmtFailed");
+            header("location: ../../confirmation.php?action=stmtFailed");
             exit();
         }
         if($stmt->rowCount()==0){
@@ -38,6 +37,9 @@ class Routes extends Dbh {
             $_SESSION["arriver_search".$i] = $user[$i]["arriver"];
             $_SESSION["routetype_search".$i] = $user[$i]["routetype"];
             $_SESSION["time_search".$i] = $user[$i]["routehours"];
+            $_SESSION["time_step1_search".$i] = $user[$i]["step_hour_1"];
+            $_SESSION["time_step2_search".$i] = $user[$i]["step_hour_2"];
+            $_SESSION["time_final_search".$i] = $user[$i]["final_hour"];
             $_SESSION["place_search".$i] = $user[$i]["guest"];
             $_SESSION["avatar_search".$i] = $user[$i]["avatar"];
             $_SESSION["bio_search".$i] = $user[$i]["bio"];
@@ -49,19 +51,10 @@ class Routes extends Dbh {
             $ex1 = $_SESSION["original_location"];
             $ex2 = $_SESSION["original_arrival"];
             $ex3 = $_SESSION["original_date"];
-            echo $ex." <-this is ex";
-            echo $ex1;
-            echo $ex2;
-            echo $ex3;
-            echo "<br>";
-            echo $original_location;
-            echo $original_arrival;
-            echo $original_date;
         }
         $_SESSION["rc_search"] = $rc;
-            // var_dump($user);
 
         $stmt = null;
-        echo "end of propre class";
+
         }
 }

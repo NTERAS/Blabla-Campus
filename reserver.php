@@ -3,43 +3,40 @@ session_start();
 if(isset($_SESSION["username"]) && isset($_SESSION["specific_calendar"])){
     $user_connected = $_SESSION["userid"];
     $user_name = $_SESSION["username"];
-    echo $user_connected;
-    echo $user_name;
 }else{
-    echo 'not logged in';
     header("location: index.php");
 }
 
-
 $cal = $_SESSION["specific_calendar"];
-        $dep = $_SESSION["specific_depart"];
-        $arr = $_SESSION["specific_arriver"];
-        $retour = $_SESSION["specific_routetype"];
-        $id_owner = $_SESSION["specific_owner"];
+$dep = $_SESSION["specific_depart"];
+$arr = $_SESSION["specific_arriver"];
+$retour = $_SESSION["specific_routetype"];
+$id_owner = $_SESSION["specific_owner"];
+$tr_trajet = $_SESSION["idowner"];
 
-        $cal = explode('-', $cal);
-        $year = $cal[0];
-        $month = $cal[1];
-        $day = $cal[2];
+$cal = explode('-', $cal);
+$year = $cal[0];
+$month = $cal[1];
+$day = $cal[2];
 
-        switch($month) {
-            case '01': $month = 'Jan'; break;
-            case '02': $month = 'Février'; break;
-            case '3': $month = 'Mars'; break;
-            case '4': $month = 'Avril'; break;
-            case '5': $month = 'Mai'; break;
-            case '6': $month = 'Juin'; break;
-            case '7': $month = 'Juillet'; break;
-            case '8': $month = 'Août'; break;
-            case '9': $month = 'Sep'; break;
-            case '10': $month = 'Oct'; break;
-            case '11': $month = 'Nov'; break;
-            case '12': $month = 'Dec'; break;
-            default: $month =''; break;
-        }
-
+switch($month) {
+    case '01': $month = 'Jan'; break;
+    case '02': $month = 'Février'; break;
+    case '3': $month = 'Mars'; break;
+    case '4': $month = 'Avril'; break;
+    case '5': $month = 'Mai'; break;
+    case '6': $month = 'Juin'; break;
+    case '7': $month = 'Juillet'; break;
+    case '8': $month = 'Août'; break;
+    case '9': $month = 'Sep'; break;
+    case '10': $month = 'Oct'; break;
+    case '11': $month = 'Nov'; break;
+    case '12': $month = 'Dec'; break;
+    default: $month =''; break;
+}
+    
 $title = "Réservation - Blabla Campus";
-include_once 'headerSimple.php';
+include_once 'header.php';
 ?>
 
 <body>
@@ -51,16 +48,17 @@ include_once 'headerSimple.php';
 
         <div id="divright"
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
-
-            <header id="headerprofil"
-                class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
-                <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
-                        alt="Le logo Blabla Campus"></a>
-                <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
-                        alt="Icon d'une personne"></a>
-            </header>
+            <img class="posabL" src="assets/img/autres/pos1.svg" alt="">
+            <img class="posabR" src="assets/img/autres/pos2.svg" alt="">
             <!-- <main class="dekstop box"> -->
-            <main class="dekstop box">
+            <main class="dekstop">
+                <header id="headerprofil"
+                    class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
+                    <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
+                            alt="Le logo Blabla Campus"></a>
+                    <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
+                            alt="Icon d'une personne"></a>
+                </header>
                 <div
                     class="container my-5 is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
                     <!-- coordonnées -->

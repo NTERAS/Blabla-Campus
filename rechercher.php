@@ -4,16 +4,9 @@ session_start();
 if(isset($_SESSION["username"])){
     $a = $_SESSION["username"];
     $b = $_SESSION["userid"];
-
-    echo "hello $a <br>";
-    echo "your id is: $b <br>";
- 
     }
-    else{
-    
-        header('Location: confirmation.php?action=NotloggedIn');
-    }
-$title = "rechercher Blabla Campus";
+    else{ header('Location: confirmation.php?action=NotloggedIn'); }
+$title = "Rechercher - Blabla Campus";
 include_once "headerSimple.php";
 
 ?>
@@ -28,16 +21,17 @@ include_once "headerSimple.php";
 
         <div id="divright"
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
+            <img class="posabL" src="assets/img/autres/pos1.svg" alt="">
+            <img class="posabR" src="assets/img/autres/pos2.svg" alt="">
 
-            <header id="headerprofil"
-                class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
-                <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
-                        alt="Le logo Blabla Campus"></a>
-                <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
-                        alt="Icon d'une personne"></a>
-            </header>
-
-            <main class="dekstop box">
+            <main class="dekstop">
+                <header id="headerprofil"
+                    class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
+                    <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
+                            alt="Le logo Blabla Campus"></a>
+                    <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
+                            alt="Icon d'une personne"></a>
+                </header>
                 <div class="container is-flex is-justify-content-center is-flex-direction-column my-5">
                     <!-- coordonnées -->
                     <p class="bungee my-4 mx-3">rechercher un trajet</p>
@@ -68,7 +62,7 @@ include_once "headerSimple.php";
 
                         </div>
                         <!-- arrivée -->
-                        <div class="control has-icons-left mb-3">
+                        <div class="control has-icons-left mb-5">
                             <div class="select w100">
                                 <label for="arrivee" class="greyText py-2">Pour allez où ?</label>
                                 <select name="arrivee" id="arrivee">
@@ -110,20 +104,16 @@ include_once "headerSimple.php";
                         <!-- **** bouton **** -->
                         <div class="mx-auto">
                             <button class="button redBtn mt-5 px-5" name="action" value="newTrajet">
-                                <p class="px-5">Rechercher</p>
+                                <!-- <p class="px-5">Rechercher</p> -->
+                                <img src="assets/img/autres/searchBtn.svg" alt="">
                             </button>
                         </div>
                     </form>
 
                 </div>
-
-        </div>
-
-    </section>
-    <div class="hidden addNbLocation"></div>
-    <script src="assets/js/geoapify2.js"></script>
-    <script src="assets/js/app.js"></script>
-
+            </main>
+            <div class="hidden addNbLocation"></div>
+            <script src="assets/js/geoapify2.js"></script>
 </body>
 
 </html>

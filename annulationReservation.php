@@ -1,10 +1,9 @@
 <?php
 $title = "Annulation réservation - Blabla Campus";
-include 'header.php';
+include 'headerSimple.php';
 
 if(isset($_GET["id"])){
     $id = $_GET["id"];
-    echo $id;
 }else{
     header("location: index.php");
 }
@@ -19,7 +18,7 @@ if(isset($_GET["id"])){
         <p class="greyText">Etes vous sûr de vouloir annuler cette réservation ?</p>
         <form action="" method="post">
             <!-- form submit -->
-            <button class="button redBtn mx-auto my-3 largeBtn"><a href="PHP/includes/delete-mail.inc.php?id=<?php echo $id;?>"">Annuler ma réservation</a></button>
+            <a class="button redBtn mx-auto my-3 largeBtn" href="PHP/includes/delete-mail.inc.php?id=<?php echo $id;?>">Annuler ma réservation</a>
         </form>
         <a href="PHP/includes/search-mail-type-2.inc.php" class="redText mx-auto my-5 forget">Retour</a>
         </form>

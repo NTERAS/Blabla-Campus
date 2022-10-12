@@ -1,35 +1,13 @@
 <?php
-$title = "messagerie - Blabla Campus";
-include_once 'headerSimple.php';
+$title = "Trajets - Blabla Campus";
+include_once 'header.php';
 session_start();
 if(isset($_SESSION["username"]) && isset($_SESSION["rc"])){
-    
     $rc = $_SESSION["rc"]; 
-    echo $rc."<br>";
-
-
-    
- 
-
-    // echo $cal;
-    // echo $dep."<br>";
-    // echo $arr."<br>";
-    // echo $rou."<br>";
-    // echo $year."<br>";
-    
-    
-    // echo $day."<br>";
-
- 
-    //   echo $month."<br>";
-
-    }
-    else{
-    
-    echo "NOT logged in";
+  }
+  else{
     header("location: index.php");
-    }
-    
+  }
 ?>
 
 <body>
@@ -40,14 +18,16 @@ if(isset($_SESSION["username"]) && isset($_SESSION["rc"])){
 
     <div id="divright"
       class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
-
-      <header id="headerprofil"
-        class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
-        <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg" alt="Le logo Blabla Campus"></a>
-        <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg" alt="Icon d'une personne"></a>
-      </header>
+      <img class="posabL" src="assets/img/autres/pos1.svg" alt="">
+      <img class="posabR" src="assets/img/autres/pos2.svg" alt="">
       <!-- <main class="dekstop box"> -->
-      <main class="dekstop box">
+      <main class="dekstop">
+        <header id="headerprofil"
+          class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
+          <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg" alt="Le logo Blabla Campus"></a>
+          <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
+              alt="Icon d'une personne"></a>
+        </header>
         <div class="container my-5 is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
           <p class="bungee my-4 mx-5 w90">Mes trajets</p>
           <!-- grey area date/trajet/arrow -->
@@ -60,7 +40,6 @@ if(isset($_SESSION["username"]) && isset($_SESSION["rc"])){
                     $arr = $_SESSION["arriver".$i];
                     $rou = $_SESSION["routetype".$i];
                     $idt = $_SESSION["id_trajet".$i];
-                    // echo $idt."<br>";
 
                     $cal = explode('-', $cal);
                     $year = $cal[0];
@@ -111,16 +90,12 @@ if(isset($_SESSION["username"]) && isset($_SESSION["rc"])){
                       echo '</div>
                        
                       </div>';
-                
                 }
                 ?>
         </div>
       </main>
 
-
-
-
-      <script src="assets/js/app.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
 
 </html>

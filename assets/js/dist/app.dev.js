@@ -44,64 +44,7 @@ var Cancel = function Cancel() {
   }
 };
 
-Cancel(); // voir la pp en prévisualisation
-
-function previewFile() {
-  var img = document.createElement("div");
-  img.innerHTML = "<img class=\"preview is-rounded\" src=\"\"></img>";
-  var imgChild = document.querySelector(".imgChild");
-  imgChild.appendChild(img);
-
-  if (imgChild.childElementCount > 1) {
-    imgChild.removeChild(imgChild.lastChild);
-  }
-
-  var preview = document.querySelector('.preview');
-  var file = document.querySelector('input[type=file]').files[0];
-  var reader = new FileReader();
-  var input = document.querySelector('input[type=file]');
-  var infoArea = document.querySelector('.file-upload-info');
-  var maxSize = 1500000;
-  reader.addEventListener("load", function () {
-    // verify if the file is an image or not
-    if (file.type.match('image.*')) {
-      preview.src = reader.result;
-    } else {
-      imgChild.removeChild(imgChild.firstChild);
-      infoArea.classList.add("greyText");
-      infoArea.textContent = "Le fichier n'est pas une image";
-      setTimeout(function () {
-        infoArea.textContent = "";
-      }, 1500);
-    }
-  }, false);
-
-  if (file) {
-    reader.readAsDataURL(file);
-  }
-
-  if (file.size > maxSize) {
-    infoArea.classList.add("greyText");
-    infoArea.textContent = "Le fichier est trop volumineux";
-    setTimeout(function () {
-      infoArea.textContent = "";
-    }, 1500);
-    input.value = "";
-    imgChild.removeChild(imgChild.firstChild);
-  }
-} // const place1 = document.querySelector("#place")
-// let click = true;
-// function place() {
-//     place1.addEventListener("click", function () {
-//         if (click && place1.value == "") {
-//             place1.value = 1;
-//             click = false;
-//         }
-//     })
-// }
-// place();
-
-
+Cancel();
 var place1;
 var click = true;
 
@@ -118,7 +61,7 @@ if (document.querySelector("#place") != null) {
 var p;
 
 if (document.querySelector("#password") != null) {
-  p = document.querySelector("#password"); // verify the strength of the password
+  p = document.querySelector("#password");
 }
 
 function strength() {
@@ -145,20 +88,33 @@ function strength() {
   }
 
   if (strength == 1) {
-    p.style.backgroundColor = "red";
+    p.style.outlineColor = "red";
   } else if (strength == 2) {
-    p.style.backgroundColor = "orange";
+    p.style.outlineColor = "orange";
   } else if (strength == 3) {
-    p.style.backgroundColor = "yellow";
-  } else if (strength == 4) {
-    p.style.backgroundColor = "green";
-  } else if (strength == 5) {
-    p.style.backgroundColor = "blue";
+    p.style.outlineColor = "yellow";
   }
-}
+} // } else if (strength == 4) {
+//     p.style.outlineColor = "green";
+// } else if (strength == 5) {
+//     p.style.outlineColor = "yellow";
+// }
+
 
 if (p != null) {
   p.addEventListener("keyup", function () {
     strength();
   });
+} // profil defautlt 
+
+
+var profil;
+
+if (document.querySelector(".pp") != null) {
+  profil = document.querySelector(".pp");
+
+  if (profil.src.length <= 50) {
+    // profil.src = "http://localhost/blablacampus/assets/img/logo/default.svg"
+    profil.src = "https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png";
+  }
 }

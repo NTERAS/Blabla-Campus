@@ -5,10 +5,7 @@ include_once 'headerSimple.php';
 session_start();
 if(isset($_SESSION["username"])){
 
-}else{
-    echo 'not logged in';
-    header("location: index.php");
-}
+}else{ header("location: index.php"); }
 ?>
 
 <body>
@@ -20,16 +17,17 @@ if(isset($_SESSION["username"])){
 
         <div id="divright"
             class="w35 posre is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
-
-            <header id="headerprofil"
-                class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
-                <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
-                        alt="Le logo Blabla Campus"></a>
-                <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
-                        alt="Icon d'une personne"></a>
-            </header>
+            <img class="posabL" src="assets/img/autres/pos1.svg" alt="">
+            <img class="posabR" src="assets/img/autres/pos2.svg" alt="">
             <!-- <main class="dekstop box"> -->
-            <main class="dekstop box main">
+            <main class="dekstop main">
+                <header id="headerprofil"
+                    class="connexion w100 mt-5 is-flex is-justify-content-space-between is-align-items-center">
+                    <a href="index.php" class="btnbacknone"><img src="assets/img/logo/logo.svg"
+                            alt="Le logo Blabla Campus"></a>
+                    <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
+                            alt="Icon d'une personne"></a>
+                </header>
                 <div id="cache"></div>
                 <div class="container is-flex is-justify-content-center is-flex-direction-column my-5">
                     <!-- coordonnées -->
@@ -67,8 +65,9 @@ if(isset($_SESSION["username"])){
                             <p for="heure" class="greyText mb-2">A quelle heure partez vous ?</p>
                             <span class="icon is-small is-left mt-3">
                                 <i class="fa-regular fa-clock"></i></span>
-                            <input type="time" name="heure" id="heure" class="input is-medium" placeholder="Heure"
-                                value="" required="required">
+                            <input type="text" name="heure" id="heure" class="input is-medium"
+                                placeholder="Heure de départ" value="" required="required" onclick="(this.type='time')"
+                                id="heure" name="heure">
                         </div>
                         <!-- arrivée -->
                         <div class="control has-icons-left my-3 w100">
@@ -110,7 +109,10 @@ if(isset($_SESSION["username"])){
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </div>
-                            <input type="date" name="date" id="date" class="input is-medium" placeholder="Aujourd' hui">
+                            <!-- <input type="date" name="date" id="date" class="input is-medium" placeholder="Aujourd' hui"> -->
+                            <input placeholder="Date" class="input is-medium" type="text" onfocus="(this.type='date')"
+                                onclick="(this.type='date')" id="date" name="date" />
+
                         </div>
                         <!-- Type de trajet -->
                         <label for="type" class="greyText mt-3">Type de trajet : </label>
@@ -167,42 +169,42 @@ if(isset($_SESSION["username"])){
                                         stroke-linejoin="round" />
                                 </svg></span>
 
-                            <div class="is-flex">
-                                <div id="autocomplete-container1" class="w100">
-                                    <input type="text" placeholder="etape" name="locationAdd" id="locationAdd"
-                                        class="input my-3 py-5 isEmpty">
+                            <div class="is-flex is-flex-direction-column">
+                                <div class="is-flex">
+                                    <div id="autocomplete-container1" class="w100">
+                                        <input type="text" placeholder="etape" name="locationAdd" id="locationAdd"
+                                            class="input my-3 py-5 isEmpty">
+                                    </div>
+                                    <button type="button" class="addTrajet addNbLocation">
+                                        <svg width="35" height="35" viewBox="0 0 35 35" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M17.5 0C12.876 0.0557868 8.45719 1.91744 5.18731 5.18731C1.91744 8.45719 0.0557868 12.876 0 17.5C0.0557868 22.124 1.91744 26.5428 5.18731 29.8127C8.45719 33.0826 12.876 34.9442 17.5 35C22.124 34.9442 26.5428 33.0826 29.8127 29.8127C33.0826 26.5428 34.9442 22.124 35 17.5C34.9442 12.876 33.0826 8.45719 29.8127 5.18731C26.5428 1.91744 22.124 0.0557868 17.5 0ZM27.5 18.75H18.75V27.5H16.25V18.75H7.5V16.25H16.25V7.5H18.75V16.25H27.5V18.75Z"
+                                                fill="#D41E45" />
+                                        </svg>
+                                    </button>
                                 </div>
-
-                                <button type="button" class="addTrajet addNbLocation">
-                                    <svg width="35" height="35" viewBox="0 0 35 35" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M17.5 0C12.876 0.0557868 8.45719 1.91744 5.18731 5.18731C1.91744 8.45719 0.0557868 12.876 0 17.5C0.0557868 22.124 1.91744 26.5428 5.18731 29.8127C8.45719 33.0826 12.876 34.9442 17.5 35C22.124 34.9442 26.5428 33.0826 29.8127 29.8127C33.0826 26.5428 34.9442 22.124 35 17.5C34.9442 12.876 33.0826 8.45719 29.8127 5.18731C26.5428 1.91744 22.124 0.0557868 17.5 0ZM27.5 18.75H18.75V27.5H16.25V18.75H7.5V16.25H16.25V7.5H18.75V16.25H27.5V18.75Z"
-                                            fill="#D41E45" />
-                                    </svg>
-                                </button>
+                                <div id="autocomplete-container13" class="w100 dsn">
+                                    <input type="text" placeholder="etape" name="locationAdd2" id="locationAdd2"
+                                        value="" class="input my-3 py-5 isEmpty">
+                                </div>
                             </div>
                         </div>
                         <div class="mx-auto">
+                            <input id="h-arrive" type="time" value="" name="h-arrive" class="h-arrive dsn ">
+                            <input id="h-mid1" type="time" value="" name="h-mid1" class="dsn ">
+                            <input id="h-mid2" type="time" value="" name="h-mid2" class="dsn ">
+                            <input id="gpsCo1" type="text" value="" name="gpsCo1" class="dsn  gpsCo1">
+                            <input id="gpsCo2" type="text" value="" name="gpsCo2" class="dsn  gpsCo2">
+                            <input id="gpsCo3" type="text" value="" name="gpsCo3" class=" dsn gpsCo3">
                             <button type="submit" class="button redBtn mt-5" name="action" value="newTrajet">
                                 <p>Proposer un trajet</p>
                             </button>
                         </div>
                     </form>
-                    <input id="h-arrive" type="time" value="" name="h-arrive" class="h-arrive dsn">
-                    <input id="h-mid1" type="time" value="" name="h-mid1" class="dsn">
-                    <input id="h-mid2" type="time" value="" name="h-mid2" class="dsn">
+
             </main>
         </div>
-
-
-
-
-
-
-
-
-
 
         <!-- <script src="assets/js/geoapify2.js"></script> -->
         <script src="assets/js/app.js"></script>

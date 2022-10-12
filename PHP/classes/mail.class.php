@@ -3,62 +3,98 @@
 class Mail extends Dbh {
 
     protected function setMail($id_receiver, $id_sender,$msg,$name_sender,$name_receiver,$dep,$arr,$msg_type,$id_trajet){
-        // $msg_type = "Demande";
+
+        $stmt = $this->connect()->prepare('SELECT * FROM messagerie WHERE id_trajet_msg = ? ');
+        $result = $stmt->execute(array($id_trajet));
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($id_sender == $user["id_sender"] && $id_receiver = $user["id_sender"] && $msg_type =  $user["msg_type"] ){
+            header("location: ../../confirmation.php?action=alreadyhavethistrip");
+            exit();
+        }
+        $stmt=NULL;
+        $user=NULL;
+
+        $email;
+
         $stmt = $this->connect()->prepare('INSERT INTO messagerie (id_receiver, id_sender, full_message, msg_type, name_sender,name_receiver,trip_depart,trip_arrival,id_trajet_msg) VALUES (?,?,?,?,?,?,?,?,?)');
         $result = $stmt->execute(array($id_receiver,$id_sender,$msg, $msg_type, $name_sender,$name_receiver,$dep,$arr,$id_trajet));
         $stmt->debugDumpParams();
-        // var_dump($result);
+        echo "<br>";
+        echo "<br>";
+ 
         if($result==false){
             $stmt = null; //delete the statement
-            echo "stmt failed";
-            // header("location: ../../index.html?error=stmtFailed");
+   
+            header("location: ../../confirmation.php?action=stmtFailed");
             exit();
         }
         $stmt = null;
+
+        $stmt = $this->connect()->prepare('SELECT email FROM utilisator WHERE id_user = ? ');
+        $result = $stmt->execute(array($id_receiver));
+        $stmt->debugDumpParams();
+        echo "<br>";
+
+        if($result==false){
+            $stmt = null; //delete the statement
+            header("location: ../../confirmation.php?action=stmtFailedMailChecked");
+            exit();
+        }
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        $email = $user["email"];
+        // ---------------MAIL---------------------------------------------------------------------------------------
+        $to  = $email; // notez la virgule
+        $subject = 'BlaBlaCampus demande de reservation';
+        
+        // message
+        $message = '<html><head><title>BlaBlaCampus</title></head><body>
+        <div><p>Bonjour <span>'.$name_receiver.'</span></p>
+                        <p>Je souhaiterai réserver une place dans ta voiture pour le trajet <span>'.$dep.'-'.$arr.'</span></p>
+                        <p>En te remerciant.</p>
+                    </div>
+        </body></html>';
+        
+        // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=utf-8';
+        
+        // En-têtes additionnels
+        $headers[] = 'To:  <'.$email.'>';
+        $headers[] = 'From: '.$name_sender.'';
+        //  $headers[] = 'Cc: anniversaire_archive@example.com';
+        //  $headers[] = 'Bcc: anniversaire_verif@example.com';
+        
+        // Envoi
+        mail($to, $subject, $message, implode("\r\n", $headers));
+        // ---------------END MAIL---------------------------------------------------------------------------------------
+
+
+
     }
 
     protected function deleteMsg($id){
-        // $msg_type = "Demande";
+
         $stmt = $this->connect()->prepare('DELETE FROM messagerie WHERE id_msg = ?');
         $result = $stmt->execute(array($id));
-        // $stmt->debugDumpParams();
-        // var_dump($result);
+
         if($result==false){
             $stmt = null; //delete the statement
-            echo "stmt failed";
-            header("location: ../../annulationReservation.php?error=stmtFailed");
+
+            header("location: ../../confirmation.php?action=stmtFailed");
             exit();
         }
         $stmt = null;
     }
 
-    // protected function checkMail($id_receiver, $id_sender,$msg,$name_sender,$name_receiver){
-    //     $stmt = $this->connect()->prepare('SELECT * FROM messagerie WHERE id_receiver = ? AND id_sender= ? AND full_message= ? AND msg_type= ? AND name_sender= ? AND name_receiver= ? ;');
-    //     $msg_type = "Demande";
-    //     $resultCheck=$stmt->execute(array($id_receiver,$id_sender,$msg, $msg_type, $name_sender,$name_receiver));
-    //     // echo $resultCheck;
-    //     $stmt->debugDumpParams();
-    //     if($resultCheck==true){
-    //         $resultCheck=false;
-    //         $stmt = null; //delete the statement
-    //         header("location: ../../reserver.php?error=stmtFailedMailChecked");
-    //         exit();
-    //     }else{
-    //         $resultCheck=true;
-    //     }
-        
-    //     return $resultCheck;
-    // }
-
     protected function findMail($user_id){
-        //
+        
         $stmt = $this->connect()->prepare('SELECT * FROM messagerie INNER JOIN utilisator ON messagerie.id_sender = utilisator.id_user WHERE id_receiver = ?;');
         $resultCheck=$stmt->execute(array($user_id));
-        // echo $resultCheck;
         $stmt->debugDumpParams();
+
         if($resultCheck==false){
             $stmt = null; //delete the statement
-            header("location: ../../profil.php?error=stmtFailedMailChecked");
+            header("location: ../../confirmation.php?action=stmtFailedMailChecked");
             exit();
         }else{
             
@@ -81,8 +117,7 @@ class Mail extends Dbh {
                 $_SESSION["id_trajet_inc_msg".$i] = $user[$i]["id_trajet_msg"];
 
                 $a=$_SESSION["id_trajet_inc_msg".$i];
-                echo "<br>";
-                echo $a;
+
             }
             $_SESSION["mail-rc"] = $rc;
             $_SESSION["id_receiver"] = $user[0]["id_receiver"];
@@ -95,14 +130,13 @@ class Mail extends Dbh {
 
     protected function findMailTwo($user_id,$msg_type){
         $_SESSION["reserve_rc"] = 0;
-        //
+        
         $stmt = $this->connect()->prepare('SELECT * FROM trajet INNER JOIN messagerie ON messagerie.id_receiver = trajet.id_utilsateur WHERE id_receiver =? AND msg_type =?;');
         $resultCheck=$stmt->execute(array($user_id,$msg_type));
-        // echo $resultCheck;
-        // $stmt->debugDumpParams();
+
         if($resultCheck==false){
             $stmt = null; //delete the statement
-            // header("location: ../../profil.php?error=stmtFailedMailChecked");
+            header("location: ../../confirmation.php?action=stmtFailedMailChecked");
             exit();
         }else{
             
@@ -123,7 +157,6 @@ class Mail extends Dbh {
                 $_SESSION["reserve_idmsg".$i] = $user[$i]["id_msg"];
             }
             $_SESSION["reserve_rc"] = $rc;
-            // $_SESSION["id_receiver"] = $user[0]["id_receiver"];
 
             $stmt = null;
             
@@ -133,25 +166,30 @@ class Mail extends Dbh {
 
     protected function updateMessage($tr){
         $id_receiver;
-            $id_sender;
-            $msg_type;
-            $name_sender;
-            $name_receiver;
-            $guest_number;
+        $id_sender;
+        $msg_type;
+        $name_sender;
+        $name_receiver;
+        $guest_number;
+        $emailx;
+        $depx;
+        $arrx;
 
         $stmt = $this->connect()->prepare('SELECT * FROM messagerie WHERE id_trajet_msg = ?;');
         $resultCheck=$stmt->execute(array($tr));
+        echo "<br>";
         $stmt->debugDumpParams();
+        echo "<br>";
         if($resultCheck==false){
             $stmt = null; //delete the statement
-            header("location: ../../profil.php?error=stmtFailedMailChecked");
+            header("location: ../../confirmation.php?action=stmtFailedMailChecked");
             exit();
         }else{
             $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $rc = $stmt->rowCount();
             if($rc==0){
                 $stmt = null;
-                header("location: ../../profil.php?error=nomails");
+                header("location: ../../confirmation.php?action=noMails");
                 exit();
             }
             // session_start();
@@ -160,14 +198,6 @@ class Mail extends Dbh {
             $msg_type = $user[0]["msg_type"];
             $name_sender = $user[0]["name_sender"];
             $name_receiver = $user[0]["name_receiver"];
-            // var_dump($guest_number);
-
-            echo "<br>";
-            // echo $id_receiver."<br>";
-            // echo $id_sender."<br>";
-            // echo $msg_type."<br>";
-            // echo $name_sender."<br>";
-            // echo $name_receiver."<br>";
 
             $stmt = null;
             
@@ -178,33 +208,29 @@ class Mail extends Dbh {
             $name_sender2 = $name_receiver;
             $name_receiver2 = $name_sender;
 
-            // echo $id_receiver2."<br>";
-            // echo $id_sender2."<br>";
-            // echo $msg_type2."<br>";
-            // echo $name_sender2."<br>";
-            // echo $name_receiver2."<br>";
-
         $stmt = $this->connect()->prepare('UPDATE messagerie SET id_receiver = ?, id_sender=?, msg_type=?, name_sender=?, name_receiver=? WHERE id_trajet_msg = ?');
         $resultCheck=$stmt->execute(array($id_receiver2,$id_sender2,$msg_type2,$name_sender2,$name_receiver2,$tr));
+        echo "<br>";
         $stmt->debugDumpParams();
+        echo "<br>";
+
         if($resultCheck==false){
             $stmt = null; //delete the statement
-            echo 'error'."<br>";
-            header("location: ../../profil.php?error=stmtFailedMailChecked");
+            header("location: ../../confirmation.php?action=stmtFailedMailChecked");
             exit();
         }else{
             $stmt = null;
         }
 
-        $stmt = $this->connect()->prepare('SELECT * FROM trajet WHERE id_trajet = ?;');
+        $stmt = $this->connect()->prepare('SELECT * FROM trajet WHERE id_trajet = ?');
         $resultCheck=$stmt->execute(array($tr));
+        echo "<br>";
         $stmt->debugDumpParams();
-        // echo $resultCheck;
-        $stmt->debugDumpParams();
+        echo "<br>";
         if($resultCheck==false){
             $stmt = null; //delete the statement
-            echo 'error2'."<br>";
-            header("location: ../../profil.php?error=stmtFailedMailChecked");
+
+            header("location: ../../confirmation.php?action=stmtFailedMailChecked");
             exit();
         }else{
             
@@ -212,18 +238,14 @@ class Mail extends Dbh {
             $rc = $stmt->rowCount();
             if($rc==0){
                 $stmt = null;
-                header("location: ../../profil.php?error=nomails");
+                header("location: ../../confirmation.php?action=noMails");
                 exit();
             }
-            // session_start();
             
             $guest_number = $user[0]["guest"];
-            var_dump($guest_number);
             $guest_number = $guest_number - 1;
-            var_dump($guest_number);
-
-            echo "<br>";
-            // echo $id_receiver."<br>";
+            $depx = $user[0]["depart"];
+            $arrx = $user[0]["arriver"];
           
             $stmt = null;
             
@@ -231,15 +253,60 @@ class Mail extends Dbh {
 
         $stmt = $this->connect()->prepare('UPDATE trajet SET guest=? WHERE id_trajet = ?');
         $resultCheck=$stmt->execute(array($guest_number, $tr));
+        echo "<br>";
         $stmt->debugDumpParams();
+        echo "<br>";
         if($resultCheck==false){
             $stmt = null; //delete the statement
-            header("location: ../../profil.php?error=stmtFailedMailChecked");
+            header("location: ../../confirmation.php?action=stmtFailedMailChecked");
             exit();
         }else{
             $stmt = null;
         }
         
+        $stmt = $this->connect()->prepare('SELECT * FROM utilisator WHERE id_user = ? ');
+        $result = $stmt->execute(array($id_receiver2));
+        echo "<br>";
+        $stmt->debugDumpParams();
+        echo "<br>";
+
+        if($result==false){
+            $stmt = null; //delete the statement
+            header("location: ../../confirmation.php?action=stmtFailedMailChecked");
+            exit();
+        }else{
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            $emailx = $user["email"];
+            
+            // ---------------MAIL---------------------------------------------------------------------------------------
+            $to  = $emailx; // notez la virgule
+            $subject = 'BlaBlaCampus Validation de reservation';
+            
+            // message
+            $message = '<html><head><title>BlaBlaCampus</title></head><body>
+            <div><p>Bonjour <span>'.$name_receiver2.'</span></p>
+                            <p>Je t\'informe qu\'une place t\'attend dans ma voiture pour le <span>'.$depx.'-'.$arrx.'</span></p>
+                            <p>À tout bientôt.</p>
+                        </div>
+            </body></html>';
+            
+            // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
+            $headers[] = 'MIME-Version: 1.0';
+            $headers[] = 'Content-type: text/html; charset=utf-8';
+            
+            // En-têtes additionnels
+            $headers[] = 'To:  <'.$emailx.'>';
+            $headers[] = 'From: '.$name_sender2.'';
+            //  $headers[] = 'Cc: anniversaire_archive@example.com';
+            //  $headers[] = 'Bcc: anniversaire_verif@example.com';
+            
+            // Envoi
+            mail($to, $subject, $message, implode("\r\n", $headers));
+            // ---------------END MAIL---------------------------------------------------------------------------------------
+            
+
+        }
+       
     }
 
 }

@@ -19,10 +19,12 @@ if(isset($_GET['u']) && isset($_GET['token']) && !empty($_GET['u']) && !empty($_
 
         }else{
             echo "Erreur compte non valide";
+            header("location: ../index.php?error=accountNotValid");
         }
            
 
 
 } else {
     echo "Lien non valide";
+    header("location: ../index.php?error=brokenLink");
 }
