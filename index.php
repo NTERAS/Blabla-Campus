@@ -32,7 +32,8 @@ if(isset($_SESSION["username"])){
                             formation.</p>
                         <p class="overpass" class="overpass">Pas de soucis <span class="redColor">Blabla Campus</span> est là pour toi.
                         </p>
-                        <p class="overpass" class="overpass">Crée toi un compte ou connecte toi pour soit proposer un covoiturage, soit
+                        <p class="overpass" class="overpass">Crée toi un compte ou connecte toi pour soit proposer un
+                            covoiturage, soit
                             pour voir toutes
                             les
                             offres disponibles des trajets.</p>

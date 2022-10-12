@@ -3,6 +3,17 @@
 class Mail extends Dbh {
 
     protected function setMail($id_receiver, $id_sender,$msg,$name_sender,$name_receiver,$dep,$arr,$msg_type,$id_trajet){
+
+        $stmt = $this->connect()->prepare('SELECT * FROM messagerie WHERE id_trajet_msg = ? ');
+        $result = $stmt->execute(array($id_trajet));
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($id_sender == $user["id_sender"] && $id_receiver = $user["id_sender"] && $msg_type =  $user["msg_type"] ){
+            header("location: ../../confirmation.php?action=alreadyhavethistrip");
+            exit();
+        }
+        $stmt=NULL;
+        $user=NULL;
+
         $email;
 
         $stmt = $this->connect()->prepare('INSERT INTO messagerie (id_receiver, id_sender, full_message, msg_type, name_sender,name_receiver,trip_depart,trip_arrival,id_trajet_msg) VALUES (?,?,?,?,?,?,?,?,?)');
@@ -14,7 +25,7 @@ class Mail extends Dbh {
         if($result==false){
             $stmt = null; //delete the statement
    
-            // header("location: ../../confirmation.php?action=stmtFailed");
+            header("location: ../../confirmation.php?action=stmtFailed");
             exit();
         }
         $stmt = null;

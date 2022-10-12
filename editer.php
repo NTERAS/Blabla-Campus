@@ -12,13 +12,18 @@ if(isset($_GET['id'])){
     $calendar = $_SESSION["trajet_calendar"];
     $type = $_SESSION["trajet_routetype"];
     $guest = $_SESSION["trajet_guest"];
+    $gps1 = $_SESSION["trajet_gps1"];
+    $gps2 = $_SESSION["trajet_gps2"];
+    $gps3 = $_SESSION["trajet_gps3"];
+    $hours1 = $_SESSION["trajet_step_hour_1"];
+    $hours2 = $_SESSION["trajet_step_hour_2"];
+    $hours3 = $_SESSION["trajet_final_hour"];
 
-    $hours = explode(':',$hours);
-    // print_r($hours);
-    $hour = $hours[0];
-    $min = $hours[1];
-    // echo $hour;
-    // echo $min;
+    $hours = explode(':',$hours); $hour = $hours[0]; $min = $hours[1];
+    $hours1 = explode(':',$hours1); $hour1 = $hours1[0]; $min1 = $hours1[1];
+    $hours2 = explode(':',$hours2); $hour2 = $hours2[0]; $min2 = $hours2[1];
+    $hours3 = explode(':',$hours3); $hour3 = $hours3[0]; $min3 = $hours3[1];
+    
     
 }else{
     header("location: index.php");
@@ -47,57 +52,22 @@ if(isset($_GET['id'])){
                     <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
                             alt="Icon d'une personne"></a>
                 </header>
-                <div id="cache" class=""></div>
+                <div id="cache" class="w0"></div>
                 <div class="container is-flex is-justify-content-center is-flex-direction-column my-5">
                     <!-- coordonnées -->
                     <p class="bungee my-4 mx-3">editer un trajet</p>
 
-        <form action="PHP/includes/edittraj.inc.php?" class="loginForm is-flex is-flex-direction-column container"
-            method="GET" enctype="multipart/form-data" autocomplete="off">
-            <!-- hidden champ id -->
-            <input type="hidden" value="<?= $idt;?>" name="id">
-            <!-- depart -->
-            <div class="control has-icons-left enAvant firstAutoC">
-                <label for="depart" class="greyText">
-                    <p id="info">D'où partez vous ?</p>
-                </label>
-                <span class="icon is-small is-left mt-3">
-                    <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M14.657 14.6567L10.414 18.8997C10.2284 19.0854 10.0081 19.2328 9.76556 19.3333C9.52303 19.4339 9.26305 19.4856 9.0005 19.4856C8.73796 19.4856 8.47798 19.4339 8.23544 19.3333C7.99291 19.2328 7.77256 19.0854 7.587 18.8997L3.343 14.6567C2.22422 13.5379 1.46234 12.1124 1.15369 10.5606C0.845043 9.00873 1.00349 7.40022 1.60901 5.93844C2.21452 4.47665 3.2399 3.22725 4.55548 2.34821C5.87107 1.46918 7.41777 1 9 1C10.5822 1 12.1289 1.46918 13.4445 2.34821C14.7601 3.22725 15.7855 4.47665 16.391 5.93844C16.9965 7.40022 17.155 9.00873 16.8463 10.5606C16.5377 12.1124 15.7758 13.5379 14.657 14.6567V14.6567Z"
-                            stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M12 8.99969C12 9.79534 11.6839 10.5584 11.1213 11.121C10.5587 11.6836 9.79565 11.9997 9 11.9997C8.20435 11.9997 7.44129 11.6836 6.87868 11.121C6.31607 10.5584 6 9.79534 6 8.99969C6 8.20405 6.31607 7.44098 6.87868 6.87837C7.44129 6.31576 8.20435 5.99969 9 5.99969C9.79565 5.99969 10.5587 6.31576 11.1213 6.87837C11.6839 7.44098 12 8.20405 12 8.99969V8.99969Z"
-                            stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg></span>
-                <div class="autocomplete-container w100" id="autocomplete-container">
-                    <input type="text" placeholder="etapes" id="location" name="location" class="input my-3 py-5"
-                        value="<?= $depart; ?>">
-                </div>
-                <!-- <input type="text" name="depart" id="depart" class="input is-medium" placeholder="Départ"> -->
-            </div>
-            <!-- heure -->
-            <div class="control has-icons-left">
-                <p for="heure" class="greyText mb-3">À quelle heure partez vous ?</p>
-                <span class="icon is-small is-left mt-3">
-                    <i class="fa-regular fa-clock"></i></span>
-                <input type="time" name="heure" id="heure" class="input is-medium" placeholder="Heure"
-                    value="<?= $hour; echo ":".$min ?>">
-            </div>
-
-                        <!-- arrivée -->
-                        <div class="control has-icons-left my-3">
-                            <div class="select w100">
-                                <p for="arrivee" class="greyText mb-3">Pour allez où ?</p>
-                                <select name="arrivee" id="arrivee">
-                                    <!-- <option value="" disabled selected></option> -->
-                                    <option value="Centre Avenue du Stade" <?php if ($arriver == "Centre Avenue du Stade") { echo "selected";}
-                        ?>>Centre Avenue du Stade</option>
-                                    <option value="Campus numérique" <?php if ($arriver == "Campus numérique") { echo "selected";}
-                        ?>>Campus numérique</option>
-                                </select>
-                            </div>
-                            <div class="icon is-small is-left mt-3">
+                    <form action="PHP/includes/edittraj.inc.php?"
+                        class="loginForm is-flex is-flex-direction-column container" method="GET"
+                        enctype="multipart/form-data" autocomplete="off">
+                        <!-- hidden champ id -->
+                        <input type="hidden" value="<?= $idt;?>" name="id">
+                        <!-- depart -->
+                        <div class="control has-icons-left enAvant firstAutoC">
+                            <label for="depart" class="greyText">
+                                <p id="info">D'où partez vous ?</p>
+                            </label>
+                            <span class="icon is-small is-left mt-3">
                                 <svg width="18" height="21" viewBox="0 0 18 21" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -108,9 +78,61 @@ if(isset($_GET['id'])){
                                         d="M12 8.99969C12 9.79534 11.6839 10.5584 11.1213 11.121C10.5587 11.6836 9.79565 11.9997 9 11.9997C8.20435 11.9997 7.44129 11.6836 6.87868 11.121C6.31607 10.5584 6 9.79534 6 8.99969C6 8.20405 6.31607 7.44098 6.87868 6.87837C7.44129 6.31576 8.20435 5.99969 9 5.99969C9.79565 5.99969 10.5587 6.31576 11.1213 6.87837C11.6839 7.44098 12 8.20405 12 8.99969V8.99969Z"
                                         stroke="#333333" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" />
-                                </svg>
+                                </svg></span>
+                            <div class="autocomplete-container w100" id="autocomplete-container">
+                                <input type="text" placeholder="etapes" id="location" name="location"
+                                    class="input my-3 py-5" value="<?= $depart; ?>">
+                            </div>
+                            <!-- <input type="text" name="depart" id="depart" class="input is-medium" placeholder="Départ"> -->
+                        </div>
+                        <!-- heure -->
+                        <div class="control has-icons-left">
+                            <p for="heure" class="greyText mb-3">À quelle heure partez vous ?</p>
+                            <span class="icon is-small is-left mt-3">
+                                <i class="fa-regular fa-clock"></i></span>
+                            <input type="time" name="heure" id="heure" class="input is-medium" placeholder="Heure"
+                                value="<?= $hour; echo ":".$min ?>">
+                        </div>
+
+                        <!-- arrivée -->
+                        <div class="selectH">
+                            <div class="control has-icons-left my-3">
+                                <div class="select w100">
+                                    <p for="arrivee" class="greyText mb-3">Pour allez où ?</p>
+                                    <select name="arrivee" id="arrivee">
+                                        <!-- <option value="" disabled selected></option> -->
+                                        <option value="Centre Avenue du Stade"
+                                            <?php if ($arriver == "Centre Avenue du Stade") { echo "selected";}?>>Centre
+                                            Avenue du Stade</option>
+                                        <option value="Campus numérique"
+                                            <?php if ($arriver == "Campus numérique") { echo "selected";}?>>Campus
+                                            numérique</option>
+                                    </select>
+                                </div>
+                                <div class="icon is-small is-left mt-3">
+                                    <svg width="18" height="21" viewBox="0 0 18 21" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14.657 14.6567L10.414 18.8997C10.2284 19.0854 10.0081 19.2328 9.76556 19.3333C9.52303 19.4339 9.26305 19.4856 9.0005 19.4856C8.73796 19.4856 8.47798 19.4339 8.23544 19.3333C7.99291 19.2328 7.77256 19.0854 7.587 18.8997L3.343 14.6567C2.22422 13.5379 1.46234 12.1124 1.15369 10.5606C0.845043 9.00873 1.00349 7.40022 1.60901 5.93844C2.21452 4.47665 3.2399 3.22725 4.55548 2.34821C5.87107 1.46918 7.41777 1 9 1C10.5822 1 12.1289 1.46918 13.4445 2.34821C14.7601 3.22725 15.7855 4.47665 16.391 5.93844C16.9965 7.40022 17.155 9.00873 16.8463 10.5606C16.5377 12.1124 15.7758 13.5379 14.657 14.6567V14.6567Z"
+                                            stroke="#333333" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M12 8.99969C12 9.79534 11.6839 10.5584 11.1213 11.121C10.5587 11.6836 9.79565 11.9997 9 11.9997C8.20435 11.9997 7.44129 11.6836 6.87868 11.121C6.31607 10.5584 6 9.79534 6 8.99969C6 8.20405 6.31607 7.44098 6.87868 6.87837C7.44129 6.31576 8.20435 5.99969 9 5.99969C9.79565 5.99969 10.5587 6.31576 11.1213 6.87837C11.6839 7.44098 12 8.20405 12 8.99969V8.99969Z"
+                                            stroke="#333333" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
                             </div>
                         </div>
+                        <!-- heure arrivee estimée -->
+                        <div class="control has-icons-left">
+                            <p for="heure" class="greyText mb-3">Heure d'arrivée estimée</p>
+                            <span class="icon is-small is-left mt-3">
+                                <i class="fa-regular fa-clock"></i></span>
+                            <input type="time" name="h-arrive" id="h-arrive" class="input is-medium h-arrive"
+                                placeholder="Heure" value="<?= $hour3.':'.$min3; ?>">
+                        </div>
+
                         <!-- date départ -->
                         <div class="control has-icons-left pt-3 my-5">
                             <p for="date" class="greyText mb-3">Quand partez vous ?</p>
@@ -190,10 +212,32 @@ if(isset($_GET['id'])){
                                     <input type="text" placeholder="etape" name="locationAdd" id="locationAdd"
                                         value="<?= $depart1; ?>" class="input my-3 py-5 isEmpty">
                                 </div>
+                                <!-- heure estimée étape -->
+                                <div class="hmid1">
+                                    <div class="control has-icons-left">
+                                        <p for="heure" class="greyText mb-3">Heure d'arrivée estimée étape 1</p>
+                                        <span class="icon is-small is-left mt-3">
+                                            <i class="fa-regular fa-clock"></i></span>
+                                        <input type="time" name="h-mid1" id="h-mid1" class="input is-medium h-mid1"
+                                            placeholder="Heure" value="<?= $hour1.':'.$min1; ?>">
+                                    </div>
+                                </div>
 
-                                <div id="autocomplete-container13" class="w100">
-                                    <input type="text" placeholder="etape" name="locationAdd2" id="locationAdd2"
-                                        value="<?= $depart2; ?>" class="input my-3 py-5 isEmpty">
+                                <div class="etape2 mt-2">
+                                    <p class="greyText">Etape 2</p>
+                                    <div id="autocomplete-container13" class="w100">
+                                        <input type="text" placeholder="etape" name="locationAdd2" id="locationAdd2"
+                                            value="<?= $depart2; ?>" class="input my-3 py-5 isEmpty">
+                                    </div>
+                                    <div class="hmid2">
+                                        <div class="control has-icons-left">
+                                            <p for="heure" class="greyText mb-3">Heure d'arrivée estimée étape 2</p>
+                                            <span class="icon is-small is-left mt-3">
+                                                <i class="fa-regular fa-clock"></i></span>
+                                            <input type="time" name="h-mid2" id="h-mid2" class="input is-medium h-mid2"
+                                                placeholder="Heure" value="<?= $hour2.':'.$min2; ?>">
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <!-- <button type="button" class="addTrajet addNbLocation">
@@ -211,20 +255,19 @@ if(isset($_GET['id'])){
                                 <p>mettre à jour</p>
                             </button>
                         </div>
+                        <input id="gpsCo1" type="text" value="" name="gpsCo1" class="gpsCo1 dsn">
+                <input id="gpsCo2" type="text" value="" name="gpsCo2" class="gpsCo2 dsn">
+                <input id="gpsCo3" type="text" value="" name="gpsCo3" class="gpsCo3 dsn">
                     </form>
                 </div>
-                <input id="h-arrive" type="time" value="<?= $hours; ?>" name="h-arrive" class="h-arrive ">
-                <input id="h-mid1" type="time" value="" name="h-mid1" class="">
-                <input id="h-mid2" type="time" value="" name="h-mid2" class="">
-                <!-- arbois -->
-                <input id="gpsCo1" type="text" value="46.9032246,5.7727504" name="gpsCo1" class="gpsCo1">
-                <!-- poligny -->
-                <input id="gpsCo2" type="text" value="46.8348884,5.7086756" name="gpsCo2" class="gpsCo2">
-                <!-- mantry -->
-                <input id="gpsCo3" type="text" value="46.797,5.5597" name="gpsCo3" class="gpsCo3">
-                <!-- lons -->
-                <div class="CoorLons">46.671361,5.550796</div>
+
+                
+
                 <span class="addTrajet dsn"></span>
+                <!-- arbois -->
+                <div class="gps1Php dsn" name="gps1Php"> <?= $gps1; ?> </div>
+                <div class="gps2Php dsn" name="gps2Php"> <?= $gps2; ?> </div>
+                <div class="gps3Php dsn" name="gps3Php"> <?= $gps3; ?> </div>
 
             </main>
 

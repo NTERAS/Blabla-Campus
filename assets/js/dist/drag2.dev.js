@@ -53,25 +53,26 @@ function updateThumbnail(dropZoneElement, file) {
 
 
   var info = document.querySelector(".info");
-  info.innerHTML = file.name; // Show thumbnail for image files
+  info.innerHTML = file.name;
+  var fileSizeLimit = 1024 * 1024 * 1; // 1MB
+  // Show thumbnail for image files
 
   if (file.type.startsWith("image/jpg") || file.type.startsWith("image/jpeg") || file.type.startsWith("image/gif") || file.type.startsWith("image/png")) {
-    var reader = new FileReader();
-    reader.readAsDataURL(file);
+    if (file.size <= fileSizeLimit) {
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
 
-    reader.onload = function () {
-      thumbnailElement.style.backgroundImage = "url('".concat(reader.result, "')");
-    };
+      reader.onload = function () {
+        thumbnailElement.style.backgroundImage = "url('".concat(reader.result, "')");
+      };
+    } else {
+      thumbnailElement.style.backgroundImage = null;
+      info.textContent = "Ce fichier est trop volumineux";
+    }
+
+    ;
   } else {
     thumbnailElement.style.backgroundImage = null;
     info.textContent = "Ce format n'est pas supporté";
-  } //     const reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //     reader.onload = () => {
-  //         thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
-  //     };
-  // } else {
-  //     thumbnailElement.style.backgroundImage = null;
-  // }
-
+  }
 }

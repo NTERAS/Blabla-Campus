@@ -656,6 +656,7 @@ addressAutocomplete(document.getElementById("autocomplete-container1"), function
       var hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
       hourEtape.value = secondsToHms(gps2Data + hInSec1);
       gpsCo2.value = gps2String;
+      calculTemps();
     });
   }
 });
@@ -684,7 +685,11 @@ addressAutocomplete2(document.getElementById("autocomplete-container"), function
       return res.json();
     }).then(function (result) {
       gps1Data = Math.round(result.results[0].time);
+      hours = hour.value.split(":");
+      hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
+      arrive.value = secondsToHms(gps1Data + hInSec1);
       gpsCo1.value = gps1;
+      secondHour();
     });
   }
 });
@@ -697,46 +702,45 @@ addTrajet.addEventListener("click", function (e) {
   if (nbEtape < nbEtapeMax && isEmpty[0].value != "") {
     nbEtape++;
     autocompleContainer13.classList.remove("dsn");
-    addressAutocomplete3(document.getElementById("autocomplete-container13"), function (data) {
-      // let inputElement3 = document.getElementById("locationAdd2");
-      if (data.properties.housenumber != undefined && data.properties.street != undefined) {
-        inputElement3.value = data.properties.housenumber + " " + data.properties.street + " " + data.properties.city;
-      }
 
-      if (data.properties.housenumber == undefined) {
-        inputElement3.value = data.properties.street + " " + data.properties.city;
-      }
-
-      if (data.properties.street == undefined && data.properties.housenumber == undefined) {
-        inputElement3.value = data.properties.city;
-      }
-
-      var gps1 = data.geometry.coordinates[1].toString() + "," + data.geometry.coordinates[0].toString();
-      gps3String = gps1;
-      coordonneeTrajet3 = gps1;
-
-      if (coordonneeTrajet3 != "") {
-        var url = "https://api.geoapify.com/v1/routing?waypoints=".concat(coordonneeTrajet, "|").concat(coordonneeTrajet3, "&format=json&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7");
-        fetch(url).then(function (res) {
-          return res.json();
-        }).then(function (result) {
-          gps3Data = Math.round(result.results[0].time);
-          var hours = hourEtape.value.split(":");
-          var hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
-          hourEtapeSupp.value = secondsToHms(gps3Data + hInSec1);
-          gpsCo3.value = gps1;
-        });
-      }
-    });
+    if (nbEtape === nbEtapeMax) {
+      var p = document.createElement("p");
+      p.innerHTML = "<p class='greyText'>Vous avez atteint le nombre maximum d'étapes</p>";
+      addEtape.appendChild(p);
+      addTrajet.disabled = true;
+    }
+  }
+});
+addressAutocomplete3(document.getElementById("autocomplete-container13"), function (data) {
+  // let inputElement3 = document.getElementById("locationAdd2");
+  if (data.properties.housenumber != undefined && data.properties.street != undefined) {
+    inputElement3.value = data.properties.housenumber + " " + data.properties.street + " " + data.properties.city;
   }
 
-  ;
+  if (data.properties.housenumber == undefined) {
+    inputElement3.value = data.properties.street + " " + data.properties.city;
+  }
 
-  if (nbEtape === nbEtapeMax) {
-    var p = document.createElement("p");
-    p.innerHTML = "<p class='greyText'>Vous avez atteint le nombre maximum d'étapes</p>";
-    addEtape.appendChild(p);
-    addTrajet.disabled = true;
+  if (data.properties.street == undefined && data.properties.housenumber == undefined) {
+    inputElement3.value = data.properties.city;
+  }
+
+  var gps1 = data.geometry.coordinates[1].toString() + "," + data.geometry.coordinates[0].toString();
+  gps3String = gps1;
+  coordonneeTrajet3 = gps1;
+
+  if (coordonneeTrajet3 != "") {
+    var url = "https://api.geoapify.com/v1/routing?waypoints=".concat(coordonneeTrajet, "|").concat(coordonneeTrajet3, "&format=json&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7");
+    fetch(url).then(function (res) {
+      return res.json();
+    }).then(function (result) {
+      gps3Data = Math.round(result.results[0].time);
+      hours = hourEtape.value.split(":");
+      hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
+      hourEtapeSupp.value = secondsToHms(gps3Data + hInSec1);
+      gpsCo3.value = gps1;
+      thirdHour();
+    });
   }
 });
 
@@ -756,16 +760,75 @@ var hour = document.getElementById('heure');
 var arrive = document.getElementById('h-arrive');
 var hourEtape = document.getElementById('h-mid1');
 var hourEtapeSupp = document.getElementById('h-mid2');
-var hourInSeconde = 0;
+var hours = hour.value.split(":");
+var hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
+var hours2 = hourEtape.value.split(":");
+var hInSec2 = +hours2[0] * 60 * 60 + +hours2[1] * 60;
+var hours3 = hourEtapeSupp.value.split(":");
+var hInSec3 = +hours3[0] * 60 * 60 + +hours3[1] * 60;
+var hInSecTotal = hInSec1 + hInSec2 + hInSec3; // hour.addEventListener('change', (e) => {
+//     arrive.value = secondsToHms(gps1Data + hInSec1);
+//     calculTemps();
+// })
+
+function firstHour() {
+  arrive.value = secondsToHms(gps1Data + hInSec1);
+  calculTemps();
+}
+
+function secondHour() {
+  hourEtape.value = secondsToHms(gps2Data + hInSec1);
+  calculTemps();
+}
+
+function thirdHour() {
+  hourEtapeSupp.value = secondsToHms(gps3Data + hInSec2);
+  calculTemps();
+}
+
 hour.addEventListener('change', function (e) {
   var hours = hour.value.split(":");
   var hInSec1 = +hours[0] * 60 * 60 + +hours[1] * 60;
   return arrive.value = secondsToHms(gps1Data + hInSec1);
 });
-var coorLons;
+coordonneeTrajet2 = gpsCo2.value;
+coordonneeTrajet3 = gpsCo3.value;
+coordonneeTrajet = gpsCo1.value;
+coorLons = "46.671361,5.550796";
 
-if (coorLons != null) {
-  coorLons = document.querySelector(".coorLons").value;
-} // gpsCo1.value = gps1String;
-// gpsCo2.value = gps2String;
-// gpsCo3.value = gps3String;
+function calculTemps() {
+  if (coordonneeTrajet2 == "" && coordonneeTrajet3 == "") {
+    var url = "https://api.geoapify.com/v1/routing?waypoints=".concat(coordonneeTrajet, "|").concat(coorLons, "&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7");
+    fetch(url).then(function (res) {
+      return res.json();
+    }).then(function (result) {
+      console.log(result.features[0].properties.legs[0].time);
+      return;
+    });
+  }
+
+  if (coordonneeTrajet3 == "") {
+    var _url = "https://api.geoapify.com/v1/routing?waypoints=".concat(coordonneeTrajet, "|").concat(coordonneeTrajet2, "|").concat(coorLons, "&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7");
+
+    fetch(_url).then(function (res) {
+      return res.json();
+    }).then(function (result) {
+      console.log(result.features[0].properties.legs[0].time);
+      console.log(result.features[0].properties.legs[1].time);
+      return;
+    });
+  }
+
+  if (coordonneeTrajet2 != "" && coordonneeTrajet3 != "") {
+    var urlEtape = "https://api.geoapify.com/v1/routing?waypoints=".concat(coordonneeTrajet, "|").concat(coordonneeTrajet2, "|").concat(coordonneeTrajet3, "|").concat(coorLons, "&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7");
+    fetch(urlEtape).then(function (res) {
+      return res.json();
+    }).then(function (result) {
+      console.log(result.features[0].properties.legs);
+      console.log(Math.round(result.features[0].properties.legs[0].time) + hInSec1);
+      console.log(Math.round(result.features[0].properties.legs[1].time));
+      console.log(Math.round(result.features[0].properties.legs[2].time));
+      return;
+    });
+  }
+}
