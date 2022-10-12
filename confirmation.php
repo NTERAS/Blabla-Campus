@@ -162,7 +162,7 @@ if ($action == "delete") { ?>
         }
         if($action == "alreadyhavethistrip"){
             negativeMsg();
-            echo '<div class="container  my-5"><p class="greyText my-5 mx-5">Vous deja demander etre a cette trajet </p></div>';
+            echo '<div class="container  my-5"><p class="greyText my-5 mx-5">Vous avez déjà demandé ce trajet </p></div>';
             header("Refresh: 1; index.php");
         }
         // -------------------------ADMIN--------------------------------------------------------------------------------
