@@ -23,9 +23,12 @@
                 une monétisation des trajets.</p>
             <p class="overpass">Bon voyage à toutes et à tous !</p>
         </div>
-        <div id="recom">
-            <p class="bungee">CETTE APPLICATION</p>
-            <p class="bungee">EST MIEUX SUR MOBILE</p>
+        <div id="blocphoneleft" class="pt-5 is-flex is-align-items-center">
+            <img src="assets/img/autres/phone.svg" alt="Téléphone rouge">
+            <div id="recom">
+                <p class="bungee">CETTE APPLICATION</p>
+                <p class="bungee">EST MIEUX SUR MOBILE</p>
+            </div>
         </div>
     </div>
     <div id="textmention" class="posab">

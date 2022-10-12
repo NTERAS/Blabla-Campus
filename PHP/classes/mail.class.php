@@ -276,7 +276,6 @@ class Mail extends Dbh {
             exit();
         }else{
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            var_dump($user);
             $emailx = $user["email"];
             
             // ---------------MAIL---------------------------------------------------------------------------------------
