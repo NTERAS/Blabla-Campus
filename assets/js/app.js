@@ -34,46 +34,7 @@ const Cancel = () => {
 Cancel();
 
 
-// voir la pp en prévisualisation
-// function previewFile() {
-//     const img = document.createElement("div");
-//     img.innerHTML = `<img class="preview is-rounded previewImg" src=""></img>`
-//     const imgChild = document.querySelector(".imgChild")
-//     imgChild.appendChild(img)
-//     if (imgChild.childElementCount > 1) {
-//         imgChild.removeChild(imgChild.lastChild)
-//     }
-//     // if (previewImg.src == "") {
-//     //     imgChild.removeChild(imgChild.firstChild)
-//     // }
-//     const preview = document.querySelector('.preview');
-//     const file = document.querySelector('input[type=file]').files[0];
-//     const reader = new FileReader();
-//     const input = document.querySelector('input[type=file]');
-//     const infoArea = document.querySelector('.file-upload-info');
-//     const maxSize = 1000000;
-//     const maxWidth = "150px";
-//     const maxHeight = "150px";
 
-//     reader.addEventListener("load", function () {
-//         // verify if the file is an image or not
-//         if (file.type.match('image.jpg') || file.type.match('image.jpeg') || file.type.match('image.png') || file.type.match('image.gif')) {
-//             if (file.size < maxSize) {
-//                 preview.src = reader.result;
-//             } else {
-//                 // imgChild.removeChild(imgChild.firstChild)
-//                 infoArea.classList.add("greyText")
-//                 infoArea.textContent = "Ce format où la taille n'est pas correct";
-//                 setTimeout(() => {
-//                     infoArea.textContent = "";
-//                 }, 1500)
-//             }
-//         }
-//     }, false);
-//     if (file) {
-//         reader.readAsDataURL(file);
-//     }
-// }
 
 
 let place1;
@@ -136,6 +97,7 @@ let profil
 if (document.querySelector(".pp") != null) {
     profil = document.querySelector(".pp");
     if (profil.src.length <= 50) {
-        profil.src = "http://localhost/blablacampus/assets/img/logo/default.svg"
+        // profil.src = "http://localhost/blablacampus/assets/img/logo/default.svg"
+        profil.src = "https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png"
     }
 }
