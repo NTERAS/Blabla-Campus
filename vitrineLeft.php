@@ -24,7 +24,7 @@
             <p class="overpass">Bon voyage à toutes et à tous !</p>
         </div>
     </div>
-    <div id="textmention" class="posab w50 is-flex">
+    <div id="textmention" class="w100 is-flex">
         <a class="overpass redColor pr-5" href="legale.php">Mentions Légales</a>
         <div id="blocphoneleft" class="is-flex is-align-items-center pl-5">
             <img src="assets/img/autres/phone.svg" alt="Téléphone rouge">

@@ -584,8 +584,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     background: var(--rouge);
     border-radius: 10px;
 }
-#blocphoneleft{
-}
 #blocphoneleft div p:nth-child(1) {
     color: #000000;
     font-weight: 900;
@@ -1057,6 +1055,11 @@ a.trajetCard:nth-child(5) {
     right: 5%;
 }
 /*********** VITRINE : section de gauche responsive ***********/
+@media screen and (max-width: 1650px) {
+    .posabL, .posabR {
+        display: none;
+    }
+}
 
 @media screen and (max-width: 1200px) {
     /* profil */
