@@ -23,6 +23,10 @@
                 une monétisation des trajets.</p>
             <p class="overpass">Bon voyage à toutes et à tous !</p>
         </div>
+        <div id="recom">
+            <p class="bungee">CETTE APPLICATION</p>
+            <p class="bungee">EST MIEUX SUR MOBILE</p>
+        </div>
     </div>
     <div id="textmention" class="posab">
         <a class="overpass redColor" href="legale.php">Mentions Légales</a>
