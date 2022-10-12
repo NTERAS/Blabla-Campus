@@ -255,18 +255,19 @@ if(isset($_GET['id'])){
                                 <p>mettre à jour</p>
                             </button>
                         </div>
+                        <input id="gpsCo1" type="text" value="" name="gpsCo1" class="gpsCo1 dsn">
+                <input id="gpsCo2" type="text" value="" name="gpsCo2" class="gpsCo2 dsn">
+                <input id="gpsCo3" type="text" value="" name="gpsCo3" class="gpsCo3 dsn">
                     </form>
                 </div>
 
-                <input id="gpsCo1" type="text" value="" name="gpsCo1" class="gpsCo1 dsn">
-                <input id="gpsCo2" type="text" value="" name="gpsCo2" class="gpsCo2 dsn">
-                <input id="gpsCo3" type="text" value="" name="gpsCo3" class="gpsCo3 dsn">
+                
 
                 <span class="addTrajet dsn"></span>
                 <!-- arbois -->
-                <div class="gps1Php dsn"> <?= $gps1; ?> </div>
-                <div class="gps2Php dsn"> <?= $gps2; ?> </div>
-                <div class="gps3Php dsn"> <?= $gps3; ?> </div>
+                <div class="gps1Php dsn" name="gps1Php"> <?= $gps1; ?> </div>
+                <div class="gps2Php dsn" name="gps2Php"> <?= $gps2; ?> </div>
+                <div class="gps3Php dsn" name="gps3Php"> <?= $gps3; ?> </div>
 
             </main>
 

@@ -37,7 +37,7 @@ if(isset($_GET['action'])){
                     <p class="greyText my-5 mx-5">Votre trajet a bien été modifié !</p>
                 </div>
                 <?php
-        header("Refresh: 1; mesTrajets.php"); 
+        header("Refresh: 1; PHP/includes/my-routes.inc.php"); 
         ?>
                 <?php } ?>
 
@@ -158,6 +158,11 @@ if ($action == "delete") { ?>
         if($action == "mailNotFound"){
             negativeMsg();
             echo '<div class="container  my-5"><p class="greyText my-5 mx-5">Cette adresse email n\'est pas enregistrée. :(</p></div>';
+            header("Refresh: 1; index.php");
+        }
+        if($action == "alreadyhavethistrip"){
+            negativeMsg();
+            echo '<div class="container  my-5"><p class="greyText my-5 mx-5">Vous deja demander etre a cette trajet </p></div>';
             header("Refresh: 1; index.php");
         }
         // -------------------------ADMIN--------------------------------------------------------------------------------

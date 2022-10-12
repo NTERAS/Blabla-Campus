@@ -723,7 +723,6 @@ addressAutocomplete3(document.getElementById(`autocomplete-container13`), (data)
             hInSec1 = (+hours[0]) * 60 * 60 + (+hours[1]) * 60;
             hourEtapeSupp.value = secondsToHms(gps3Data + hInSec1);
             gpsCo3.value = gps1;
-            thirdHour();
         })
     }
 });
