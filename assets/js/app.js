@@ -34,9 +34,6 @@ const Cancel = () => {
 Cancel();
 
 
-
-
-
 let place1;
 let click = true;
 if (document.querySelector("#place") != null) {

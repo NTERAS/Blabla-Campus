@@ -723,7 +723,6 @@ addressAutocomplete3(document.getElementById(`autocomplete-container13`), (data)
             hInSec1 = (+hours[0]) * 60 * 60 + (+hours[1]) * 60;
             hourEtapeSupp.value = secondsToHms(gps3Data + hInSec1);
             gpsCo3.value = gps1;
-            thirdHour();
         })
     }
 });
@@ -786,7 +785,6 @@ coorLons = "46.671361,5.550796";
 
 
 function calculTemps() {
-
 
     if (coordonneeTrajet2 == "" && coordonneeTrajet3 == "") {
         const url = `https://api.geoapify.com/v1/routing?waypoints=${coordonneeTrajet}|${coorLons}&mode=drive&apiKey=466e0f43eb46480eb308182662bcfca7`
