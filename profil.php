@@ -31,7 +31,7 @@ include_once "header.php";
                     <a href="profil.php" class="btnbacknone"><img src="assets/img/icones/People.svg"
                             alt="Icon d'une personne"></a>
                 </header>
-                <div id="cardgeneral" class="w100 is-flex is-justify-content-center mt-5">
+                <div id="cardgeneral" class="w100 is-flex is-justify-content-center is-align-items-center mt-5">
                     <div id="bulleprofil"
                         class=" box w90 is-flex is-justify-content-space-evenly is-align-items-center is-flex-direction-column">
                         <span id="triangle"></span>
@@ -52,12 +52,12 @@ include_once "header.php";
                         <div id="prolien"
                             class="w100 is-flex is-justify-content-space-around is-align-items-flex-start is-flex-direction-column">
                             <button
-                                class=" btnbacknone is-flex is-justify-content-center is-align-items-center is-flex">
+                                class=" btnbacknone is-flex is-justify-content-center is-align-items-center">
                                 <img src="assets/img/icones/person.svg" alt="Logo d'une personne">
                                 <a href="PHP/includes/my-routes.inc.php" class="ml-4 blackColor">Mes trajets</a>
                             </button>
                             <button
-                                class=" btnbacknone is-flex is-justify-content-center is-align-items-center is-flex">
+                                class=" btnbacknone is-flex is-justify-content-center is-align-items-center">
                                 <img src="assets/img/icones/book.svg" alt="Logo d'un livre">
                                 <a href="PHP/includes/search-mail-type-2.inc.php" class="ml-4 blackColor">Mes
                                     réservations</a>
@@ -67,12 +67,12 @@ include_once "header.php";
                                 <img src="assets/img/icones/person.svg" alt="Logo d'une personne">
                                 <a href="editCompte.php" class="ml-4 blackColor">Modifier mes informations</a>
                             </button>
-                            <button class=" btnbacknone is-flex is-justify-content-center align-items-center is-flex">
+                            <button class=" btnbacknone is-flex is-justify-content-center align-items-center">
                                 <img src="assets/img/icones/message.svg" alt="Logo d'une bulle de message">
                                 <a href="PHP/includes/search-mail.inc.php" class="pl4px ml-4 blackColor">Messagerie</a>
                             </button>
                             <button
-                                class=" btnbacknone is-flex is-justify-content-center is-align-items-center is-flex">
+                                class=" btnbacknone is-flex is-justify-content-center is-align-items-center">
                                 <img src="assets/img/icones/lineleft.svg" alt="Logo d'une flèche par la gauche">
                                 <a href="PHP/includes/logout.inc.php" class="pl4px ml-4 blackColor">Se déconnecter</a>
                             </button>

@@ -10,8 +10,8 @@ include_once "headerSimple.php";
     </div>
 
     <header id="headerprofil"
-        class="connexion w100 mt-5 pb-4 is-flex is-justify-content-center is-align-items-center">
-        <a href="javascript:history.back()" class="btnbacknone pictlogo"><img src="assets/img/Logo/logoAnim.svg"
+        class="connexion w50 mt-5 pb-4 is-flex is-justify-content-end is-align-items-center">
+        <a href="javascript:history.back()" class="btnbacknone pictlogo"><img src="assets/img/icones/closeBtn.svg"
                 alt="Le logo Blabla Campus"></a>
     </header>
 

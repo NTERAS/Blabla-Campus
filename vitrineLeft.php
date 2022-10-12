@@ -23,16 +23,16 @@
                 une monétisation des trajets.</p>
             <p class="overpass">Bon voyage à toutes et à tous !</p>
         </div>
-        <div id="blocphoneleft" class="pt-5 is-flex is-align-items-center">
+    </div>
+    <div id="textmention" class="posab w50 is-flex">
+        <a class="overpass redColor pr-5" href="legale.php">Mentions Légales</a>
+        <div id="blocphoneleft" class="is-flex is-align-items-center pl-5">
             <img src="assets/img/autres/phone.svg" alt="Téléphone rouge">
             <div id="recom">
                 <p class="bungee">CETTE APPLICATION</p>
                 <p class="bungee">EST MIEUX SUR MOBILE</p>
             </div>
         </div>
-    </div>
-    <div id="textmention" class="posab">
-        <a class="overpass redColor" href="legale.php">Mentions Légales</a>
     </div>
 </div>
 <!-- javascript:history.back() -->
