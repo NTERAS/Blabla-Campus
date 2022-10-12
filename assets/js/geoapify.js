@@ -778,10 +778,16 @@ hour.addEventListener('change', (e) => {
     return arrive.value = secondsToHms(gps1Data + hInSec1);
 })
 
-coordonneeTrajet2 = gpsCo2.value;
-coordonneeTrajet3 = gpsCo3.value;
-coordonneeTrajet = gpsCo1.value;
-coorLons = "46.671361,5.550796";
+
+let gps1Php = document.querySelector(".gps1Php")
+let gps2Php = document.querySelector(".gps2Php")
+let gps3Php = document.querySelector(".gps3Php")
+
+
+coordonneeTrajet2 = gps2Php.textContent;
+coordonneeTrajet3 = gps3Php.textContent;
+coordonneeTrajet = gps1Php.textContent;
+let coorLons = "46.671361,5.550796";
 
 
 function calculTemps() {

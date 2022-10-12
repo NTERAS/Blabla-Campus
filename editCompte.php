@@ -59,8 +59,8 @@ include_once 'headerSimple.php';
             <!-- upload avatar img -->
             <p class="bungee mt-5">modifier votre image de profil</p>
             <div class="is-flex is-justify-content-center align-items-center">
-              <div class="drop-zone file is-boxed greyBack w77 is-flex is-flex-direction-column">
-                <span class="greyText info"></span>
+              <div class="drop-zone file is-boxed greyBack w77 is-flex is-flex-direction-column-reverse">
+                <span class="greyText info py-3"></span>
                 <span class="file-label is-flex is-align-items-center drop-zone__prompt">
                   <span class="file-icon my-4">
                     <img src="assets/img/icones/picture.svg" alt="">

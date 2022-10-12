@@ -2,6 +2,7 @@
 session_start();
 $title = 'Confirmation';
 include 'headerSimple.php';
+$b = $_SESSION["userid"];
 
 if(isset($_GET['action'])){
     $action = $_GET['action'];
@@ -55,13 +56,11 @@ function negativeMsg(){
     echo '<div class="container is-flex is-justify-content-center is-flex-direction-column my-5"><p class="bungee my-3 mx-3">ERREUR</p></div>';
 }
 
-if ($action == "delete") { ?>
-
-
-        <div class="container  my-5">
-            <p class="greyText my-5 mx-5">Votre trajet a bien été supprimer ! :)</p>
-        </div>
-        <?php header("Refresh: 1; PHP/includes/redirection.inc.php"); } ?>
+if ($action == "deletetraj") { ?>
+                <div class="container  my-5">
+                    <p class="greyText my-5 mx-5">Votre trajet a bien été supprimer ! :)</p>
+                </div>
+                <?php header("Refresh: 1; PHP/includes/my-routes.inc.php?idimport='.$b"); } ?>
 
                 <?php
         if($action == "accountCreation"){

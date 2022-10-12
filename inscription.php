@@ -75,30 +75,10 @@ if(isset($_GET['error'])){
             <p class="bungee mt-5 textLeft">Entrez votre biographie</p>
             <textarea name="biographie" id="biographie" cols="15" rows="4" class="textarea is-medium"
               placeholder="Entrez votre bio ici" required></textarea>
-            <!-- upload avatar img -->
-            <!-- <p class="bungee mt-5 textLeft">Télécharger une image de profil</p>
-            <div class="file is-boxed mx-auto w95">
-              <label class="file-label radiusForm mx-auto">
-                <input class="file-input" type="file" name="resume" accept="image/png, image/gif, image/jpeg ,image/jpg"
-                  ondrop="dropHandler(ev)" onchange="previewFile()">
-                <span class="file-cta">
-                  <span class="file-icon my-4">
-                    <img src="assets/img/icones/picture.svg" alt="">
-                  </span>
-                  <span class="file-label is-flex is-align-items-center">
-                    <strong>Glisser-déposer ou parcourir un fichier</strong>
-                    <p class="greyText">Taille recommandée : JPG, PNG, GIF</p>
-                    <p class="greyText">(150x150px, Max 10mb)</p>
-                  </span>
-                </span>
-              </label>
-            </div>
-            <span class="imgChild mx-auto"></span>
-            <div class="file-upload-info"></div> -->
             <p class="bungee mt-5">Télécharger une image de profil</p>
             <div class="is-flex is-justify-content-center align-items-center">
               <div class="drop-zone file is-boxed greyBack w77 is-flex is-flex-direction-column">
-                <span class="greyText info"></span>
+                <span class="greyText info py-3"></span>
                 <span class="file-label is-flex is-align-items-center drop-zone__prompt">
                   <span class="file-icon my-4">
                     <img src="assets/img/icones/picture.svg" alt="">

@@ -12,4 +12,5 @@ $delete = new DeleteContrl($idt);
 $delete->Myidt();
 
 
-header('Location: ../includes/my-routes.inc.php?idimport='.$b);
+// header('Location: ../includes/my-routes.inc.php?idimport='.$b);
+header('Location: ../../confirmation.php?action=deletetraj');

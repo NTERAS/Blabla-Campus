@@ -57,7 +57,10 @@ function updateThumbnail(dropZoneElement, file) {
 
     // thumbnailElement.dataset.label = file.name;
     let info = document.querySelector(".info");
-    info.innerHTML = file.name;
+    info.innerHTML = `<p>${file.name}</p>`;
+    let encore = document.createElement("p");
+    encore.innerHTML = "Changer ? ";
+    info.appendChild(encore);
 
     let fileSizeLimit = 1024 * 1024 * 1; // 1MB
 
